@@ -1,0 +1,30 @@
+﻿.history-page {
+  margin: 180px 4% 4% 4%; }
+  .history-page h1 {
+    font-weight: bolder;
+    font-size: 2em;
+    margin: 10px 0; }
+  .history-page p {
+    line-height: 2em;
+    margin: 6% 0; }
+  .history-page .sharedhistoryblock {
+    display: flex; }
+  .history-page .sharedhistoryblock:nth-child(2n+1) .row {
+    flex-direction: row-reverse; }
+    .history-page .sharedhistoryblock:nth-child(2n+1) .row p {
+      margin-right: 5%; }
+  .history-page .sharedhistoryblock:nth-child(2n) .row p {
+    margin-left: 5%; }
+  .history-page .row {
+    margin: 2% 0;
+    display: flex;
+    align-items: center; }
+    .history-page .row p {
+      font-size: 1em; }
+    .history-page .row .image-container img {
+      box-shadow: 0 0 19px rgba(0, 0, 0, 0.5);
+      width: 100%; }
+  @media all and (max-width: 768px) {
+    .history-page img {
+      position: relative !important;
+      top: 0; } }

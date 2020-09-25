@@ -1,0 +1,42 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.product-list-page {
+    .block-container.equal-height {
+        display: flex;
+        justify-content: space-around;
+
+        .sharedproductlistblock {
+            max-width: 300px;
+
+            .product-list-block {
+                padding: 15%;
+                text-align: center;
+
+                p {
+                    font-weight: 800;
+                    width: 100%;
+                    text-align: center;
+                    margin: 10px 0 0 0;
+                }
+            }
+        }
+    }
+
+    h2, h3, p {
+        margin: 5% 7% 0 7%;
+    }
+
+    h2 {
+        margin-top: 90px;
+        font-weight: 900;
+        font-size: 2rem !important;
+    }
+}
+
+
+// Large devices
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    .product-list-page p {
+        width: 75%;
+    }
+} 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Icon/Validation/Light</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon/Validation/Light" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="bounding-box" points="0 0 24 0 24 24 0 24"></polygon>
+        <path d="M11.996,4 C7.576,4 4,7.58 4,12 C4,16.42 7.576,20 11.996,20 C16.416,20 20,16.42 20,12 C20,7.58 16.416,4 11.996,4 Z M12,18.4 C8.464,18.4 5.6,15.536 5.6,12 C5.6,8.464 8.464,5.6 12,5.6 C15.536,5.6 18.4,8.464 18.4,12 C18.4,15.536 15.536,18.4 12,18.4 Z M11.2725498,15.6346167 L7.84,12.3513916 L8.972,11.2193916 L11.2725498,13.3706167 L15.6126326,8.8 L16.7446326,9.932 L11.2725498,15.6346167 Z" id="Shape" fill="#43B021" fill-rule="nonzero"></path>
+    </g>
+</svg>

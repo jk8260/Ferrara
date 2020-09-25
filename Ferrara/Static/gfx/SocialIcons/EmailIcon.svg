@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="47px" viewBox="0 0 46 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Email</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19,0 C8.50645833,0 0,8.50645833 0,19 C0,29.4935417 8.50645833,38 19,38 C29.4935417,38 38,29.4935417 38,19 C38,8.50645833 29.4935417,0 19,0 Z" id="path-1"></path>
+        <filter x="-22.4%" y="-11.8%" width="144.7%" height="147.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.274509804   0 0 0 0 0.11372549   0 0 0 0 0.0352941176  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.5" transform="translate(-178.000000, -639.000000)">
+            <g id="Email" transform="translate(182.000000, 639.000000)">
+                <g id="Path-Copy-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFE9C4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="noun_Mail_2964498" transform="translate(10.000000, 12.000000)" fill="#461D09">
+                    <path d="M0.839116719,0 L18.1608833,0 C18.340694,0 18.5205047,0.0608695652 18.7003155,0.182608696 L10.3091483,8.2173913 C9.88958991,8.64347826 9.11041009,8.64347826 8.69085174,8.2173913 L0.359621451,0.182608696 C0.479495268,0.0608695652 0.659305994,0 0.839116719,0 Z M19,1.09565217 L19,13.1478261 C19,13.1478261 19,13.2086957 19,13.2086957 L12.7066246,7.12173913 L19,1.09565217 Z M12.0473186,7.73043478 L18.4605678,13.9391304 C18.4006309,13.9391304 18.2807571,14 18.1608833,14 L0.839116719,14 C0.719242902,14 0.659305994,13.9391304 0.539432177,13.9391304 L6.95268139,7.73043478 L8.09148265,8.82608696 C8.87066246,9.6173913 10.1293375,9.6173913 10.9085174,8.82608696 L12.0473186,7.73043478 Z M6.29337539,7.12173913 L0,13.2086957 C0,13.2086957 0,13.1478261 0,13.1478261 L0,1.09565217 L6.29337539,7.12173913 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

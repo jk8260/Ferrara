@@ -1,0 +1,93 @@
+﻿@import '../TopMenuSite/_themes.scss';
+@import './_page_size.scss';
+@import './_header.scss';
+@import './_home-page.scss';
+
+.row {
+    margin: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+// FOOTER
+.footer {
+    color: $famous-amos-font-1;
+    background-color: $famous-amos-footer;
+
+    a {
+        color: $famous-amos-font-1;
+    }
+}
+
+.product-details-page {
+    .main-content-area {
+        text-align: left;
+    }
+
+    .row .col-lg-4 {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.product-list-page {
+    max-width: 75%;
+    margin: auto;
+
+    h2 {
+        font-size: calc( 32px + (50 - 32) * (100vw - 320px) / (2600-320)) !important;
+    }
+
+    p {
+        font-size: calc( 13px + (26 - 13) * (100vw - 320px) / (2600-320)) !important;
+    }
+
+    .block-container.equal-height {
+        margin-top: 5%;
+        .sharedproductlistblock .product-list-block {
+            padding: 0;
+            max-width: 250px;
+
+            div img {
+                width: unset !important;
+                max-height: 300px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+// MEDIA QUERIES FOR DIFFERENT SCREENS
+// X-Small devices (tablets, 767px and down)
+@media only screen and (max-width: $xsmall-screen) {
+    .footer div:first-child {
+        margin-left: 0;
+    }
+
+    .navbar-brand {
+        display: none !important;
+    }
+}
+// Small Devices
+/*@media only screen and (min-width: $xsmall-screen) and (max-width: $menu-breakpoint-lower) {
+}*/
+
+// Medium devices
+@media only screen and (max-width: $menu-breakpoint-lower) {
+
+}
+// Large devices (tablets, 960px and up)
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    #navbarSupportedContent ul li:last-child {
+        visibility: hidden;
+    }
+}
+
+#nutritionList {
+    list-style-type: none;
+}
+
+#navbarSupportedContent ul li h3 {
+    color: white;
+    font-size: 200%;
+}

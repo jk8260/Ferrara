@@ -1,0 +1,8 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishMultiMainContentBlock.KeeblerMakeAWishMultiMainContentBlock
+
+<div id="@Model.CustomIdMultiMainContentBlockDiv" class="multi-main-content-block yellow-gradient-bg">
+    @Html.PropertyFor(x => x.MainContentBlock)
+</div>

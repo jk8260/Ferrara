@@ -1,0 +1,18 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using System.Web.Optimization
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishSocialMediaBlock.KeeblerMakeAWishSocialMediaBlock
+@Scripts.Render("~/bundles/js/MakeAWishSocialMediaBlock")
+
+<div id="@Model.CustomIdSocialMediaBlockDiv" class="social-media-div">
+    <h1>@Model.SocialMediaHeadLine</h1>
+    <div id="Social-Media-Image-Root"></div>
+    <button class="active-oval-filled-red" onclick=navigateToSocailMediaPageFunction("@Model.FollowButtonLink")>Follow</button>
+</div>
+
+<script>
+    // Add a dropdown in the CMS for different Social Media
+    // options then feed that string into the param bellow
+    socialMediaApiFetch("@Model.SocialMediaName")
+</script>

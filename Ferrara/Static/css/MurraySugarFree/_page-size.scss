@@ -1,0 +1,59 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+//Footer break points are different because of murray-footer-msg 
+$footer-first-break: 1053px;
+$footer-second-break: 835px;
+$footer-third-break: 480px;
+
+// XS Screen -- Footer in 4 parts
+@media all and (min-width: 0px) and (max-width: $footer-third-break) {
+    .full-page-content {
+        height: calc(100% - ((#{$footer-line-height} * 4) + (#{$footer-padding} * 2) + #{$famous-amos-header-height}));
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 4) + (#{$footer-padding} * 2) + #{$famous-amos-header-height}));
+    }
+}
+
+// MD Screen -- Footer in 3 parts
+@media all and (min-width: $footer-third-break) and (max-width: $footer-first-break) {
+    .full-page-content {
+        height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$famous-amos-header-height}));
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$famous-amos-header-height}));
+    }
+
+    .footer {
+        text-align: center;
+        flex-direction: column-reverse;
+        padding: 20px 0;
+
+        .murray-footer-msg {
+            margin: 0;
+        }
+
+        div {
+            line-height: $footer-line-height;
+            margin: 0;
+        }
+
+        .sm-hidden {
+            display: none;
+        }
+    }
+}
+
+
+// LG Screen -- Footer in 1 part
+@media all and (min-width: $footer-first-break) {
+    .full-page-content {
+        height: calc(100% - (#{$footer-height-full-screen} + #{$famous-amos-header-height}));
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - (#{$footer-height-full-screen} + #{$famous-amos-header-height}));
+    }
+}

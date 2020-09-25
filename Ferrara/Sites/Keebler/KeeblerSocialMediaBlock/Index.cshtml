@@ -1,0 +1,60 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerSocialMediaBlock.KeeblerSocialMediaBlock
+
+
+<div class="social-media-container">
+    <span class="social-title">Keep in touch on social</span>
+    <div class="social-media-icons">
+
+        @if (!String.IsNullOrEmpty(Model.InstagramLink))
+        {
+            <div class="instagram">
+                <a href="@Html.PropertyFor(x => x.InstagramLink)" target="_blank">
+                    <img src="~/Static/gfx/SocialIcons/InstagramIcon.svg" alt="Instagram" />
+                </a>
+            </div>
+        }
+
+        @if (!String.IsNullOrEmpty(Model.TwitterLink))
+        {
+            <div class="twitter">
+                <a href="@Html.PropertyFor(x => x.TwitterLink)" target="_blank">
+                    <img src="~/Static/gfx/SocialIcons/TwitterIcon.svg" alt="Instagram" />
+
+                </a>
+            </div>
+        }
+
+        @if (!String.IsNullOrEmpty(Model.FacebookLink))
+        {
+            <div class="facebook">
+                <a href="@Html.PropertyFor(x => x.FacebookLink)" target="_blank">
+                    <img src="~/Static/gfx/SocialIcons/FacebookIcon.svg" alt="Instagram" />
+
+                </a>
+            </div>
+        }
+
+        @if (!String.IsNullOrEmpty(Model.PinterestLink))
+        {
+            <div class="pinterest">
+                <a href="@Html.PropertyFor(x => x.PinterestLink)" target="_blank">
+                    <img src="~/Static/gfx/SocialIcons/PinterestIcon.svg" alt="Instagram" />
+
+                </a>
+            </div>
+        }
+
+        @if (!String.IsNullOrEmpty(Model.YouTubeLink))
+        {
+            <div class="youtube">
+                <a href="@Html.PropertyFor(x => x.YouTubeLink)" target="_blank">
+                    <img src="~/Static/gfx/SocialIcons/YoutubeIcon.svg" alt="Instagram" />
+
+                </a>
+            </div>
+        }
+    </div>
+</div>

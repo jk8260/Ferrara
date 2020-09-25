@@ -1,0 +1,10 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerClassicButtonBlock.KeeblerClassicButtonBlock
+
+    <div id="@Model.CustomIdClassicButton" class="classic-button">
+        <button class="active-oval-filled-red" onclick="window.open('@Model.ButtonURL','_blank')">
+            @Model.ButtonLabel
+        </button>
+    </div>

@@ -1,0 +1,231 @@
+﻿@import './_theme.scss';
+
+#Social-Media-Image-Root {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    margin: auto;
+    width: 750px;
+    grid-template-areas: 
+        "a b c d" 
+        "e f g h";
+
+    img {
+        margin: 0;
+        border-radius: 3px;
+        cursor: pointer; 
+    }
+
+    .Social-Media-Image-0 {
+        grid-area: a;
+    }
+
+    .Social-Media-Image-1 {
+        grid-area: b;
+    }
+
+    .Social-Media-Image-2 {
+        grid-area: c;
+    }
+
+    .Social-Media-Image-3 {
+        grid-area: d;
+    }
+
+    .Social-Media-Image-4 {
+        grid-area: e;
+    }
+
+    .Social-Media-Image-5 {
+        grid-area: f;
+    }
+
+    .Social-Media-Image-6 {
+        grid-area: g;
+    }
+
+    .Social-Media-Image-7 {
+        grid-area: h;
+    }
+}
+
+.social-media-div {
+    background-color: $fudge;
+    text-align: center;
+
+    h1 {
+        font-family: 'Lilita One', cursive;
+        color: white;
+        padding: 30px;
+        font-size: 50px;
+        margin-bottom: 0em;
+    }
+
+    button {
+        margin: 25px;
+    }
+}
+
+@media only screen and (min-width: 150px) and (max-width: 425px) {
+    #Social-Media-Image-Root {
+        display: grid;
+        grid-column-gap: 0px;
+        grid-row-gap: 50px;
+        margin: auto;
+        width: 150px;
+        grid-template-areas: 
+            "a" 
+            "b"
+            "c"
+            "d";
+
+        img {
+            margin: 0;
+        }
+
+        .Social-Media-Image-0 {
+            grid-area: a;
+        }
+
+        .Social-Media-Image-1 {
+            grid-area: b;
+        }
+
+        .Social-Media-Image-2 {
+            grid-area: c;
+        }
+
+        .Social-Media-Image-3 {
+            grid-area: d;
+        }
+
+        .Social-Media-Image-4 {
+            display: none;
+        }
+
+        .Social-Media-Image-5 {
+            display: none;
+        }
+
+        .Social-Media-Image-6 {
+            display: none;
+        }
+
+        .Social-Media-Image-7 {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 625px) {
+    #Social-Media-Image-Root {
+        display: grid;
+        grid-column-gap: 50px;
+        grid-row-gap: 50px;
+        margin: auto;
+        width: 350px;
+        grid-template-areas: 
+            "a b" 
+            "c d"
+            "e f";
+
+        img {
+            margin: 0;
+        }
+
+        .Social-Media-Image-0 {
+            grid-area: a;
+        }
+
+        .Social-Media-Image-1 {
+            grid-area: b;
+        }
+
+        .Social-Media-Image-2 {
+            grid-area: c;
+        }
+
+        .Social-Media-Image-3 {
+            grid-area: d;
+        }
+
+        .Social-Media-Image-4 {
+            grid-area: e;
+        }
+
+        .Social-Media-Image-5 {
+            grid-area: f;
+        }
+
+        .Social-Media-Image-6 {
+            display: none;
+        }
+
+        .Social-Media-Image-7 {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 825px) {
+    #Social-Media-Image-Root {
+        display: grid;
+        grid-column-gap: 50px;
+        grid-row-gap: 50px;
+        margin: auto;
+        width: 550px;
+        grid-template-areas: 
+            "a b c" 
+            "d e f";
+
+        img {
+            margin: 0;
+        }
+
+        .Social-Media-Image-0 {
+            grid-area: a;
+        }
+
+        .Social-Media-Image-1 {
+            grid-area: b;
+        }
+
+        .Social-Media-Image-2 {
+            grid-area: c;
+        }
+
+        .Social-Media-Image-3 {
+            grid-area: d;
+        }
+
+        .Social-Media-Image-4 {
+            grid-area: e;
+        }
+
+        .Social-Media-Image-5 {
+            grid-area: f;
+        }
+
+        .Social-Media-Image-6 {
+            display: none;
+        }
+
+        .Social-Media-Image-7 {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 826px) {
+    .social-media-div {
+        padding: 45px 0;
+
+        h1 {
+            line-height: 1.9em;
+        }
+
+        button {
+            margin: 45px 25px;
+        }
+    }
+}

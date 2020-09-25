@@ -1,0 +1,15 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.TopMenuSite.SharedRecipeListPage.SharedRecipeListPage>
+
+<div class="recipe-list-page">
+   <div class="blurry-bg"></div>
+    <div class="recipe-text-container">
+        <h1>@Html.PropertyFor(x => x.CurrentPage.RecipeListTitle)</h1>
+        <p class="tagline">@Html.PropertyFor(x => x.CurrentPage.RecipeListTagline)</p>
+        <p>@Html.PropertyFor(x  => x.CurrentPage.RecipeIntroduction)</p>
+        @Html.PropertyFor(x => x.CurrentPage.RecipeArea, new { CssClass = "block-container row equal-height", tag = Global.ContentAreaTags.FullWidth })
+    </div>
+</div>

@@ -1,0 +1,625 @@
+﻿@import './_fonts.scss';
+@import './_theme.scss';
+
+.keebler-recipe-details-page {
+    overflow-x:hidden;
+    background-color: $white;
+    position: relative;
+    z-index: 0;
+
+    .keebler-top-recipe-card {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        background: $background-beige-gradient;
+        box-shadow: 0 15px 24px -10px rgba(0,0,0,0.4);
+
+        .card-title {
+            text-overflow: unset;
+            @include custom-6;
+            color: $fudge;
+            width: 360px;
+            line-height: 30px;
+            white-space: normal;
+        }
+
+        .recipe-intro {
+            @include body;
+            width: 323px;
+            color: $black;
+        }
+
+        .recipe-intro p {
+            font-size: 1.0em !important;
+            line-height: 1.4em !important;
+        }
+
+        .recipe-info {
+            @include custom-7;
+            color: $black;
+            margin-bottom: 3%;
+        }
+
+        .recipe-info {
+            p {
+                line-height: 26px;
+            }
+        }
+    }
+
+    .recipe-image img {
+        display: block;
+        border-radius: 20px !important;
+        width: auto;
+        height: auto;
+    }
+
+    .social {
+        .share-plugin {
+            opacity: 0;
+            padding-top: 3%;
+        }
+
+        .a2a_button_pinterest, .a2a_button_facebook, .a2a_button_twitter, .a2a_button_email {
+            padding-right: 5%;
+        }
+
+        .share-icons {
+            display: flex;
+            margin-top: 5%;
+            pointer-events: none;
+        }
+    }
+
+    .recipe-ingredients p {
+        margin-left: 18px;
+        padding-left: 1.1em;
+        font-size: 1.1em !important;
+        line-height: 1.6em !important;
+    }
+
+    .recipe-ingredients, .recipe-directions {
+        h1 {
+            @include custom-8;
+            color: $black;
+        }
+
+        p, li {
+            @include body;
+            color: $black;
+        }
+    }
+
+    .recipe-ingredients {
+        margin-top: 3%;
+    }
+
+    .recipe-directions {
+        padding-bottom: 2%;
+    }
+
+    .recipe-directions {
+        p, li {
+            font-size: 1.1em !important;
+            line-height: 1.4em !important;
+        }
+    }
+
+    .recipe-nutrition {
+        margin-right: 15px;
+    }
+
+    h5 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        padding-bottom: 0.3%;
+    }
+
+
+    @media print {
+        #download-btn, #nutrition-btn, .social {
+            display: none !important;
+        }
+
+        .recipe-image img {
+            margin-left: 10% !important;
+        }
+    }
+}
+
+#nutritionImg img {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+.products-used {
+    height: 30%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    background-color: $secondary-brown;
+    box-shadow: 0 -2px 20px 0 rgba(0,0,0,0.5);
+
+    h1 {
+        @include custom-3;
+        color: $white;
+        line-height: 50px;
+        text-align: center;
+        margin-top: 18px;
+    }
+
+    .products {
+        max-width: 75%;
+        margin: auto;
+
+        .block-container.equal-height {
+            display: flex;
+            justify-content: space-around;
+
+            .keeblerrecipeproductsusedblock {
+                max-width: 400px;
+            }
+        }
+    }
+}
+
+// SMALL SCREEN
+@media only screen and (max-width: 576px) {
+    .keebler-recipe-details-page {
+        #download-btn {
+            display: none;
+        }
+
+        .recipe-image img {
+            max-height: 150px;
+            min-width: 150px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 90px;
+            position: absolute;
+            left: 33%;
+            right: 33%;
+        }
+
+        .keebler-top-recipe-card {
+            height: 660px;
+
+            .card-text {
+                position: absolute;
+                top: 250px;
+
+                .card-title {
+                    line-height: 30px;
+                    width: 300px;
+                    white-space: normal;
+                }
+            }
+
+            .recipe-intro {
+                width:unset;
+                p {
+                    overflow: hidden;
+                    height: 98px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    font-size: 15px;
+                    line-height: 17px;
+                    padding-right:5px;
+                }
+            }
+
+            .recipe-info {
+                font-size: 16px;
+
+                p {
+                    line-height: 22px;
+                }
+            }
+        }
+
+        .social {
+            position: absolute;
+            top: 577px;
+
+            .share-plugin {
+                width: 255px;
+                position: relative;
+                padding-top: 6%;
+            }
+
+            .a2a_button_pinterest, .a2a_button_facebook {
+                margin-left: 3%;
+                padding-right: 6%;
+            }
+
+            .a2a_button_twitter, .a2a_button_email {
+                padding-right: 7%;
+            }
+
+            .share-icons {
+                position: absolute;
+                top: -7%;
+                left: 1%;
+
+                .pinterest {
+                    margin-right: 5%;
+                }
+
+                .facebook {
+                    margin-right: 7%;
+                }
+
+                .twitter {
+                    margin-right: 5%;
+                }
+
+                .email {
+                    margin-right: 3%;
+                }
+            }
+        }
+
+        .recipe-ingredients, .recipe-directions {
+            h1 {
+                font-size: 20px !important;
+            }
+
+            p, li {
+                font-size: 16px !important;
+            }
+
+            li {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
+    .keebler-recipe-details-page {
+        .recipe-image img {
+            min-height: 250px;
+            max-width: 250px;
+        }
+
+        .recipe-image {
+            position: relative;
+            top: 100px;
+        }
+
+        #download-btn {
+            display: none;
+        }
+
+        .keebler-top-recipe-card {
+            padding-bottom: 1.5%;
+            padding-top: 3.5%;
+            height: 508px;
+
+            .card-text {
+                position: relative;
+                top: 100px;
+                left: 10px;
+                margin-left: 3%;
+            }
+
+            .card-title {
+                line-height: 30px;
+                white-space: normal;
+                width: 300px;
+            }
+
+            .recipe-intro {
+                p {
+                    overflow: hidden;
+                    height: 98px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    font-size: 15px;
+                    line-height: 17px;
+                    padding-right: 5px;
+                }
+            }
+
+            .recipe-info {
+                font-size: 16px;
+
+                p {
+                    line-height: 18px;
+                }
+            }
+        }
+
+        .social {
+            position: absolute;
+            top: 352px;
+
+            .share-plugin {
+                width: 315px;
+                margin-left: 13%;
+            }
+
+            .share-icons {
+                position: absolute;
+                top: -25%;
+            }
+
+            .pinterest {
+                margin-left: 17%;
+                margin-right: 3%;
+            }
+
+            .facebook {
+                margin-right: 6%;
+            }
+
+            .twitter {
+                margin-right: 3.5%;
+            }
+
+            .email {
+                margin-right: 1.5%;
+            }
+        }
+
+        .recipe-ingredients, .recipe-directions {
+            margin-left: 2%;
+            margin-right: 6%;
+
+            h1 {
+                width: 93px;
+                color: $black;
+                font-size: 20px !important;
+            }
+
+            p, li {
+                width: 668px;
+                font-size: 16px !important;
+            }
+
+            li {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+    .keebler-recipe-details-page {
+        .recipe-image {
+            padding-top:16%;
+        }
+
+        .keebler-top-recipe-card {
+            padding-bottom: 1.5%;
+            padding-top: 3.5%;
+
+            .card-text {
+                position: relative;
+                padding-top: 15%;
+            }
+        }
+
+        .social {
+            .share-plugin {
+                width: 342px;
+                margin-left: 15%;
+            }
+
+            .share-icons {
+                position: absolute;
+                top: 312px;
+            }
+
+            .pinterest {
+                margin-left: 21%;
+                margin-right: 5%;
+            }
+
+            .facebook {
+                margin-right: 7%;
+            }
+
+            .twitter {
+                margin-right: 4%;
+            }
+
+            .email {
+                margin-right: 2%;
+            }
+        }
+
+        .recipe-ingredients, .recipe-directions {
+            margin-left: 20%;
+            margin-right: 6%;
+
+            h1 {
+                width: 93px;
+                color: $black;
+                font-size: 20px !important;
+            }
+
+            p, li {
+                width: 668px;
+                font-size: 16px !important;
+            }
+
+            li {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+
+//LARGE SCREEN
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+    .keebler-recipe-details-page {
+        .recipe-image {
+            padding-top: 12%;
+        }
+
+        .recipe-image img {
+            min-height: 300px;
+            max-width: 300px;
+        }
+
+        .keebler-top-recipe-card {
+            padding-bottom: 1.5%;
+            padding-top: 3.5%;
+
+            .card-title {
+                padding-top: 11%;
+                white-space: normal;
+                width: 300px;
+                line-height: 30px;
+            }
+
+            .social {
+                .share-plugin {
+                    width: 300px;
+                    margin-left: 11%;
+                }
+
+                .share-icons {
+                    position: absolute;
+                    top: 345px;
+                }
+
+                .pinterest {
+                    margin-left: 12%;
+                    margin-right: 4%;
+                }
+
+                .facebook {
+                    margin-right: 5%;
+                }
+
+                .twitter {
+                    margin-right: 4%;
+                }
+
+                .email {
+                    margin-right: 3%;
+                }
+            }
+        }
+
+        .recipe-ingredients, .recipe-directions {
+            margin-left: 30%;
+            margin-right: 25%;
+
+            h1 {
+                width: 93px;
+                color: $black;
+            }
+
+            p, li {
+                width: 668px;
+            }
+
+            li {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+//X-LARGE SCREEN
+@media all and (min-width: 1601px) {
+    .keebler-recipe-details-page {
+        .recipe-image {
+            padding-top: 10%;
+        }
+
+        .recipe-image img {
+            min-height: 300px;
+            max-width: 300px;
+        }
+
+        .keebler-top-recipe-card {
+            padding-bottom: 1.5%;
+            padding-top: 3.5%;
+
+            .card-text {
+                padding-top: 10%;
+            }
+
+            .card-title {
+                font-size: 40px;
+                white-space: normal;
+                width: 400px;
+                line-height: 35px;
+            }
+
+            .recipe-intro {
+                width: 400px;
+                font-size: 22px;
+            }
+
+            .recipe-info {
+                font-size: 22px;
+            }
+
+            .social {
+                .share-plugin {
+                    width: 345px;
+                    margin-left: 14%;
+                }
+
+                .share-icons {
+                    position: absolute;
+                    top: 346px;
+                }
+
+                .pinterest {
+                    margin-right: 5%;
+                    margin-left: 19%;
+                }
+
+                .facebook {
+                    margin-right: 6%;
+                }
+
+                .twitter {
+                    margin-right: 5%;
+                }
+
+                .email {
+                    margin-right: 4%;
+                }
+            }
+        }
+
+        .recipe-ingredients, .recipe-directions {
+            margin-left: 33%;
+            margin-right: 33%;
+
+            h1 {
+                width: 93px;
+                color: $black;
+                font-size: 30px;
+            }
+
+            p, li {
+                width: 668px;
+                font-size: 20px;
+            }
+
+            li {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}

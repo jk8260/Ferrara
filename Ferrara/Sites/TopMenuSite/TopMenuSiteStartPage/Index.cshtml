@@ -1,0 +1,32 @@
+﻿@using EPiServer.Core
+@using EPiServer.Data.Dynamic
+@using EPiServer.Web.Mvc.Html
+@using System.Web.Optimization
+@using Ferrara
+
+@model Ferrara.Sites.TopMenuSite.TopMenuSiteStartPage.TopMenuSiteStartPageViewModel
+
+
+<div class="home-page full-page-content container-fluid">
+    <div class="row">
+        <div class="left-content col-md-4">
+            <div class="logo-column">
+                <div class="optional-nav">
+                    @Html.PropertyFor(x => x.CurrentPage.NavBarImage)
+                </div>
+                <div class="nav-items">
+                    @Html.PropertyFor(x => x.CurrentPage.NavBarItems)
+                </div>
+                @Html.PropertyFor(x => x.CurrentPage.Logo, new { CssClass = "logo" })
+            </div>
+            <div class="tagline">
+                @Html.PropertyFor(x => x.CurrentPage.Tagline)
+            </div>
+            <div class="brand-description">
+                <div class="blurry-bg"></div>
+                @Html.PropertyFor(x => x.CurrentPage.BrandDescription)
+            </div>
+        </div>
+        <div class="right-content col" style="background: url(@Model.CurrentPage.MainImage) no-repeat center center"> </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.TopMenuSite.SharedHistoryPage.SharedHistoryPage>
+
+
+<style type="text/css">   
+@Html.PropertyFor(x => x.CurrentPage.CustomCSSCode)
+
+    </style> 
+
+    <div class="history-page">
+        <h1>@Html.PropertyFor(x => x.CurrentPage.HistoryTitle)</h1>
+        <p>@Html.PropertyFor(x => x.CurrentPage.HistoryIntroduction)</p>
+        @Html.PropertyFor(x => x.CurrentPage.HistoryDetails)
+    </div>

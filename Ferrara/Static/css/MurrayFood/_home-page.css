@@ -1,0 +1,66 @@
+﻿.home-page {
+  color: black; }
+  .home-page .row {
+    overflow-y: auto; }
+  .home-page .col-md-9, .home-page .col-md-3 {
+    padding: 0; }
+  .home-page .left-content {
+    text-align: center;
+    max-width: 280px; }
+    .home-page .left-content .logo-column {
+      display: none; }
+    .home-page .left-content .brand-description p {
+      text-align: left;
+      margin: 10%; }
+  .home-page .right-content {
+    background-size: cover !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 280px);
+    height: 100%;
+    z-index: -1; }
+
+@media only screen and (max-width: 768px) {
+  .home-page-nav {
+    width: 100% !important;
+    z-index: 2; }
+  .row .left-content {
+    min-width: 100% !important;
+    padding: 40px 0 0 0;
+    margin-top: 0; }
+    .row .left-content .brand-description p {
+      background-color: white;
+      margin: 0;
+      padding: 6% 8%;
+      position: absolute;
+      bottom: 0;
+      max-height: 200px;
+      overflow-y: auto; }
+  .row .right-content {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    z-index: -1; } }
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .home-page-nav {
+    width: 100% !important;
+    z-index: 2; }
+  .right-content {
+    width: 100%; } }
+
+@media all and (min-width: 992px) {
+  .left-content {
+    height: calc(100% - 50px);
+    max-width: 450px !important;
+    margin-top: 5px !important; }
+    .left-content .brand-description p {
+      margin: 30% 5% 0% 10% !important;
+      line-height: 250% !important;
+      font-size: 20px; }
+  .right-content {
+    width: calc(100% - 475px) !important;
+    height: 100%;
+    z-index: -1; } }

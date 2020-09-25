@@ -1,0 +1,30 @@
+﻿@import './_theme.scss';
+
+#fudgeDrip {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    pointer-events: none!important;
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 767px) and (max-width: 990px) {
+    #fudgeDrip {
+        top:-64px!important;
+    }
+}
+
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 991px) and (max-width: 1365px) {
+    #fudgeDrip {
+        top: 38px!important;
+    }
+}
+
+// LG screen fudge
+@media all and (min-width: 1366px) {
+    #fudgeDrip {
+        top: 24px!important;
+    }
+}

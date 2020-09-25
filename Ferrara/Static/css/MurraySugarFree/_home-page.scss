@@ -1,0 +1,106 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.home-page {
+    overflow: auto;
+    color: white;
+
+    .row {
+        margin: 0;
+        height: 100%;
+    }
+
+    .col-md-9, .col-md-3 {
+        padding: 0;
+    }
+
+    .left-content {
+        text-align: center;
+        height: auto;
+
+        .logo {
+            display: inline-block;
+
+            div img {
+                width: 250px;
+            }
+        }
+
+        .brand-description {
+            position: relative;
+            margin: 0 4%;
+
+            p {
+                text-align: left;
+                line-height: 40px;
+                padding: 5%;
+                font-size: 1.25em;
+            }
+        }
+
+        .blurry-bg {
+            background: rgba(88, 56, 25, 0.6);
+        }
+    }
+
+    .right-content {
+        display: none;
+    }
+}
+
+// Medium devices
+@media  all and (max-width: $menu-breakpoint-lower) {
+
+    .left-content {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+
+        .logo-column {
+            width: 100%;
+        }
+
+        .logo {
+            margin-top: 10%;
+        }
+
+        .brand-description {
+            color: black;
+
+            .blurry-bg {
+                background: rgba(219, 204, 171, 0.9);
+            }
+
+            p {
+                margin-bottom: 0;
+                max-height: 275px;
+                overflow: auto;
+            }
+        }
+    }
+}
+// Large devices (tablets, 960px and up)
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    .left-content {
+        max-width: 50%;
+
+        .logo-column {
+            min-width: 55%;
+        }
+
+        .logo {
+            margin-top: 15%;
+        }
+
+        .brand-description {
+            width: 130%;
+
+            .blurry-bg {
+                background: rgba(88, 56, 25, 0.6);
+            }
+
+            p {
+                margin: 5%;
+            }
+        }
+    }
+}

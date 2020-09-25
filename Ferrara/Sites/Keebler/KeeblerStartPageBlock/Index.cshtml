@@ -1,0 +1,78 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerStartPageBlock.KeeblerStartPageBlock
+<section class="home-page-section">
+    <img class="cookie cookie1" src="~/Static/gfx/HomePageCookies/ChipsDeluxe.png" alt="Chips Deluxe" />
+    <img class="cookie cookie2" src="~/Static/gfx/HomePageCookies/coconutDreams.png" alt="Coconut Dreams" />
+    <img class="cookie cookie3" src="~/Static/gfx/HomePageCookies/ELFudge.png" alt="El Fudge" />
+    <img class="cookie cookie4" src="~/Static/gfx/HomePageCookies/FudgeStripe.png" alt="Fudge Stripe" />
+    <img class="cookie cookie5" src="~/Static/gfx/HomePageCookies/Sandie.png" alt="Sandie" />
+    <img class="cookie cookie6" src="~/Static/gfx/HomePageCookies/FudgeStripe.png" alt="Fudge Stripe" />
+    <img class="cookie cookie7" src="~/Static/gfx/HomePageCookies/coconutDreams.png" alt="Coconut Dreams" />
+
+    <div id="@Model.SectionTitle.Replace(" ", "")" class="row @Model.OrientationClass"> 
+        <div class="info-section @(Model.OrientationClass == "left-oriented-section" ? "order-2" : "order-1")">
+            <h1 class="section-header">
+                @Html.PropertyFor(x => x.SectionTitle)
+            </h1>
+
+            <div class="section-description">
+                @Html.PropertyFor(x => x.SectionDescription)
+            </div>
+
+
+            @if (Model.ImageOrSprite == "sprite")
+            {
+                <div class="animateSprite-button-container">
+                    <button value="@Model.SectionTitle.Replace(" ", "")" onclick="snapWindowToBlock('@Url.ContentUrl(Model.MainLink)', '@Model.SectionTitle.Replace(" ", "")')" class="animateSprite-button main-link active-oval-filled-red">
+                        @Model.MainLinkLabel
+                    </button>
+                </div>
+            }
+            else
+            {
+                if (Model.showPopup)
+                {
+                        <button class="main-link active-oval-filled-red" id="WatchVideo" data-url="https://www.youtube.com/embed/ucamPuHGL6w" data-toggle="modal" data-target="#mymodal">
+                            @Model.MainLinkLabel
+                        </button>
+                  
+                }
+                else
+                {
+                    <form action="@Url.ContentUrl(Model.MainLink)" method="get">
+                        <button class="main-link active-oval-filled-red">
+                            @Model.MainLinkLabel
+                        </button>
+                    </form>
+                }
+            }
+        </div>
+        @if (Model.ImageOrSprite == "sprite")
+        {
+            <div class="image-section @(Model.OrientationClass == "left-oriented-section" ? "order-1" : "order-2")">
+                <div style="background: url('@Url.ContentUrl(Model.SpriteSheet)')left top;" class="animation-sprite"></div>
+            </div>  
+        }
+        else if (Model.ImageOrSprite == "image")
+        {
+            <div class="image-section @(Model.OrientationClass == "left-oriented-section" ? "order-1" : "order-2") not-animated-image">
+                @Html.PropertyFor(x => x.MainImage)
+            </div>
+        }
+
+        @if (Model.AddLowerSection)
+        {
+            <div class="optional-lower-section col-12 order-3">
+                <h2 class="lower-section-header">@Model.SecondaryHeader</h2>
+
+                <form action="@Url.ContentUrl(Model.SecondaryLink)" method="get">
+                    <button class="active-oval-white-red lower-section-button">
+                        @Model.SecondaryLinkLabel
+                    </button>
+                </form>
+            </div>
+        }
+    </div>
+</section>

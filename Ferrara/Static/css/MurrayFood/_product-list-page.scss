@@ -1,0 +1,24 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.product-list-page {
+    color: black;
+    position: relative;
+    margin: 5% 3% 5% 3%;
+    padding: 3%;
+
+    h2 {
+        font-weight: bolder;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .product-list-block {
+        padding: 15% 15% 0%;
+
+        p {
+            font-weight: bolder;
+        }
+    }
+}

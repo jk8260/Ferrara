@@ -1,0 +1,178 @@
+﻿@import '../TopMenuSite/_themes.scss';
+@import '../TopMenuSite/_recipe-details-page.scss';
+@import './_page-size.scss';
+@import './_header.scss';
+@import './_home-page.scss';
+@import './_product-list-page.scss';
+@import './_recipe-list-page.scss';
+@import './_recipe-details-page.scss';
+
+body {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center center !important;
+    color: $murrays-sugar-free-font-1;
+}
+
+// GENERIC 
+.row {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+h1 {
+    margin: 3%;
+    font-size: 2em;
+    font-weight: 900;
+}
+
+h2, h3, h4, h5 {
+    margin: 1% 3%;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1.1em; 
+}
+
+p {
+    font-size: 1em;
+    margin: 0 3% 3% 3%;
+}
+
+// FOOTER
+.footer {
+    color: $murrays-sugar-free-font-1;
+    background-color: $murrays-sugar-free-footer;
+
+    a {
+        color: $murrays-sugar-free-font-1;
+    }
+}
+
+// PRODUCT DETAILS
+.product-details-page {
+    position: relative;
+    margin-top: 5%;
+
+    .carousel-container {
+        width: 100%;
+        margin: auto;
+        padding: 5% 30%;
+
+        img {
+            max-width: 500px;
+        }
+
+
+        .blurry-bg {
+            margin-top: 10px;
+        }
+
+        .carousel {
+            width: 100%;
+        }
+    }
+
+    .main-content-area {
+        margin: 0 0 10% 0;
+
+        .blurry-bg {
+            height: 110%;
+        }
+
+        h1, .product-details {
+            margin: 0;
+            padding: 4% 7%;
+        }
+
+        .product-details {
+            padding: 0 7% 2% 7%;
+        }
+
+        #nutrition-dropdown {
+            .sizesDropDown {
+                text-align: center;
+                display: block;
+            }
+
+            select {
+                width: 50%;
+                margin: auto;
+                display: block;
+            }
+        }
+    }
+}
+
+// TOOL PAGE
+.tools-page {
+    color: white;
+
+    .col {
+        margin: 8% 5%;
+
+        .blurry-bg {
+            margin: auto;
+            right: 0;
+        }
+
+        .tools-content {
+            width: 100%;
+            margin: auto;
+
+            a {
+                color: white;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            li, img {
+                margin: 0 3% 3% 3%;
+            }
+        }
+    }
+}
+
+// XS Screen -- Footer in 3 parts
+@media all and (max-width: $xsmall-screen) { 
+    .tools-page {
+        h1, h2, h3, h4, h5, p {
+            margin: 5% 3% !important;
+        }
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+
+        .murray-footer-msg {
+            margin: 0;
+        }
+    }
+}
+
+.blurry-bg {
+    position: absolute;
+    background: rgba(88, 56, 25, 0.9);
+    z-index: -1;
+    filter: blur(8px);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}

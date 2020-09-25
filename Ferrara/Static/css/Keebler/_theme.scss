@@ -1,0 +1,83 @@
+﻿// Primary Colors
+$elf-green: #43B02A;
+$magic-gold: #F6BE00;
+$keebler-red: #BA0C2F;
+$fudge: #461D09;
+
+// Secondary Colors 
+$secondary-green: #213417;
+$secondary-yellow: #ED9900;
+$secondary-red: #9E131B;
+$secondary-brown: #834217;
+$secondary-light-blue: #ABDBEC;
+$secondary-medium-blue: #00AEEF;
+$secondary-dark-blue: #005EB8;
+$secondary-light-gray: #E6E6E6;
+$secondary-medium-gray: #B3B3B3;
+$secondary-dark-gray: #575757;
+$secondary-white:#FFFDFB;
+
+$white: #FFFFFF;
+$black: #000000;
+
+// Greens
+$green-800: #1B4611;
+$green-700: #286A19;
+$green-600: #368D22;
+$green-500: #43B02A;
+$green-400: #7BC86A;
+$green-300: #A1D895;
+$green-200: #C7E7BF;
+$green-100: #ECF7EA;
+
+// Yellows
+$yellow-800: #4A3900;
+$yellow-700: #7B5F00;
+$yellow-600: #C59800;
+$yellow-500: #F6BE00;
+$yellow-400: #F9D24D;
+$yellow-300: #FBDF80;
+$yellow-200: #FCECB3;
+$yellow-100: #FDF5D8;
+
+// Reds
+$red-800: #38040E;
+$red-700: #70071C;
+$red-600: #950A26;
+$red-500: #BA0C2F;
+$red-400: #C83D59;
+$red-300: #D66D82;
+$red-200: #EAB6C1;
+$red-100: #F8E7EA;
+
+// Browns
+$brown-800: #120702;
+$brown-700: #230F05;
+$brown-600: #351607;
+$brown-500: #461D09;
+$brown-400: #6B4A3A;
+$brown-300: #90776B;
+$brown-200: #B5A59D;
+$brown-100: #DAD2CE;
+
+// Beiges
+$beige-1: #FFE9C4;
+$beige-2: #C09050;
+$beige-3: #b38f66;
+
+// Gradients - fill into background tag
+$blue-gradient: linear-gradient(172.21deg, $secondary-medium-blue 0%, $secondary-dark-blue 100%);
+$green-gradient: linear-gradient(172.21deg, $elf-green 0%, $secondary-green 100%);
+$yellow-gradient: linear-gradient(172.21deg, $magic-gold 0%, $secondary-yellow 100%);
+$red-gradient: linear-gradient(172.21deg, $keebler-red 0%, #85040B 100%);
+$maroon-gradient: linear-gradient(174.49deg, $red-500 0%, #85040B 100%);
+$brown-gradient: linear-gradient(172.21deg, $secondary-brown 0%, $fudge 100%);
+$control-brown-gradient: linear-gradient(172.21deg, $secondary-brown 8.18%, $fudge 87.99%);
+$slider-brown-gradient: linear-gradient(163.6deg, $secondary-brown 0%, $fudge 100%);
+$footer-brown-gradient: linear-gradient(172.21deg, #834217 0%, $fudge 100%);
+$background-beige-gradient: linear-gradient(180deg, $beige-1 0%, $beige-2 100%);
+
+// Screen Sizes
+$menu-breakpoint-lower: 991px;
+$menu-breakpoint-upper: 992px;
+$xsmall-screen: 400px;

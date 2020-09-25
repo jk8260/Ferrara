@@ -1,0 +1,121 @@
+﻿﻿@using System.Web.Optimization
+@using EPiServer.Framework.Web.Mvc.Html
+@using System.Web.Http;
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing;
+
+@model Ferrara.Sites.Shared.IPageViewModel<Ferrara.Common.SitePageData>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>var exports = {};</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/css/keebler")
+    <link href="https://fonts.googleapis.com/css?family=Lilita+One|Montserrat:100,200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <title>@Model.CurrentPage.MetaTitle</title>
+    <link rel="icon" type="image/png" href="@Model.CurrentPage.BrandsIcon" />
+    <meta name="description" content="@Model.CurrentPage.MetaDescription">
+    <meta name="keywords" content="@Model.CurrentPage.MetaKeywords">
+    <!-- START Open Graph meta tags -->
+    <meta property="og:title" content="@Model.CurrentPage.OgTitle">
+    <meta property="og:description" content="@Model.CurrentPage.OgDescription">
+    <meta property="og:type" content="@Model.CurrentPage.OgType">
+
+    <meta property="og:image" content="@Url.ContentUrl(@Model.CurrentPage.OgImage)">
+    <meta property="og:url" content="@Url.PageUrl(Model.CurrentPage.LinkURL)">
+    <meta property="og:image:width" content="@Model.CurrentPage.OgImageWidth">
+    <meta property="og:image:height" content="@Model.CurrentPage.OgImageHeight">
+    <meta property="og:image:alt" content="@Model.CurrentPage.OgImageAlt">
+    <meta property="og:site_name" content="@Model.CurrentPage.OgImageHeight">
+    <meta itemprop="url" content="@Url.PageUrl(Model.CurrentPage.LinkURL)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @Scripts.Render("~/bundles/js")
+    <script src="//destinilocators.com/keeblerfr/widget/install/"></script>
+    <style type="text/css">
+       @Model.CurrentPage.CustomCSSCode
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5870493-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-5870493-13');
+    </script>
+
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K2VL9VS');</script>
+
+
+</head>
+<body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2VL9VS"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    
+    <div id="animation-loading-spinner-div">
+        <div id="animation-loading-spinner-container"></div>
+    </div>
+
+    @Scripts.Render("~/bundles/js/KeeblerGlobalTs")
+    <script> loadingSpinnerFunction("@Model.CurrentPage.LoadingSpinnerImage", @Model.CurrentPage.LoadingSpinnerPixelSize); </script>
+
+    @{
+        Html.RenderPartial("~/Sites/Keebler/Shared/Header.cshtml", Model);
+    }
+
+    @RenderBody()
+
+    @if (Model.CurrentPage.PageTypeName != "KeeblerStartPage")
+    {
+        Html.RenderPartial("~/Sites/Keebler/Shared/Footer.cshtml", Model);
+    }
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CArray.from%2CElement.prototype.classList%2CElement.prototype.append%2CArray.prototype.forEach%2CNodeList.prototype.forEach%2CElement.prototype.remove%2Ces7%2Ces6%2Ces5%2Cdocument.querySelector%2Csmoothscroll"></script>
+</body>
+
+@Scripts.Render("~/bundles/js/keebler")
+@Scripts.Render("~/bundles/js/FudgeDrip")
+
+
+<script type="text/javascript">
+    var resizeTime;
+    alertOnIE();
+    loadHeaderAnimation("@Model.CurrentPage.HeaderAnimationDesktop", "@Model.CurrentPage.HeaderAnimationMobile");
+    fudgeHover();
+    scrollScreen();
+    buildAutocompleteObject(@Model.CurrentPage.SweetTreatsPageNumber, @Model.CurrentPage.RecipesPageNumber);
+    window.onload = removeSpinnerFunction(@Model.CurrentPage.LoadingSpinnerTimeout);
+
+    $(window).resize(function () {
+        destroyAnimation();
+        clearTimeout(resizeTime);
+        resizeTime = setTimeout(handleFudgeResize(), 100);
+    });
+
+    function handleFudgeResize() {
+        loadHeaderAnimation("@Model.CurrentPage.HeaderAnimationDesktop", "@Model.CurrentPage.HeaderAnimationMobile");
+        fudgeHover();
+        scrollScreen();
+    }
+</script>
+
+</html>

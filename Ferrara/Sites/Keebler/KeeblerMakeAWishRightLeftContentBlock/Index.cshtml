@@ -1,0 +1,38 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishRightLeftContentBlock.KeeblerMakeAWishRightLeftContentBlock
+
+
+
+<div class="MAW-Right-Left-Content">
+    <div id="@(Model.CustomIdForMainContentBlock != null ? Model.CustomIdForMainContentBlock : "")" class="row justify-content-center @(Model.OrientationClass == "right-oriented-section"?"brown-rounded-bg " + Model.OrientationClass:Model.OrientationClass)">
+        @if (Model.SectionTitleBlock != null)
+        {
+            <div class="col-md-12 col-lg-12">
+                @Html.PropertyFor(x => x.SectionTitleBlock)
+            </div>
+        }
+        <div class="text-section col-sm-12 col-md-12 col-lg-4 col-xl-4 @(Model.OrientationClass == "left-oriented-section" ? "order-lg-2 order-2" : "order-lg-1 order-2")">
+            <h1 class="section-title">
+                @Html.PropertyFor(x => x.SectionTitle)
+            </h1>
+            <div class="section-description">
+                @Html.PropertyFor(x => x.SectionDescription)
+            </div>
+            <div class="section-button">
+                @Html.PropertyFor(x => x.ButtonContentArea)
+            </div>
+        </div>
+        <div class="image-section col-sm-12 col-md-12 col-lg-4 col-xl-4 @(Model.OrientationClass == "left-oriented-section" ? "order-lg-1 order-1" : "order-lg-2 order-1")">
+            @Html.PropertyFor(x => x.MainImage)
+            @if (Model.ImageCaption != null)
+            {
+                <div class="image-caption">
+                    @Html.PropertyFor(x => x.ImageCaption)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

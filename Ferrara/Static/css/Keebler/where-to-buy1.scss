@@ -1,0 +1,25 @@
+@media (min-width: 992px) {
+  nav .navbar-nav.nav-links li:last-of-type a {
+    background: #ffffff;
+    border-radius: 30px;
+    color: #461b0e;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    box-shadow: 0 15px 24px -10px rgba(38, 38, 38, 0.5);
+    transform: translate3d(0, 0, 0);
+
+    &:hover {
+      color: #ba0c2f;
+      background: #f1f1f1;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  a.navbar-brand img {
+    max-width: 90px;
+  }
+}

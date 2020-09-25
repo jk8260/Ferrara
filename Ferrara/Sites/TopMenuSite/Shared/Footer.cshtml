@@ -1,0 +1,22 @@
+﻿
+@model Ferrara.Sites.Shared.IPageViewModel<Ferrara.Common.SitePageData>
+
+<div class="container-fluid">
+    <div class="footer">
+        <div>
+            © @DateTime.Now.Year.ToString() The Ferrero Group. All Rights Reserved
+        </div>
+        <div>
+            <span class="sm-hidden"> | </span><a href="https://www.ferrarausa.com/privacy-policy.html">Privacy Policy</a> |
+            <a href="https://www.ferrarausa.com/terms-of-use.html">Terms of Use</a> |
+            <a href="https://www.ferrarausa.com/contact-us.html">Contact Us</a> |
+            <a href="https://www.ferrarausa.com/supply-chain.html">Supply Chain Transparency</a>
+        </div>
+        @{
+            if ((Model.CurrentPage.BrandsCode).Equals("murraysugarfree"))
+            {
+                <div class="murray-footer-msg">*Not a Reduced Calorie Food</div>
+            }
+        }
+    </div>
+</div>

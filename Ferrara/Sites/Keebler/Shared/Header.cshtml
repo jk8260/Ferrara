@@ -1,0 +1,51 @@
+﻿@model Ferrara.Sites.Shared.IPageViewModel<Ferrara.Common.SitePageData>
+@using System.Web.Optimization
+
+<script>
+    $(document).ready(function() {
+        if ($(window).width() >= 768) {
+            $('#fa-custom-search').click(function(){                
+            });
+            setTimeout(function(){
+                $('#fa-custom-search').trigger('click');
+            }, 1000);           
+        }    
+    });
+</script>
+
+<div id="fudgeDrip"></div>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="@Url.ContentUrl(Model.CurrentPage.HomePageLink)">
+        @Html.PropertyFor(x => x.CurrentPage.HeaderLogo)
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto nav-links">
+            <li class="home-link"><a href="@Url.ContentUrl(Model.CurrentPage.HomePageLink)" class="w-nav-link nav-link">Home</a></li>
+            @foreach (var startPageChild in Model.GetStartPageChildren())
+            {
+                <li><a href="@Url.ContentUrl(startPageChild.ContentLink)" class="w-nav-link nav-link">@startPageChild.Name</a></li>
+            }
+        </ul>
+        <div class="col-lg-4 col-md-6 col-sm-12 social-section">
+            @Html.PropertyFor(x => x.CurrentPage.SocialMediaBlock)
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div id="text-input-with-icon-id" class="text-input-with-icon">
+            <img id="fa-custom-search" src="\Static\gfx\SeachIcons\SeachIcon_White.svg" onclick="showOrHideSearchBar()" />
+            <input type="text" id="myInput" class="search-custom-text-input custom-text-input" placeholder="Search.." onkeyup="dropdownFilterFunction();">
+        </div>
+        <div id="myDropdown" class="dropdown-content"></div>
+    </div>
+</nav>
+
+@Scripts.Render("~/bundles/js/KeeblerLocalStorageForStartPageTs")
+<script>
+    readLocalStorageForHomeButtonTimeStamp();
+</script>

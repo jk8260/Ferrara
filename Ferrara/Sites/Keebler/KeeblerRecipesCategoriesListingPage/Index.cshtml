@@ -1,0 +1,80 @@
+﻿@using System.Web.Optimization
+
+
+@model Ferrara.Sites.Keebler.KeeblerRecipesCategoriesListingPage.KeeblerRecipesCategoriesListingPageViewModel
+<div class="recipe-list-pg">
+    <h1 class="yummy-recipes-title">Yummy Recipes</h1>
+    <div class="card keebler-recipe-list">
+        <div class="card-header keebler-recipe-header">
+            <ul class="nav nav-tabs card-header-tabs" id="recipe-list" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link top-nav-recipe active" role="tab" aria-selected="true" onclick="filterAsync();" >
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link top-nav-recipe" role="tab" aria-selected="false" onclick="filterAsync();" >
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link top-nav-recipe" role="tab" aria-selected="false" onclick="filterAsync();" >
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body keebler-recipe-card-list">
+            <div class="Filter-Buttons-Div">
+                <button name="WinterBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Winter</button>
+                <button name="SpringBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Spring</button>
+                <button name="FallBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Fall</button>
+                <button name="SummerBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Summer</button>
+                <button name="HolidayBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Holidays</button>
+                <button name="QuickEasyBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Quick & Easy</button>
+                <button name="PartyPleasersBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Party Pleasers</button>
+                <button name="SweetSaltyBool" value="not-selected" class="recipe-filter-button reversed-oval-outlined" onclick="filterBoolToggleFunc(this)">Sweet & Salty</button>
+                <button name="CustomFilter1" value="not-selected" class="recipe-filter-button reversed-oval-outlined custom-filter-button" onclick="filterBoolToggleFunc(this)">@Html.PropertyFor(x => x.CurrentPage.CustomFilter1)</button>
+                <button name="CustomFilter2" value="not-selected" class="recipe-filter-button reversed-oval-outlined custom-filter-button" onclick="filterBoolToggleFunc(this)">@Html.PropertyFor(x => x.CurrentPage.CustomFilter2)</button>
+                <button name="CustomFilter3" value="not-selected" class="recipe-filter-button reversed-oval-outlined custom-filter-button" onclick="filterBoolToggleFunc(this)">@Html.PropertyFor(x => x.CurrentPage.CustomFilter3)</button>
+                <button name="ClearAllFilters" id="clear-filters-button" class="recipe-filter-button reversed-oval-outlined" onclick="clearAllFilters()">Clear All X</button>
+
+                <div id="no-cards-displaying">
+                    <p class="no-cards-displaying-text">@Model.CurrentPage.NoCardsDisplayingText</p>
+                </div>
+            </div>
+            <div class="tab-content mt-3">
+                <div class="tab-pane active" role="tabpanel">
+                    <div class="recipe-panel">
+                        <div class="recipe-block-container row equal-height">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" role="tabpanel">
+                    <div class="recipe-panel">
+                        <div class="recipe-block-container row equal-height">
+                        </div>
+                    </div>
+                </div> 
+                <div class="tab-pane" role="tabpanel">
+                    <div class="recipe-panel">
+                        <div class="recipe-block-container row equal-height">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/js/RecipeAPIParser")
+<script type="text/javascript">
+    $(function () {
+        $.get( "/KeeblerRecipesCategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function( data ) {
+            $(".result").html(JSON.stringify(data, undefined, 2));
+            recipeListFunc(data);
+            showCustomButtons();
+        });
+    });
+    $('#recipe-list a').on('click', function (e) {
+      e.preventDefault()
+        $(this).tab('show')
+        scrollTabNav(e);
+    })
+</script>

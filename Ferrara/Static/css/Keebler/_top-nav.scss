@@ -1,0 +1,192 @@
+﻿@import './_theme.scss';
+
+.nav {
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    width: 100%;
+}
+
+.nav-tabs {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    border-bottom: none !important;
+    overflow: hidden;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+    white-space: nowrap;
+
+
+    .nav-link {
+        text-align: center;
+
+        p {
+            white-space: pre-wrap;
+        }
+    }
+}
+
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+#firstCategory-tab img, #secondCategory-tab img, #thirdCategory-tab img {
+    height: 100px;
+}
+
+a#firstCategory-tab.nav-link.active {
+    img {
+        height: 135px;
+    }
+}
+
+a#secondCategory-tab.nav-link.active {
+    img {
+        height: 135px;
+    }
+}
+
+a#thirdCategory-tab.nav-link.active {
+    padding-right: 5%;
+
+    img {
+        height: 135px;
+    }
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.nav li:hover a {
+    border: none;
+    background: none;
+}
+
+.left-arrow, .right-arrow {
+    margin-top: 60px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+// Extra small devices
+@media only screen and (max-width: 574px) {
+    .nav-tabs {
+        .nav-link {
+            width: 160px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 80%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 80%;
+    }
+}
+
+// Small devices
+@media only screen and (min-width: 575px) and (max-width: 766px) {
+    .nav-tabs {
+        .nav-link {
+            width: 160px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 54%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 54%;
+    }
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 767px) and (max-width: 990px) {
+
+    .nav-tabs {
+        .nav-link {
+            width: 160px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 40%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 40%;
+    }
+}
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 991px) and (max-width: 1365px) {
+    .nav-tabs {
+        .nav-link {
+            width: 160px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 32%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 32%;
+    }
+}
+// LG Screen
+//@media all and (min-width: 1366px)
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+    .nav-tabs {
+        .nav-link {
+            width: 200px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 26%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 26%;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1750px) {
+    .nav-tabs {
+        .nav-link {
+            width: 200px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 24%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 24%;
+    }
+}
+
+@media all and (min-width: 1751px) {
+    .nav-tabs {
+        .nav-link {
+            width: 200px;
+        }
+    }
+
+    #firstCategory-leftArrow {
+        padding-left: 21%;
+    }
+
+    #thirdCategory-rightArrow {
+        padding-right: 21%;
+    }
+}

@@ -1,0 +1,17 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.TopMenuSite.SharedProductsListPage.SharedProductsListPage>
+
+@*@model Ferrara.Sites.FamousAmosSite.ProductPage.ProductPage*@
+    <div class="product-list-page">
+        <div class="blurry-bg"></div>
+        <h2>@Html.PropertyFor(m => m.CurrentPage.Title)</h2>
+
+        <h3>@Html.PropertyFor(m => m.CurrentPage.SubHeader)</h3>
+
+        <p>@Html.PropertyFor(m => m.CurrentPage.Description)</p>
+
+        @Html.PropertyFor(x => x.CurrentPage.ProductListBlocksArea, new { CssClass = "block-container row equal-height", tag = Global.ContentAreaTags.FullWidth })
+    </div>

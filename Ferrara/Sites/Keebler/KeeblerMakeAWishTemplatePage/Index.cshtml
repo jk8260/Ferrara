@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using System.Web.Optimization
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.Keebler.KeeblerMakeAWishTemplatePage.KeeblerMakeAWishTemplatePage>
+
+<link rel="stylesheet" type="text/css" href="@Model.CurrentPage.CustomCssFile" />
+
+<div id="@Model.CurrentPage.CustomIdForMainPageDiv" class="MAW-Main-Body-Div">
+    @Html.PropertyFor(x => x.CurrentPage.ContentBlock)
+</div>
+

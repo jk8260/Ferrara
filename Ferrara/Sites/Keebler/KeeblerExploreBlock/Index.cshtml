@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerExploreBlock.KeeblerExploreBlock
+
+<h3>@Model.Title</h3>
+
+@Html.PropertyFor(x => x.ImageBlock)
+
+@Html.PropertyFor(x => x.Details)
+
+<a href=@Url.ContentUrl(Model.ButtonPageReference)>@Model.ButtonText</a>

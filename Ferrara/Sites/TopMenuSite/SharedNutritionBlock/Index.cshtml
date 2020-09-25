@@ -1,0 +1,207 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.TopMenuSite.SharedNutritionBlock.SharedNutritionBlock
+
+    <div class="nutrition-facts">
+        <p class="dropdown-display-name">@Model.DropDownDisplayName</p>
+        <div>
+            <header class="nutrition-facts-header">
+                <h1 class="nutrition-facts-title">Nutrition Facts</h1>
+                <p class="servings-per-line">@Html.PropertyFor(x => x.ServingsPerLine)</p>
+                <p>@Html.PropertyFor(x => x.ServingSizeLine)</p>
+            </header>
+            <table class="nutrition-facts-table">
+                <thead>
+                    <tr>
+                        <th class="amount-per-serving small-info" colspan="3">
+                            Amount Per Serving
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="calories">
+                        <th colspan="2">
+                            <p>Calories</p>
+                        </th>
+                        <td></td>
+                        <td> @Model.Calories</td>
+                    </tr>
+                    <tr class="thick-row">
+                    <tr class="thick-row daily-value-row">
+                        <td colspan="4" class="">
+                            <p>% Daily Value*</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Total Fat</p>
+                        </th>
+                        <th>
+                            <p>@Model.TotalFatGrams g</p>
+                        </th>
+                        <td>
+                            <p>@Model.TotalFatDailyPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr class="smaller-details">
+                        <td class="blank-cell">
+                        </td>
+                        <td>
+                            <p>Saturated Fat</p>
+                        </td>
+                        <td>
+                            <p>@Model.SaturatedFatDailyGrams g</p>
+                        </td>
+                        <td>
+                            <p>@Model.SaturatedFatDailyPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr class="smaller-details">
+                        <td class="blank-cell">
+                        </td>
+                        <td>
+                            <p><span class="trans">Trans</span> Fat</p>
+                        </td>
+                        <td>
+                            <p>@Model.TransFatDailyGrams g</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Cholesterol</p>
+                        </th>
+                        <th>
+                            <p>@Model.CholesterolMg mg</p>
+                        </th>
+                        <td>
+                            <p>@Model.CholesterolPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Sodium</p>
+                        </th>
+                        <th>
+                            <p>@Model.SodiumMg mg</p>
+                        </th>
+                        <td>
+                            <p>@Model.SodiumPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Total Carb.</p>
+                        </th>
+                        <th>
+                            <p>@Model.CarbohydrateGrams g</p>
+                        </th>
+                        <td>
+                            <p>@Model.CarbohydratePercentage %</p>
+                        </td>
+                    </tr>
+                    <tr class="smaller-details">
+                        <td class="blank-cell">
+                        </td>
+                        <td>
+                            <p>Dietary Fiber</p>
+                        </td>
+                        <td>
+                            <p>@Model.FiberGrams g</p>
+                        </td>
+                        <td>
+                            <p>@Model.FiberPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr class="smaller-details">
+                        <td class="blank-cell">
+                        </td>
+                        <td>
+                            <p>Total Sugar</p>
+                        </td>
+                        <td>
+                            <p>@Model.SugarGrams g</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="smaller-details">
+                        <td class="blank-cell">
+                        </td>
+                        <td>
+                            <p> Includes @Model.AddedSugarGrams g Added Sugar</p>
+                        </td>
+                        <td></td>
+                        <td>
+                            <p>@Model.AddedSugarPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr class="thick-end">
+                        <th colspan="2">
+                            <p>Protein</p>
+                        </th>
+                        <th>
+                            <p>@Model.ProteinGrams g</p>
+                        </th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="nutrition-facts-table--grid">
+                <tbody>
+                    <tr>
+                        <th colspan="2">
+                            <p>Vitamin D</p>
+                        </th>
+                        <th>
+                            <p>@Model.VitaminDMcg mcg</p>
+                        </th>
+                        <td>
+                            <p>@Model.VitaminDPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Calcium</p>
+                        </th>
+                        <th>
+                            <p>@Model.CalciumMg mg</p>
+                        </th>
+                        <td>
+                            <p>@Model.CalciumPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Iron</p>
+                        </th>
+                        <th>
+                            <p>@Model.IronMg mg</p>
+                        </th>
+                        <td>
+                            <p>@Model.IronPercentage %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <p>Potassium</p>
+                        </th>
+                        <th>
+                            <p>@Model.PotassiumMg mg</p>
+                        </th>
+                        <td>
+                            <p>@Model.PotassiumPercentage %</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.</p>
+
+            <p class="ingredients">
+                @Html.PropertyFor(m => m.Ingredients)
+            </p>
+        </div>
+    </div>

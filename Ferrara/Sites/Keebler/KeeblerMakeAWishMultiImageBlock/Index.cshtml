@@ -1,0 +1,8 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishMultiImageBlock.KeeblerMakeAWishMultiImageBlock
+
+    <div id="@Model.CustomIdMultiImageBlockDiv" class="@(Model.ImageBlock.Items.Count > 3 ? "Make-A-Wish-Multi-Image-Block over-three-images" : "Make-A-Wish-Multi-Image-Block")">
+        @Html.PropertyFor(x => x.ImageBlock)
+    </div>

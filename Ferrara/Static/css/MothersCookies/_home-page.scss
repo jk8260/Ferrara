@@ -1,0 +1,170 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.home-page {
+    color: $mothers-font-1;
+
+    .row {
+        overflow-y: auto;
+    }
+
+    .col-md-9, .col-md-3 {
+        padding: 0;
+    }
+
+    .left-content {
+        text-align: center;
+        margin-top: 40px;
+        max-width: 300px;
+
+        .logo-column {
+            min-width: 210px;
+            height: 410px;
+            display: inline-block;
+
+            .logo {
+                display: none;
+
+                div img {
+                    width: 150px;
+                }
+            }
+            //NAV BAR
+            //SCROLL NAV BAR BACKGROUND IMG
+            .optional-nav {
+                position: absolute;
+                z-index: -1;
+                top: 20px;
+            }
+            //NAV ITEMS BLOCKS
+            .nav-items {
+                position: absolute;
+                top: 160px;
+                left: 20%;
+                width: 170px;
+
+                div .sharednavitemblock {
+                    margin-bottom: 25px;
+
+                    a {
+                        font-size: 20px;
+                        width: 100%;
+                        color: $mothers-font-2;
+                        font-weight: 900;
+                    }
+                }
+            }
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 20px;
+            width: 100%;
+
+            p {
+                align-self: center;
+                width: 100%;
+                text-align: center;
+                font-family: 'Goudy Old Style' !important;
+            }
+        }
+
+        .brand-description p {
+            margin: 5%;
+            line-height: 150%;
+            font-size: 16px;
+        }
+    }
+
+    .right-content {
+        background-size: cover !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 300px);
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+//Small Screen
+@media only screen and (max-width: $xsmall-screen) {
+    .home-page-nav {
+        width: 100% !important;
+    }
+
+    .row {
+        height: 100% !important;
+
+        .left-content {
+            min-width: 100% !important;
+            color: $mothers-font-2;
+            padding: 40px 0 0 0;
+            margin-top: 0;
+
+            .logo-column {
+                height: auto;
+                min-width: 0;
+
+                .logo {
+                    display: inline-block;
+
+                   div img {
+                        width: 60%;
+                   }
+                }
+
+                .optional-nav, .nav-items {
+                    display: none;
+                }
+            }
+
+                .tagline {
+                    display: inline-block;
+                    width: 80%;
+
+                    p {
+                        font-size: 30px !important;
+                        font-weight: bolder;
+                    }
+                }
+
+                .brand-description {
+                    background-color: white;
+                    margin: 0;
+                    position: absolute;
+                    bottom: 0;
+                    max-height: 300px;
+                    overflow-y: auto;
+                }
+            }
+
+            .right-content {
+                position: absolute;
+                height: 100%;
+                overflow: hidden;
+                width: 100%;
+                z-index: -1;
+            }
+        }
+    }
+
+//Medium Screen
+@media all and (min-width: $xsmall-screen) and (max-width: $menu-breakpoint-lower) {
+    .home-page-nav {
+        width: 100% !important;
+    }
+
+    .right-content {
+        width: 100%;
+    }
+}
+// LG Screen -- Footer in 1 part
+@media all and (min-width: $menu-breakpoint-upper) {
+    .left-content {
+        height: calc(100% - 50px);
+    }
+}
+
+.home-page-nav .show .nav-links {
+    display: block !important;
+}

@@ -1,0 +1,29 @@
+﻿@import './_theme.scss';
+@import './_fonts.scss';
+
+.Make-A-Wish-Multi-Image-Block {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+
+    &.over-three-images {
+        .keeblerimageblock img {
+            max-width: 225px;
+        }
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .keeblerimageblock {
+        display: inline-block;
+
+        img {
+            max-width: 300px;
+            width: auto !important;
+        }
+    }
+}

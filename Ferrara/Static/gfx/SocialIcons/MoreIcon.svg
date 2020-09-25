@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="47px" viewBox="0 0 46 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>More</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19,0 C8.50645833,0 0,8.50645833 0,19 C0,29.4935417 8.50645833,38 19,38 C29.4935417,38 38,29.4935417 38,19 C38,8.50645833 29.4935417,0 19,0 Z" id="path-1"></path>
+        <filter x="-22.4%" y="-11.8%" width="144.7%" height="147.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.274509804   0 0 0 0 0.11372549   0 0 0 0 0.0352941176  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.5" transform="translate(-231.000000, -639.000000)">
+            <g id="More" transform="translate(235.000000, 639.000000)">
+                <g id="Path-Copy-4">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFE9C4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <circle id="Oval" fill="#461D09" cx="19" cy="20" r="3"></circle>
+                <circle id="Oval-Copy-2" fill="#461D09" cx="10" cy="20" r="3"></circle>
+                <circle id="Oval-Copy" fill="#461D09" cx="28" cy="20" r="3"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

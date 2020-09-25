@@ -1,0 +1,16 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.Keebler.KeeblerWhereToBuyPage.KeeblerWhereToBuyPage>
+
+    <div class="where-to-buy-page">
+        <script type="text/javascript" src=@Html.PropertyFor(m => m.CurrentPage.WhereToBuyLink)></script>
+        <script>
+            $(document).ready(function () {
+                if (window.location.pathname.match('where')) {
+                    $("body").addClass("bg");
+                }
+            });
+        </script>
+    </div>
+ 

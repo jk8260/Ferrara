@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.TopMenuSite.SharedRecipeListBlock.SharedRecipeListBlock
+
+    <div class="recipe-list-block">
+        <h3>@Html.PropertyFor(x => x.RecipeName)</h3>
+        <p>@Html.PropertyFor(x => x.RecipeDescription)</p>
+        <a href="@Url.ContentUrl(Model.RecipeDetailsLink)">
+            <p>@Html.PropertyFor(x => x.RecipeLinkLabel)</p>
+        </a>
+    </div>

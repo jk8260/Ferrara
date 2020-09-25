@@ -1,0 +1,239 @@
+﻿@import './_fonts.scss';
+@import './_theme.scss';
+
+h1.yummy-recipes-title {
+    @include custom-2;
+    color: $fudge;
+    display: flex;
+    justify-content: center;
+    padding-top: 7%;
+}
+
+.no-cards-displaying-text {
+    font-family: 'Lilita One', cursive;
+    font-size: 30px;
+    letter-spacing: -.25px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    padding-top: 62px;
+    display: none;
+}
+
+.recipe-list-pg {
+    position: relative;
+    z-index: 0;
+
+    .keebler-recipe-list, .card-header {
+        background-color: transparent;
+    }
+
+    .recipe-filter-button {
+        height: 28px;
+        margin: 1% 1px;
+        padding: 0 1%;
+        font-size: 12px;
+    }
+
+    .keebler-recipe-list {
+        border: hidden;
+    }
+
+    .keebler-recipe-header {
+        position: relative;
+        border: hidden;
+        z-index: 0;
+    }
+
+    .keebler-recipe-card-list {
+        position: relative;
+        background-color: $secondary-brown;
+        box-shadow: 0 -2px 20px 0 rgba(0,0,0,0.5);
+        border-radius: 20px 20px 0 0;
+        z-index: 2;
+        width: 100%;
+
+        .recipe-panel {
+            max-width: 80%;
+            margin: auto;
+
+            .recipe-block-container.equal-height {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    .nav-tabs {
+        .nav-link {
+            @include custom-4;
+            color: black;
+            opacity: 0.35;
+        }
+
+        .nav-link + img {
+            display: none;
+        }
+
+        .nav-link.active {
+            opacity: 1;
+        }
+
+        .nav-link.active + img {
+            display: block;
+        }
+    }
+
+    .Filter-Buttons-Div {
+        text-align: center;
+
+        .custom-filter-button {
+            display: none;
+        } 
+        #clear-filters-button {
+            display: none;
+        }
+    }
+}
+//XS SCREEN
+@media only screen and (max-width:$xsmall-screen){
+    .keebler-card {
+        width: 300px;
+        height: 180px;
+
+        .col-4 img {
+            min-height: 125px;
+            max-width: 125px;
+        }
+
+        .card-text {
+            margin-left: 38px;
+        }
+
+        .card-description p {
+            margin-bottom: 0.7rem!important;
+        }
+
+        .recipe-bold-info p {
+            font-size: 12px;
+        }
+    }
+}
+
+// SMALL SCREEN
+@media only screen and (max-width: 767px){
+    .recipe-list-pg {
+        padding-top: 20%;
+
+        .nav-tabs {
+            padding-left: 95%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+
+            .nav-link {
+                margin-left: 15px;
+            }
+
+            .nav-link.active + img {
+                width: 185px;
+            }
+        }
+
+        .keebler-recipe-card-list {
+            top: -95px;
+        }
+
+        .recipe-filter-button {
+            padding: 0px 4%;
+        }
+    }
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .recipe-list-pg {
+        .nav-tabs {
+            overflow-x: scroll;
+            overflow-y: hidden;
+
+            .nav-link {
+                margin-left: 33px;
+            }
+
+            .nav-link.active + img {
+                width: 220px;
+            }
+        }
+
+        .keebler-recipe-card-list {
+            top: -112px;
+
+            .recipe-panel {
+                max-width: 100%;
+            }
+        }
+    }
+}
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 1021px) and (max-width: 1366px){
+    .recipe-list-pg {
+        .nav-tabs {
+            .nav-link {
+                margin-left: 22px;
+            }
+
+            .nav-link.active + img {
+                width: 240px;
+            }
+        }
+
+        .keebler-recipe-card-list {
+            top: -125px;
+        }
+    }
+}
+
+// Tablets
+@media only screen and (min-width: 767px) and (max-width: 1366px) {
+    .recipe-list-pg {
+        padding-top: 10%;
+    }
+}
+
+//LARGE SCREEN
+@media only screen and (min-width: 1366px) and (max-width: 1900px) {
+    .recipe-list-pg {
+        .nav-tabs {
+            .nav-link {
+                margin-left: 20px;
+            }
+
+            .nav-link.active + img {
+                width: 240px;
+            }
+        }
+
+        .keebler-recipe-card-list {
+            top: -125px;
+        }
+    }
+}
+//X-LARGE SCREEN
+@media all and (min-width: 1901px) {
+    .recipe-list-pg {
+        .nav-tabs {
+            .nav-link {
+                margin-left: 20px;
+            }
+
+            .nav-link.active + img {
+                width: 240px;
+            }
+        }
+
+        .keebler-recipe-card-list {
+            top: -125px;
+        }
+    }
+}

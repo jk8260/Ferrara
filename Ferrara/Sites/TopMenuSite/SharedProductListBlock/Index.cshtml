@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.TopMenuSite.SharedProductListBlock.SharedProductListBlock
+
+
+    <a href="@Url.ContentUrl(Model.ProductDetailsPageLink)">
+        <div class="product-list-block">
+            @Html.PropertyFor(x => x.ProductImage)
+            <p>@Html.PropertyFor(x => x.ProductName)</p>
+        </div>
+    </a>

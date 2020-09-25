@@ -1,0 +1,258 @@
+﻿@import './_theme.scss';
+
+//-- Check box Styles --//
+/* The container */
+.container-maroon, .container-brown {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 13px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-maroon input, .container-brown input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    left: 5px;
+    bottom: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark-light, .checkmark-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    border: 2px solid lightgray;
+}
+
+.checkmark-light {
+    background-color: #eee;
+}
+
+.checkmark-dark {
+    background-color:black;
+}
+
+/* On mouse-over, add a grey background color */
+.container-maroon:hover input ~ .checkmark-light, .container-brown:hover input ~ .checkmark-light,
+.container-maroon:hover input ~ .checkmark-dark, .container-brown-dark:hover input ~ .checkmark-dark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a maroon background */
+.container-maroon input:checked ~ .checkmark-light,
+.container-maroon input:checked ~ .checkmark-dark {
+    background: $maroon-gradient;
+    border: none;
+}
+
+/* When the checkbox is checked, add a brown background */
+.container-brown input:checked ~ .checkmark-light,
+.container-brown input:checked ~ .checkmark-dark {
+    background: $control-brown-gradient;
+    border: none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-light:after,
+.checkmark-dark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-maroon input:checked ~ .checkmark-light:after, .container-brown input:checked ~ .checkmark-light:after,
+.container-maroon input:checked ~ .checkmark-dark:after, .container-brown input:checked ~ .checkmark-dark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-maroon .checkmark-light:after, .container-brown .checkmark-light:after {
+    left: 8px;
+    top: 2px;
+    width: 6px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Style the checkmark/indicator */
+.container-maroon .checkmark-dark:after, .container-brown .checkmark-dark:after {
+    left: 8px;
+    top: 2px;
+    width: 6px;
+    height: 15px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+//--Maroon Radio Buttons --//
+.form {
+    &__group {
+        width: 0%;
+        height: 85px;
+        border-radius: 10px;
+        margin-left: 15px;
+    }
+
+    &__radio-group {
+        width: 30%;
+        display: inline-block;
+    }
+    // Hides default radio button
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        cursor: pointer;
+        position: relative;
+        padding-left: 27px;
+    }
+
+    &__radio-button-maroon, &__radio-button-brown {
+        height: 1.3rem;
+        width: 1.3rem;
+        border: 2px solid;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    //Makes maroon border for maroon radio button
+    &__radio-button-maroon {
+        border-color: $red-500;
+    }
+    //Makes brown border for maroon brown button
+    &__radio-button-brown {
+        border-color: $secondary-brown;
+    }
+    // Styles inner circle of radio button
+    &__radio-button-maroon {
+        &::after {
+            content: "";
+            display: block;
+            height: .7rem;
+            width: .7rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $maroon-gradient;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+    }
+    // Styles inner circle of radio button
+    &__radio-button-brown {
+        &::after {
+            content: "";
+            display: block;
+            height: .7rem;
+            width: .7rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $control-brown-gradient;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+    }
+
+    &__radio-input:checked + &__radio-label &__radio-button-maroon::after,
+    &__radio-input:checked + &__radio-label &__radio-button-brown::after {
+        opacity: 1;
+    }
+    //-- Slider --//
+    .switch {
+        margin-left: 10px;
+        position: relative;
+        display: inline-block;
+        width: 51px;
+        height: 31px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider-maroon, .slider-brown {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border: 1.5px solid #CCCCCC;
+        border-radius: 18px;
+        background-color: #CCCCCC;
+        box-shadow: inset 0 3px 3px 0 rgba(0,0,0,0.5);
+    }
+
+    .slider-maroon:before, .slider-brown:before {
+        position: absolute;
+        content: "";
+        height: 28px;
+        width: 28px;
+        left: 0px;
+        bottom: 0px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider-maroon {
+        background: $maroon-gradient;
+        border: 1.5px solid $secondary-red;
+        border-radius: 18px;
+        box-shadow: inset 0 3px 3px 0 rgba(0,0,0,0.5);
+    }
+
+    input:checked + .slider-brown {
+        background: $slider-brown-gradient;
+        border: 1.5px solid $secondary-brown;
+        border-radius: 18px;
+        box-shadow: inset 0 3px 3px 0 rgba(0,0,0,0.5);
+    }
+
+    input:focus + .slider-maroon, input:focus + .slider-brown {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider-maroon:before, input:checked + .slider-brown:before {
+        transform: translateX(20px);
+    }
+    /* Rounded sliders */
+    .slider-maroon.round, .slider-brown.round {
+        border-radius: 34px;
+    }
+
+    .slider-maroon.round:before, .slider-brown.round:before {
+        border-radius: 50%;
+    }
+}

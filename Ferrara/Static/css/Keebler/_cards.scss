@@ -1,0 +1,139 @@
+﻿@import './_theme.scss';
+.keebler-card-w-btn{
+    width: 334px;
+}
+.keebler-card, .keebler-card-w-btn {
+    margin: 20px;
+    border-radius: 20px;
+    border-width: 0px;
+    background-color: $secondary-white;
+    background: linear-gradient(180deg, #f2f7ff 0%, #dadce0 100%);
+    box-shadow: 0 20px 24px -15px rgba(0,0,0,0.25);
+}
+
+.keebler-card {
+    width: 334px;
+    height: 184px;
+}
+
+.card .col-4 img {
+    display: block;
+    min-height: 100px;
+    max-width: 100px;
+    width: auto;
+    height: auto;
+}
+
+.keebler-card .col-4 img {
+    border-radius: 5px;
+    min-height: 130px;
+    max-width: 130px;
+}
+
+.keebler-card .card-text {
+    margin-left:32px;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $fudge;
+    font-family: "Lilita One";
+    font-size: 24px;
+    line-height: 27px;
+}
+
+.keebler-card .card-title {
+    text-align: center;
+    margin-bottom:0.5rem;
+}
+
+.keebler-card .card-description p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $fudge;
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 1.3em;
+    height: 74px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.recipe-bold-info p{
+    width: 100%;
+    color: $fudge;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight:bolder;
+}
+
+.keebler-card-w-btn .card-body {
+    padding: 1.25rem 1.25rem 0;
+}
+
+.keebler-card .card-body {
+    padding: .5rem .8rem 0;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+    max-width: 334px;
+    padding: 0px;
+    height: 40px;
+}
+
+.card-button {
+    font-size: 12px;
+    border: none;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    height: 30px;
+    border-radius: 0 0 16px 15px;
+    background: $red-gradient;
+    box-shadow: 0 15px 24px -10px rgba(38,38,38,0.5);
+    width: 100%;
+}
+
+.keebler-card-w-btn {
+    height: 160px;
+
+    .card-body {
+        padding-top: 10px;
+    }
+
+    h5.card-title {
+        max-height: 54px;
+        text-overflow: ellipsis;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card-description p {
+        overflow: hidden;
+        height: 52px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        width: 100%;
+        text-overflow: ellipsis;
+        color: $secondary-dark-gray;
+        font-family: Montserrat;
+        font-size: 15px;
+        line-height: 17px;
+    }
+
+    .card-button {
+        bottom: 0;
+        position: absolute;
+    }
+
+    .card-footer {
+        height: 31px;
+    }
+}

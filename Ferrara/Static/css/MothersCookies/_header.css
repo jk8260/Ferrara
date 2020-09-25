@@ -1,0 +1,6 @@
+﻿.navbar {
+  background-color: red; }
+
+@media only screen and (min-width: 992px) {
+  #navbarSupportedContent {
+    /*background-color: red !important;*/ } }

@@ -1,0 +1,37 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+// XS Screen -- Footer in 3 parts
+@media all and (min-width: 0px) and (max-width: $footer-second-break-point) {
+    .full-page-content {
+        height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$famous-amos-header-height} + 100px));
+        margin-top: 100px;
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$famous-amos-header-height} + 100px));
+    }
+}
+
+// MD Screen -- Footer in 2 parts
+@media all and (min-width: $footer-second-break-point) and (max-width: $footer-first-break-point) {
+    .full-page-content {
+        height: calc(100% - ((#{$footer-line-height} * 2) + (#{$footer-padding} * 2) + #{$famous-amos-header-height} + 100px));
+        margin-top: 100px;
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 2) + (#{$footer-padding} * 2) + #{$famous-amos-header-height} + 100px));
+    }
+}
+
+// LG Screen -- Footer in 1 part
+@media all and (min-width: $footer-first-break-point) {
+    .full-page-content {
+        height: calc(100% - (#{$footer-height-full-screen} + #{$famous-amos-header-height} + 100px));
+        margin-top: 100px;
+    }
+
+    .product-details-page, .product-list-page, .tools-page {
+        min-height: calc(100% - (#{$footer-height-full-screen} + #{$famous-amos-header-height} + 100px));
+    }
+}

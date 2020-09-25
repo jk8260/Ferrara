@@ -1,0 +1,114 @@
+﻿[
+  {
+    "outputFile": "Static/css/MothersCookies/style.css",
+    "inputFile": "Static/css/MothersCookies/style.scss"
+  },
+  {
+    "outputFile": "Static/css/MurraySugarFree/style.css",
+    "inputFile": "Static/css/MurraySugarFree/style.scss"
+  },
+  {
+    "outputFile": "Static/css/TopMenuSite/nutrition-block.css",
+    "inputFile": "Static/css/TopMenuSite/nutrition-block.scss"
+  },
+  {
+    "outputFile": "Static/js/nutritionDropdown.es5.js",
+    "inputFile": "Static/js/nutritionDropdown.js"
+  },
+  {
+    "outputFile": "Static/css/TopMenuSite/Style.css",
+    "inputFile": "Static/css/TopMenuSite/Style.scss"
+  },
+  {
+    "outputFile": "Static/js/carousel.es5.js",
+    "inputFile": "Static/js/carousel.js"
+  },
+  {
+    "outputFile": "Static/js/general.es5.js",
+    "inputFile": "Static/js/general.js"
+  },
+  {
+    "outputFile": "Static/css/FamousAmosSite/style.css",
+    "inputFile": "Static/css/FamousAmosSite/style.scss"
+  },
+  {
+    "outputFile": "Static/css/MothersCookies/_page_size.css",
+    "inputFile": "Static/css/MothersCookies/_page_size.scss"
+  },
+  {
+    "outputFile": "Static/css/MothersCookies/_product-list-page.css",
+    "inputFile": "Static/css/MothersCookies/_product-list-page.scss"
+  },
+  {
+    "outputFile": "Static/css/MothersCookies/_history_page.css",
+    "inputFile": "Static/css/MothersCookies/_history_page.scss"
+  },
+  {
+    "outputFile": "Static/css/MothersCookies/_home-page.css",
+    "inputFile": "Static/css/MothersCookies/_home-page.scss"
+  },
+  {
+    "outputFile": "Static/css/MurraySugarFree/_home-page.css",
+    "inputFile": "Static/css/MurraySugarFree/_home-page.scss"
+  },
+  {
+    "outputFile": "Static/css/MurrayFood/style.css",
+    "inputFile": "Static/css/MurrayFood/style.scss"
+  },
+  {
+    "outputFile": "Static/css/MurrayFood/_home-page.css",
+    "inputFile": "Static/css/MurrayFood/_home-page.scss"
+  },
+  {
+    "outputFile": "Static/css/MurrayFood/_header.css",
+    "inputFile": "Static/css/MurrayFood/_header.scss"
+  },
+  {
+    "outputFile": "Static/js/carouselOld.es5.js",
+    "inputFile": "Static/js/carouselOld.js"
+  },
+  {
+    "outputFile": "Static/js/generalOld.es5.js",
+    "inputFile": "Static/js/generalOld.js"
+  },
+  {
+    "outputFile": "Static/js/nutritionDropdownOld.es5.js",
+    "inputFile": "Static/js/nutritionDropdownOld.js"
+  },
+  {
+    "outputFile": "Static/js/sum/sum.es5.js",
+    "inputFile": "Static/js/sum/sum.js"
+  },
+  {
+    "outputFile": "Static/js/nutritionDropdown/nutritionDropdown.es5.js",
+    "inputFile": "Static/js/nutritionDropdown/nutritionDropdown.js"
+  },
+  {
+    "outputFile": "Static/js/carousel/carousel.es5.js",
+    "inputFile": "Static/js/carousel/carousel.js"
+  },
+  {
+    "outputFile": "Static/js/logoStyle/logoStyle.es5.js",
+    "inputFile": "Static/js/logoStyle/logoStyle.js"
+  },
+  {
+    "outputFile": "Static/js/Keebler/SweetTreetsSPAIcons/SweetTreetsSPAIcons.es5.js",
+    "inputFile": "Static/js/Keebler/SweetTreetsSPAIcons/SweetTreetsSPAIcons.js"
+  },
+  {
+    "outputFile": "Static/js/custom-dropdown.es5.js",
+    "inputFile": "Static/js/custom-dropdown.js"
+  },
+  {
+    "outputFile": "Static/js/Keebler/RecipePage/RecipeAPIParser.es5.js",
+    "inputFile": "Static/js/Keebler/RecipePage/RecipeAPIParser.js"
+  },
+  {
+    "outputFile": "Static/css/Keebler/Style.css",
+    "inputFile": "Static/css/Keebler/Style.scss"
+  },
+  {
+    "outputFile": "Static/css/Keebler/_recipe-list-page.css",
+    "inputFile": "Static/css/Keebler/_recipe-list-page.scss"
+  }
+]

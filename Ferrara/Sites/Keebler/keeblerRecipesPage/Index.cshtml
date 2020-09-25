@@ -1,0 +1,108 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.Keebler.KeeblerRecipesPage.KeeblerRecipesPage>
+
+<div class="keebler-recipe-details-page" itemscope itemtype="http://schema.org/Recipe">
+    <div class="card keebler-top-recipe-card">
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12">
+                    <div class="row justify-content-center">
+                        <div class="recipe-image">
+                            @Html.PropertyFor(x => x.CurrentPage.RecipeImage)
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="social">
+                            <!-- AddToAny BEGIN -->
+                            <div class="a2a_kit a2a_kit_size_32 a2a_default_style share-plugin">
+                                <a class="a2a_button_pinterest"></a>
+                                <a class="a2a_button_facebook"></a>
+                                <a class="a2a_button_twitter"></a>
+                                <a class="a2a_button_email"></a>
+                                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                            </div>
+                            <script async src="https://static.addtoany.com/menu/page.js"></script>
+                            <!-- AddToAny END -->
+                            <div class="share-icons">
+                                <div class="pinterest">
+                                    <img src="~/Static/gfx/SocialIcons/PinterestIcon.svg" alt="Pinterest" />
+                                </div>
+                                <div class="facebook">
+                                    <img src="~/Static/gfx/SocialIcons/FacebookIcon.svg" alt="Facebook" />
+                                </div>
+                                <div class="twitter">
+                                    <img src="~/Static/gfx/SocialIcons/TwitterIcon.svg" alt="Twitter" />
+                                </div>
+                                <div class="email">
+                                    <img src="~/Static/gfx/SocialIcons/EmailIcon.svg" alt="Email" />
+                                </div>
+                                <div class="more">
+                                    <img src="~/Static/gfx/SocialIcons/MoreIcon.svg" alt="More" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12">
+                    <div class="card-text">
+                        <h5 class="card-title" itemprop="name" >@Html.PropertyFor(x => x.CurrentPage.RecipeTitle)</h5>
+                        <div class="recipe-intro">
+                            @Html.PropertyFor(x => x.CurrentPage.RecipeIntro)
+                        </div>
+                        <div class="recipe-info">
+                            @Html.PropertyFor(x => x.CurrentPage.RecipeInfo)
+                        </div>
+
+                        @if (@Model.CurrentPage.RecipeNutritionInfo != null)
+                        {
+                            <button class="active-oval-white-red recipe-nutrition"
+                                    data-toggle="modal" data-target="#nutritionModal" id="nutrition-btn">
+                                @Html.PropertyFor(x => x.CurrentPage.NutritionInfoButton)
+                            </button>
+                        }
+                            <button class="active-oval-filled-red" id="download-btn" onclick="window.print();false">
+                                DOWNLOAD
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="recipe-ingredients col-12">
+        <h1 itemprop="name">@Html.PropertyFor(x => x.CurrentPage.IngredientsTitle)</h1>
+        @Html.PropertyFor(x => x.CurrentPage.RecipeIngredients)
+    </div>
+    <div class="recipe-directions col-12">
+        <h1 itemprop="name">@Html.PropertyFor(x => x.CurrentPage.DirectionsTitle)</h1>
+        @Html.PropertyFor(x => x.CurrentPage.RecipeDirections)
+    </div>
+</div>
+    @if (Model.CurrentPage.ProductsUsed != null)
+    {
+        <div class="bg-white">
+            <div class="card products-used">
+                <h1 itemprop="name">PRODUCTS USED</h1>
+                <div class="products">
+                    @Html.PropertyFor(x => x.CurrentPage.ProductsUsed, new { CssClass = "block-container row equal-height", tag = Global.ContentAreaTags.FullWidth })
+                </div>
+            </div>
+        </div>
+    }
+<div class="modal fade" id="nutritionModal" tabindex="-1" role="dialog" aria-labelledby="nutritionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="nutritionImg">
+                @Html.PropertyFor(x => x.CurrentPage.RecipeNutritionInfo)
+            </div>
+        </div>
+    </div>
+</div>
+

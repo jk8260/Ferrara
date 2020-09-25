@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishCarouselBlock.KeeblerMakeAWishCarouselBlock
+
+<div id="@Model.CustomIdCarouselBlockDiv">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false" >
+        <div class="carousel-inner">
+            @Html.PropertyFor(x => x.ImageBlock, new { CssClass = "carousel-img-hide" })
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+@Scripts.Render("~/bundles/js/MakeAWishCarouselBlock")
+<script>
+    carouselOnloadFunc();
+</script>

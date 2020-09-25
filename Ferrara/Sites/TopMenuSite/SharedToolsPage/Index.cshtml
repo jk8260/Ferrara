@@ -1,0 +1,15 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.TopMenuSite.SharedToolsPage.SharedToolsPage> 
+
+    <div class="tools-page">
+        <div class="row">
+            <div class="col">
+                <div class="blurry-bg"></div>
+                <div class="tools-content">
+                    @Html.PropertyFor(x => x.CurrentPage.ToolsBody)
+                </div>
+            </div>
+        </div>
+    </div>

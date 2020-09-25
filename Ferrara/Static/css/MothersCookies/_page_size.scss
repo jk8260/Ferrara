@@ -1,0 +1,46 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+// XS Screen -- Footer in 3 parts
+@media all and (min-width: 0) and (max-width: $xsmall-screen) {
+    .full-page-content {
+         height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+
+    .home-page .row {
+        height: calc(100vh - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+
+    .product-details-page, .product-list-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 3) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+}
+
+// MD Screen -- Footer in 2 parts
+@media all and (min-width: $footer-second-break-point) and (max-width: $footer-first-break-point) {
+    .full-page-content {
+        height: calc(100% - ((#{$footer-line-height} * 2) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+
+    .home-page .row {
+        height: calc(100vh - ((#{$footer-line-height} * 2) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+
+    .product-details-page, .product-list-page {
+        min-height: calc(100% - ((#{$footer-line-height} * 2) + (#{$footer-padding} * 2) + #{$mothers-footer-border-height}));
+    }
+}
+
+// LG Screen -- Footer in 1 part
+@media all and (min-width: $footer-first-break-point) {
+    .full-page-content {
+        height: calc(100% - (#{$footer-height-full-screen} + #{$mothers-footer-border-height}));
+    }
+
+    .home-page .row {
+        height: calc(100vh - (#{$footer-height-full-screen} + #{$mothers-footer-border-height}));
+    }
+
+    .product-details-page, .product-list-page {
+        min-height: calc(100% - (#{$footer-height-full-screen} + #{$mothers-footer-border-height}));
+    }
+}

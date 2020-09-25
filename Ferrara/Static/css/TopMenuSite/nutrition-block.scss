@@ -1,0 +1,183 @@
+﻿@import './_themes.scss';
+
+.nutrition-facts {
+    border: 1px solid black;
+    margin: 20px 0;
+    float: left;
+    max-width: 315px;
+    min-width: 290px;
+    padding: 0.5rem;
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: black !important;
+    overflow-wrap: break-word;
+
+    p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    th p {
+        font-weight: 600;
+    }
+
+    .nutrition-facts table {
+        border-collapse: collapse;
+        max-width: 100%;
+        overflow-x: auto;
+
+        tr {
+            max-width: 100%;
+        }
+
+        .amount-per-serving {
+            border: none;
+        }
+    }
+
+    .nutrition-facts-title {
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+        margin: 0 0 0.25rem 0;
+    }
+
+    .nutrition-facts-header {
+        border-bottom: 10px solid black;
+        padding: 0 0 0.25rem 0;
+    }
+
+    .nutrition-facts-header p {
+        margin: 0;
+    }
+
+    .nutrition-facts-table, .nutrition-facts-table--grid, .nutrition-facts-table--small {
+        width: 99%;
+    }
+
+    .nutrition-facts-table thead tr th, .nutrition-facts-table--grid thead tr th, .nutrition-facts-table--small thead tr th, .nutrition-facts-table thead tr td, .nutrition-facts-table--grid thead tr td, .nutrition-facts-table--small thead tr td {
+        border: 0;
+    }
+
+    .nutrition-facts-table th, .nutrition-facts-table--grid th, .nutrition-facts-table--small th, .nutrition-facts-table td, .nutrition-facts-table--grid td, .nutrition-facts-table--small td {
+        font-weight: normal;
+        text-align: left;
+        padding: 0.25rem 0;
+        border-top: 1px solid black;
+    }
+
+    .nutrition-facts-table td:last-child, .nutrition-facts-table--grid td:last-child, .nutrition-facts-table--small td:last-child {
+        text-align: right;
+    }
+
+    .nutrition-facts-table .blank-cell, .nutrition-facts-table--grid .blank-cell, .nutrition-facts-table--small .blank-cell {
+        width: .5rem;
+        border-top: 0;
+    }
+
+    .nutrition-facts-table .thick-row th, .nutrition-facts-table--grid .thick-row th, .nutrition-facts-table--small .thick-row th, .nutrition-facts-table .thick-row td, .nutrition-facts-table--grid .thick-row td, .nutrition-facts-table--small .thick-row td {
+        border-top-width: 5px;
+    }
+
+    .thick-row .blank-cell {
+        border-top: 5px solid black;
+    }
+
+    .nutrition-facts-table--small {
+        border-bottom: 1px solid #999;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .nutrition-facts-table--small thead tr {
+        border-bottom: 1px solid black;
+    }
+
+    .nutrition-facts-table--small th, .nutrition-facts-table--small td {
+        border: 0;
+        padding: 0;
+    }
+
+    .nutrition-facts-table--grid {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .nutrition-facts-table--grid td:last-child::before {
+        font-weight: bold;
+        text-align: right;
+        margin: 0 0.25rem 0 0;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .thick-end {
+        border-bottom: 10px solid black;
+    }
+
+    .thin-end {
+        border-bottom: 1px solid black;
+    }
+
+    .smaller-details {
+        .blank-cell {
+            width: 5%;
+        }
+    }
+
+    tr.calories th p, tr.calories td {
+        font-size: 22px;
+    }
+
+    .ingredients {
+        border-top: 1px solid black;
+        margin-top: 5px;
+        padding-top: 5px;
+    }
+
+    .trans {
+        font-style: italic;
+    }
+
+    tr td:last-child {
+        max-width: 5%;
+    }
+
+    .daily-value-row {
+        text-align: right;
+        border-top: 5px solid black;
+    }
+
+    .dropdown-display-name {
+        display: none;
+    }
+        
+        @media only screen and (min-width: $xsmall-screen) and (max-width: $menu-breakpoint-lower) {
+        display: flex;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: auto;
+
+        div {
+            width: 50%;
+        }
+
+        div:first-child {
+            padding-right: 1%;
+
+            tr.thick-end {
+                border-bottom: none;
+            }
+        }
+
+        div:last-child {
+            padding-left: 1%;
+            border-left: 2px solid black;
+
+            tr:first-child th, tr:first-child td {
+                border-top: none;
+            }
+        }
+    }
+}

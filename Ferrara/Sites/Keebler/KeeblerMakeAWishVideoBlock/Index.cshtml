@@ -1,0 +1,20 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using System.Web.Optimization
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishVideoBlock.KeeblerMakeAWishVideoBlock
+
+    <div id="@Model.CustomIdForVideoBlockDiv" class="video-outer-div">
+        <img class="play-button-no-display" src="/Static/gfx/Icons/play-circle-regular.svg" />
+        <video class="MAW-Top-Video" muted playsinline autoplay autobuffer preload="auto">
+            <source src="@Model.VideoBlock" type="video/mp4">
+        </video>
+        @if(Model.DisplayScrollDownBtn == true){
+            <img class="mawScrolDownBtn" src="~/Static/gfx/ArrowIcons/LargeLeftArrow-White.svg" alt="Click to Scroll Down" onclick="mawScrollDown('@Model.ScrollToDiv')"/>
+        }
+    </div>
+
+@Scripts.Render("~/bundles/js/MakeAWishVideoBlock")
+<script>
+    videoPlayOptionSwitch("@Model.VideoPlayOption")
+</script>

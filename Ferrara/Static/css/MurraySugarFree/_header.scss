@@ -1,0 +1,94 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.navbar {
+    background-color: $famous-amos-footer;
+    padding: 0;
+    min-height: $famous-amos-header-height;
+
+    .custom-toggler.navbar-toggler {
+        border: none;
+        outline: none;
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    }
+
+    .navbar-collapse {
+        margin-right: 15px;
+        line-height: 16px;
+    }
+
+    a.nav-link {
+        color: $murrays-sugar-free-font-1;
+        max-width: 1250px;
+        margin-left: 10px;
+    }
+
+    .navbar-brand {
+        img {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            z-index: 10;
+            max-width: 200px;
+            left: 25px;
+        }
+
+        .nav-headline {
+            font-style: italic;
+            font-weight: 100;
+            font-size: 14px;
+            margin-left: 140px;
+
+            li {
+                padding-left: 75px;
+                color: white;
+            }
+        }
+    }
+
+    .nav-spacer {
+        color: white;
+    }
+
+    li:last-child {
+        h3 {
+            display: none;
+        }
+    }
+}
+// Styling for when menu is collapsed
+@media only screen and (max-width: $menu-breakpoint-lower) {
+    .navbar {
+        padding: 5px;
+
+        .nav-spacer {
+            display: none;
+        }
+
+        .nav-brand img {
+            left: 0;
+        }
+
+        .nav-links {
+            margin: 65px 0 0 10px; 
+        }
+    }
+
+    .home-page-nav {
+        .nav-links {
+            margin: 0;
+        }
+        .navbar-brand {
+            display: none;
+        }
+    }
+}
+
+// Stylingfor when menu is fully open
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    .hamburger-home-link {
+        display: none;
+    }
+}

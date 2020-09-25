@@ -1,0 +1,53 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using System.Web.Optimization
+
+@model Ferrara.Sites.Keebler.KeeblerStartPage.KeeblerStartPageViewModel
+
+
+<div id="treehouse-base">
+    <video onclick="enterSite()" id="tree-video" muted playsinline autoplay autobuffer preload="auto">
+    </video>
+    <img id="enterSiteButton" src="~/Static/gfx/ArrowIcons/LargeLeftArrow-White.svg" alt="Click to Enter Site" onclick="enterSite()" />
+</div>
+
+<div id="home-page">
+    @Html.PropertyFor(x => x.CurrentPage.MainContentBlocks, new { CssClass = "home-page-main-content-blocks" })
+    @Html.PropertyFor(x => x.CurrentPage.FooterBlock, new { CssClass = "home-page-main-footer-block" })
+</div>
+
+@Scripts.Render("~/bundles/js/KeeblerHomePage")
+
+<script>
+    hideTreeIfHomeButtonWasClicked();
+    setTreeVideoSrc("@Model.CurrentPage.MobileVideo", "@Model.CurrentPage.FullScreenVideo");
+</script>
+
+
+<div id="mymodal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('.modal').on('show.bs.modal', function (event) {
+  $(this).find('iframe').attr("src", $(event.relatedTarget).data('url') );
+});
+
+$('.modal').on('hidden.bs.modal', function (e) {
+    $(this).find('iframe').attr("src", "");
+});
+
+</script>
+

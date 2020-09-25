@@ -1,0 +1,96 @@
+﻿@using System.Web.Optimization
+
+@model Ferrara.Sites.Keebler.CategoriesListingPage.CategoriesListingPageViewModel
+
+    <div class="sweet-treats-page">
+        <h1 class="sweet-treats-title">Sweet Treats</h1>
+        <div id="root">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <div class="left-arrow" id="firstCategory-leftArrow" onclick="$('#thirdCategory-tab').trigger('click')">
+                    <span class="carousel-control-prev-icon"></span>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link active" id="firstCategory-tab" data-toggle="tab" href="#firstCategory" role="tab" aria-controls="firstCategory" aria-selected="true">
+                    </a>
+                </li>
+                <div class="right-arrow" id="firstCategory-rightArrow" onclick="$('#secondCategory-tab').trigger('click')">
+                    <span class="carousel-control-next-icon"></span>
+                </div>
+
+                <div class="left-arrow" id="secondCategory-leftArrow" style="display:none;" onclick="$('#firstCategory-tab').trigger('click')">
+                    <span class="carousel-control-prev-icon"></span>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" id="secondCategory-tab" data-toggle="tab" href="#secondCategory" role="tab" aria-controls="secondCategory" aria-selected="false">
+                    </a>
+                </li>
+                <div class="right-arrow" id="secondCategory-rightArrow" style="display:none;" onclick="$('#thirdCategory-tab').trigger('click')">
+                    <span class="carousel-control-next-icon"></span>
+                </div>
+
+
+                <div class="left-arrow" id="thirdCategory-leftArrow" style="display:none;" onclick="$('#secondCategory-tab').trigger('click')">
+                    <span class="carousel-control-prev-icon"></span>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" id="thirdCategory-tab" data-toggle="tab" href="#thirdCategory" role="tab" aria-controls="secondCategory" aria-selected="false">
+                    </a>
+                </li>
+                <div class="right-arrow" id="thirdCategory-rightArrow" style="display:none;" onclick="$('#firstCategory-tab').trigger('click')">
+                    <span class="carousel-control-next-icon"></span>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+<div class="modal fade" id="nutritionModal" tabindex="-1" role="dialog" aria-labelledby="nutritionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="nutritionModalImage" alt="Nutrition Information"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Where to Buy Modal -->
+<div class="modal fade" id="buyNowModal" tabindex="-1" role="dialog" aria-labelledby="buyNowModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="destinidiv" src=""></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="product-root" class="container"></div>
+@Scripts.Render("~/bundles/js/SweetTreatsSPA")
+@Scripts.Render("~/bundles/js/SweetTreatsProductsAPI")
+@Scripts.Render("~/bundles/js/KeeblerGlobalTs")
+<script type="text/javascript">
+        $(function () {
+            $.get( "/CategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function( data ) {
+                productTypesFunc(data);
+                firstProductsFuncCall();
+            });
+        });
+        function destiniFunction(containerId, associationId) {
+            destini.init(containerId);
+            destini.loadWidget(associationId);
+        }
+</script>
+

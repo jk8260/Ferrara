@@ -1,0 +1,51 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.Keebler.KeeblerMakeAWishTopBottomNoneContentBlock.KeeblerMakeAWishTopBottomNoneContentBlock
+
+@if (Model.OrientationClass == "top-oriented-section" || Model.OrientationClass == "bottom-oriented-section")
+{
+    <div class="MAW-Top-Bottom-Content">
+        <div id="@(Model.CustomIdForMainContentBlock != null ? Model.CustomIdForMainContentBlock : "")" class="row @Model.OrientationClass">
+            <div class="text-section col-md-12 col-lg-12 col-xl-12 @(Model.OrientationClass == "top-oriented-section" ? "order-2" : "order-1")">
+                <h1 class="section-title">
+                    @Html.PropertyFor(x => x.SectionTitle)
+                </h1>
+                <div class="section-description">
+                    @Html.PropertyFor(x => x.SectionDescription)
+                </div>
+                <div class="section-button">
+                    @Html.PropertyFor(x => x.ButtonContentArea)
+                </div>
+            </div>
+            <div class="image-section col-md-12 col-lg-12 col-xl-12 @(Model.OrientationClass == "top-oriented-section" ? "order-1" : "order-2")">
+                @Html.PropertyFor(x => x.MainImage)
+                @if (Model.ImageCaption != null)
+                {
+                    <div class="image-caption">
+                        @Html.PropertyFor(x => x.ImageCaption)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+//No Image Orientation was selected
+else
+{
+    <div class="MAW-No-Image-Content">
+        <div id="@(Model.CustomIdForMainContentBlock != null ? Model.CustomIdForMainContentBlock : "")" class="row @Model.OrientationClass">
+            <div class="text-section col-md-12 col-lg-12">
+                <h1 class="section-title">
+                    @Html.PropertyFor(x => x.SectionTitle)
+                </h1>
+                <div class="section-description">
+                    @Html.PropertyFor(x => x.SectionDescription)
+                </div>
+                <div class="section-button">
+                    @Html.PropertyFor(x => x.ButtonContentArea)
+                </div>
+            </div>
+        </div>
+    </div>
+}

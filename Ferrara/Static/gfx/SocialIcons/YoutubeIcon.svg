@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="47px" viewBox="0 0 46 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Youtube</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19,0 C8.50645833,0 0,8.50645833 0,19 C0,29.4935417 8.50645833,38 19,38 C29.4935417,38 38,29.4935417 38,19 C38,8.50645833 29.4935417,0 19,0 Z" id="path-1"></path>
+        <filter x="-22.4%" y="-11.8%" width="144.7%" height="147.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.274509804   0 0 0 0 0.11372549   0 0 0 0 0.0352941176  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="footer" transform="translate(-274.000000, -73.000000)">
+            <g id="Social" transform="translate(26.000000, 32.000000)">
+                <g id="Group" transform="translate(0.000000, 40.000000)">
+                    <g id="Youtube" transform="translate(252.000000, 1.000000)">
+                        <g id="Path-Copy-2">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFE9C4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <rect id="Rectangle" fill="#461D09" x="5" y="10" width="28" height="20" rx="5"></rect>
+                        <path d="M19.9,17.5333333 L23.4,22.2 C23.5656854,22.4209139 23.5209139,22.7343146 23.3,22.9 C23.2134519,22.9649111 23.1081851,23 23,23 L16,23 C15.7238576,23 15.5,22.7761424 15.5,22.5 C15.5,22.3918149 15.5350889,22.2865481 15.6,22.2 L19.1,17.5333333 C19.2656854,17.3124194 19.5790861,17.2676479 19.8,17.4333333 C19.8379028,17.4617605 19.8715729,17.4954305 19.9,17.5333333 Z" id="Triangle" fill="#FFE9C4" transform="translate(19.500000, 20.000000) rotate(90.000000) translate(-19.500000, -20.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

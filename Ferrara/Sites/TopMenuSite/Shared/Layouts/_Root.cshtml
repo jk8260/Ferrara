@@ -1,0 +1,77 @@
+﻿@using System.Web.Optimization
+@using EPiServer.Framework.Web.Mvc.Html
+@model Ferrara.Sites.Shared.IPageViewModel<Ferrara.Common.SitePageData>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/css/topMenuSite")
+    @Styles.Render("~/bundles/css/" + @Model.CurrentPage.BrandsCode)
+    <title>@Model.CurrentPage.MetaTitle</title>
+    <link rel="icon" type="image/png" href="@Model.CurrentPage.BrandsIcon" />
+    <meta name="description" content="@Model.CurrentPage.MetaDescription">
+    <meta name="keywords" content="@Model.CurrentPage.MetaKeywords">
+    <!-- START Open Graph meta tags -->
+    <meta property="og:title" content="@Model.CurrentPage.OgTitle">
+    <meta property="og:description" content="@Model.CurrentPage.OgDescription">
+    <meta property="og:type" content="@Model.CurrentPage.OgType">
+    <meta property="og:image" content="@Url.ContentUrl(@Model.CurrentPage.OgImage)">
+    <meta property="og:url" content="@Url.PageUrl(Model.CurrentPage.LinkURL)">
+    <meta property="og:image:width" content="@Model.CurrentPage.OgImageWidth">
+    <meta property="og:image:height" content="@Model.CurrentPage.OgImageHeight">
+    <meta property="og:image:alt" content="@Model.CurrentPage.OgImageAlt">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='@("//destinilocators.com/"+@Model.CurrentPage.WhereToBuyBrandCode+"/widget/install/")'></script>
+    @{
+        var brandCodeGA = "";
+
+        switch (@Model.CurrentPage.BrandsCode)
+        {
+            case "murraysugarfree":
+                brandCodeGA = "19";
+                break;
+            case "murrayfood":
+                brandCodeGA = "18";
+                break;
+            case "motherscookies":
+                brandCodeGA = "38";
+                break;
+            case "famousamossite":
+                brandCodeGA = "17";
+                break;
+
+        }
+    }
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src='@("https://www.googletagmanager.com/gtag/js?id=UA-5870493-"+brandCodeGA)'></script>
+    @Scripts.Render("~/bundles/js/TopMenuSite")
+    <script>
+        alertOfIE();
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+        gtag('config', '@("UA-5870493-"+brandCodeGA)');
+    </script>
+</head>
+<body style="background: @Model.CurrentPage.BackgroundColor url(@Model.CurrentPage.BackgroundImage) top left">
+
+    @{
+        Html.RenderPartial("~/Sites/TopMenuSite/Shared/Header.cshtml", Model);
+    }
+    @RenderBody()
+
+    @{
+        Html.RenderPartial("~/Sites/TopMenuSite/Shared/Footer.cshtml", Model);
+    }
+
+    @Scripts.Render("~/bundles/js")
+
+
+</body>
+</html>

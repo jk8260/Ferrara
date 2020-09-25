@@ -1,0 +1,121 @@
+﻿@import './_theme.scss';
+@import './_fonts.scss';
+
+.home-page-main-footer-block {
+    width: 400%;
+}
+
+.footer {
+    background: $footer-brown-gradient;
+    width: 100vw;
+    float: right;
+    padding: 50px 30px 8px;
+
+    .main-links-container {
+        @include subhead;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .main-links-container > div {
+        display: grid;
+        grid-template-rows: repeat(3, 20px);
+        grid-gap: 20px;
+        grid-auto-flow: column;
+    }
+
+    .footer-msg {
+        margin-top: 30px;
+        color: $white;
+        @include caption-2;
+    }
+
+    hr {
+        border-color: $white;
+        border-width: 1px;
+    }
+
+    .ferrara-brand {
+        float: left;
+    }
+
+    .other-brands {
+        float: right;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .email-container {
+        color: $white;
+
+        h5 {
+            @include subhead;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .email-description {
+            @include subhead;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .text-input-with-icon {
+            margin: 20px 0;
+            width: 90%;
+
+            #submit-arrow {
+                top: 0;
+                right: 5px;
+                cursor: pointer;
+                padding: 10px;
+                position: absolute;
+
+
+                &:focus, &:active {
+                    outline: 0 !important;
+                }
+            }
+
+            input {
+                height: 39px;
+            }
+
+            .success-checkmark {
+                top: 5px;
+                width: 30px;
+                left: 91%;
+                position: absolute;
+            }
+
+            .email-success, .email-failure {
+                @include subhead;
+                margin: 10px 0 0 15px;
+                font-weight: 600;
+            }
+
+            #email-failure {
+                color: $keebler-red;
+            }
+
+            .email-success {
+                color: $elf-green;
+            }
+        }
+
+        label.terms-input.container-maroon {
+            @include caption-1;
+            line-height: 22px;
+        }
+    }
+
+    @media screen and (min-width: $xsmall-screen) {
+        .social-media-container {
+            max-width: 260px;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+﻿@using System.Web.Optimization
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+@model Ferrara.Sites.Shared.IPageViewModel<Ferrara.Common.SitePageData>
+<script>const exports = {};</script>
+<nav style="background: @Model.CurrentPage.HeaderColor url(@Model.CurrentPage.HeaderBannerImage) bottom left;"
+     class="@(String.IsNullOrEmpty(@Url.ContentUrl(Model.CurrentPage.HomePageLink)) ? "navbar navbar-left navbar-expand-lg home-page-nav": "navbar navbar-left navbar-expand-lg")">
+    <div class="navbar-brand">
+        @{
+            if (!String.IsNullOrEmpty(@Url.ContentUrl(Model.CurrentPage.HomePageLink)))
+            {
+                <a href="@Url.ContentUrl(Model.CurrentPage.HomePageLink)" class="logo-img" id="logo-image">
+                    @Html.PropertyFor(x => x.CurrentPage.HeaderLogo)
+                </a>
+                <ul class="nav navbar-nav nav-headline">
+                    <li>@Model.CurrentPage.HeaderTagline</li>
+                </ul>
+            }
+        }
+    </div>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="exports.logoStyle('@Model.CurrentPage.BrandsCode')">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <div class="navbar-header"></div>
+
+        <ul class="nav navbar-nav navbar-left nav-links">
+            <li class="hamburger-home-link"><a href="@Url.ContentUrl(Model.CurrentPage.HomePageLink)" class="w-nav-link nav-link">Home</a></li>
+            @foreach (var startPageChild in Model.GetStartPageChildren())
+            {
+                <li><a href="@Url.ContentUrl(startPageChild.ContentLink)" class="w-nav-link nav-link">@startPageChild.Name</a></li>
+                <li class="nav-spacer"><h3>|</h3></li>
+            }
+        </ul>
+    </div>
+</nav>
+<div class="banner-img" style="background: url(@Model.CurrentPage.BannerImage) top left;"></div>
+
+@Scripts.Render("~/bundles/js/Header")

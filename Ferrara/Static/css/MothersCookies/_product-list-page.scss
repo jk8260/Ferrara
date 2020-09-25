@@ -1,0 +1,49 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.product-list-page {
+    margin-top: 180px;
+    color: $mothers-font-1 !important;
+
+    h2 {
+        font-weight: bolder;
+        font-size: 2em;
+        margin: 10px 30px;
+    }
+
+    p {
+        color: $mothers-font-1 !important;
+    }
+
+    .block-container.equal-height {
+        width: 80%;
+        margin: auto;
+        flex-wrap: wrap;
+
+
+        .sharedproductlistblock {
+            flex-grow: 1;
+            width: 29%;
+            max-width: none !important;
+            margin: 2%;
+
+            .product-list-block {
+                padding: 0;
+
+                div img {
+                    width: unset !important;
+                    max-height: 300px;
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+}
+//MEDIA QUERIES FOR DIFFERENT SCREENS
+// Smaller devices
+@media only screen and (max-width: $menu-breakpoint-lower) {
+    .product-list-block {
+        p {
+            padding-bottom: 10%;
+        }
+    }  
+}

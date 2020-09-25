@@ -1,0 +1,57 @@
+﻿@import '_theme.scss';
+
+.video-outer-div {
+    position: relative;
+    text-align: center;
+
+    .MAW-Top-Video {
+        width: 100%;
+        max-height: calc(100vh - 73px);
+        margin-top: 73px;
+    }
+
+    video {
+        position: relative;
+        z-index: -1;
+    }
+
+    .play-button-no-display {
+        position: absolute;
+        display: none;
+        width: 250px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Mobile
+@media all and (max-width: 766px) {
+    .play-button-no-display {
+        width: 50px !important;
+    }
+
+    .MAW-Top-Video {
+        height: unset !important;
+        margin-top: 50px !important;
+    }
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 767px) and (max-width: 990px) {
+    .play-button-no-display {
+        width: 100px;
+    }
+
+    .MAW-Top-Video {
+        height: unset !important;
+        margin-top: 50px !important;
+    }
+}
+
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 991px) and (max-width: 1365px) {
+    .video-outer-div:hover .play-button-image {
+        display: block;
+    }
+}

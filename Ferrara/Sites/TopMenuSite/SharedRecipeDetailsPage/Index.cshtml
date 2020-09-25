@@ -1,0 +1,61 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Ferrara
+
+@model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.TopMenuSite.SharedRecipeDetailsPage.SharedRecipeDetailsPage>
+
+    <div class="recipe-details-page">
+        <div class="blurry-bg"></div>
+        <div class="recipe-details-text">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="recipe-intro">
+                        @Html.PropertyFor(x => x.CurrentPage.RecipeIntro)
+                    </div>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn-nostyle" id="nutrition-btn"data-toggle="modal" data-target="#nutritionalModal">
+                        VIEW NUTRITIONAL INFORMATION
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="nutritionalModal" tabindex="-1" role="dialog" aria-labelledby="nutritionalModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-nutrition">
+                                        @Html.PropertyFor(x => x.CurrentPage.RecipeNutritionInfo)
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-ingredients">
+                        @Html.PropertyFor(x => x.CurrentPage.RecipeIngredients)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="recipe-img">
+                        @Html.PropertyFor(x => x.CurrentPage.RecipeImage)
+                    </div>
+                    <div class="recipe-directions">
+                        @Html.PropertyFor(x => x.CurrentPage.RecipeDirections)
+                    </div>
+
+                    <!-- Print btn -->
+                    <button type="button" class="btn-nostyle" id="print-btn" onclick="window.print();return false;">
+                        PRINT RECIPE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

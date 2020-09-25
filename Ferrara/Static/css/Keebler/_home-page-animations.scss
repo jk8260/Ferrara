@@ -1,0 +1,208 @@
+﻿/*$elf-width: 576px;
+$elf-height: 768px;
+$elf-sprite-width: -6336px;
+$elf-sprite-height: -3072px;*/
+
+// FULL SIZED!! ERNIE-DESKTOP 25MB
+$elf-width: 1000px;
+$elf-height: 964px;
+$elf-sprite-width: -11000px;
+$elf-sprite-height: -3856px;
+
+$oven-width: 900px;
+$oven-height: 507px;
+$oven-sprite-width: -9900px;
+$oven-sprite-height: -3042px;
+
+.animation-sprite {
+    top: 40px;
+    right: 0;
+    z-index: -1;
+    opacity: 1;
+    position: absolute;
+    transform: scale(.9);
+}
+
+@keyframes fadeOut0to100 {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes widenContainer {
+    50% { width: 100%; }
+    100% { width: 100%; }
+}
+
+@keyframes widenSubContainers {
+    50% { width: 50%; }
+    100% { width: 50%; }
+}
+
+@keyframes removeMargin {
+    50% { margin: 0; }
+    100% { margin: 0; }
+}
+
+@keyframes fadeOut0to50 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+// Elf Animations
+@-webkit-keyframes playvelf {
+    0% { background-position-y: 0; }
+    100% { background-position-y: $elf-sprite-height; } // height of sprite sheet
+}
+
+@-webkit-keyframes playhelf {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: $elf-sprite-width; } // width of sprite sheet
+}
+
+@keyframes fadeOutElf {
+    0% { opacity: 1; }
+    43% { right: 0; }
+    80% { opacity: 1; }
+    100% {
+        opacity: 0;
+        right: 0;
+    }
+}
+
+@keyframes fadeOutElfMobile {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { 
+        opacity: 0;
+        right: 0;
+    }
+}
+
+// Oven Animations
+@-webkit-keyframes playvoven {
+    0% { background-position-y: 0; }
+    100% { background-position-y: $oven-sprite-height; } // height of sprite sheet
+}
+
+@-webkit-keyframes playhoven {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: $oven-sprite-width; } // width of sprite sheet
+}
+
+@keyframes fadeOutOven {
+    50% {
+        transform: scale(3);
+        z-index: 1;
+        bottom: 0 !important;
+        left: 50%;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+        z-index: 1;
+        bottom: 0 !important;
+        left: 50%;
+    }
+}
+
+@keyframes fadeOutOvenMobile {
+    50% {
+        z-index: 1;
+        bottom: 0 !important;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: 1;
+        bottom: 0 !important;
+        transform: scale(1.5);
+    }
+}
+
+#SweetTreats {
+    .image-section {
+        position: relative;
+
+        .animation-sprite {
+            width: $elf-width;
+            height: $elf-height;
+            transform-origin: top right;
+            top: -240px;
+            right: -410px;
+        }
+    }
+
+    &.animate-container {
+        animation: widenContainer 2s forwards;
+
+        .info-section.fadeOut {
+            animation: fadeOut0to50 2s forwards;
+        }
+
+        .image-section {
+            position: absolute;
+            right: 0;
+            animation: removeMargin 2s forwards;
+        }
+
+        .info-section, .image-section {
+            animation: widenSubContainers 2s forwards;
+        }
+    }
+
+    .fadeOut {
+        animation: fadeOut0to100 2s forwards;
+    }
+
+    @media all and (min-width: 426px) {
+        .elf-sprite {
+            animation: playvelf 2s steps(4), playhelf .5s steps(11) 4, fadeOutElf 2s forwards;
+        }
+    }
+
+    @media all and (max-width: 425px) {
+        .elf-sprite {
+            animation: playvelf 2s steps(4), playhelf .5s steps(11) 4, fadeOutElfMobile 2s forwards;
+        }
+    }
+}
+
+#YummyRecipes {
+    .image-section {
+        position: relative;
+
+        .animation-sprite {
+            width: $oven-width;
+            height: $oven-height;
+        }
+    }
+
+    .fadeOut {
+        animation: fadeOut0to50 3s forwards;
+    }
+
+
+    @media all and (min-width: 426px) {
+        .oven-sprite {
+            position: absolute;
+            animation: playvoven 3s steps(6), playhoven .5s steps(11) 6, fadeOutOven 3s forwards;
+        }
+    }
+
+    @media all and (max-width: 425px) {
+        .oven-sprite {
+            animation: playvoven 3s steps(6), playhoven .5s steps(11) 6, fadeOutOvenMobile 3s forwards;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.product-details-page {
+    margin-top: 10%;
+
+    .product-details {
+        line-height: 1.6em !important;
+        text-align: left !important;
+    }
+
+    @media only screen and (max-width: $xsmall-screen) {
+        img {
+            margin-top: 100px !important;
+        }
+    }
+}
+
+@media all and (min-width: $xsmall-screen) and (max-width: $menu-breakpoint-lower){
+   .product-details-page {
+       margin-top:15%;
+       margin-bottom:5%;
+   }
+}

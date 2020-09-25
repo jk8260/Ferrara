@@ -1,0 +1,45 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.footer {
+    bottom: 0;
+    font-size: 14px;
+    min-height: $footer-height-full-screen;
+    line-height: $footer-height-full-screen;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        white-space: nowrap;
+    }
+
+    .murray-footer-msg {
+        margin-left: 2%
+    }
+
+    div:first-child {
+        min-width: 260px;
+        margin: 0 5px 0 20px;
+    }
+
+    @media all and (max-width: $footer-first-break-point) {
+        padding: 20px 0;
+
+        div {
+            display: inline;
+            min-width: 0;
+            width: 100%;
+            text-align: center;
+            line-height: $footer-line-height;
+        }
+
+        div:first-child {
+            margin: auto;
+        }
+
+        .sm-hidden {
+            display: none;
+        }
+    }
+
+}

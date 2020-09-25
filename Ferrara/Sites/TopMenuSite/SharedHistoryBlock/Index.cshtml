@@ -1,0 +1,13 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Ferrara.Sites.TopMenuSite.SharedHistoryBlock.SharedHistoryBlock
+
+<section class="row">
+    <div class="col-sm-12 col-md-6 image-container">
+        @Html.PropertyFor(x => x.HistoryImage, new { CssClass = "img-fluid" })
+    </div>
+    <div class="col-sm-12 col-md-6">
+        @Html.PropertyFor(x => x.HistoryDescription)
+    </div>
+</section>

@@ -1,0 +1,38 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.recipe-list-page {
+    position: relative;
+    margin: 8% 5%;
+    padding: 1%;
+    color: $murrays-sugar-free-font-1;
+
+    .recipe-text-container {
+        .tagline {
+            font-style: italic;
+        }
+    }
+
+    .block-container.equal-height {
+        display: flex;
+        justify-content: space-around;
+
+        .sharedrecipelistblock {
+            max-width: 500px;
+
+            .recipe-list-block {
+                padding: 5%;
+
+                h1 {
+                    font-size: 1.5em;
+                }
+
+                a {
+                    p {
+                        text-decoration: underline;
+                        color: $murrays-font-2;
+                    }
+                }
+            }
+        }
+    }
+}

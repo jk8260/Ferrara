@@ -1,0 +1,118 @@
+﻿@import '../TopMenuSite/_themes.scss';
+
+.navbar-expand-lg {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: 75px;
+    background-repeat: repeat-x !important;
+}
+
+// SMALL SCREEN
+@media only screen and (max-width: $menu-breakpoint-lower) {
+    .navbar {
+        min-height: $famous-amos-header-height;
+        width: 100%;
+        padding: 5px;
+        background-position: bottom !important;
+
+        .nav-links {
+            display: inline;
+        }
+
+        .custom-toggler.navbar-toggler {
+            display: inline;
+            border: none;
+            background-color: $mothers-body;
+            outline: none;
+        }
+
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-collapse {
+            margin-top: 5px;
+            background-color: $mothers-body;
+        }
+
+        a.nav-link {
+            color: white !important;
+            max-width: 1250px;
+            margin-left: 10px;
+        }
+    }
+
+    .navbar-brand, .nav-spacer {
+        display: none;
+    }
+}
+
+// ALL OTHER SCREENS
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    .navbar-brand {
+        .logo-img {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            z-index: 10;
+        }
+
+        .nav-headline {
+            position: absolute;
+            top: 120px;
+            left: 100px;
+            font-size: 22px;
+            font-family: 'Goudy Old Style' !important;
+            font-style: italic;
+
+
+            li {
+                font-family: 'Goudy Old Style' !important;
+                padding-left: 75px;
+                color: white;
+            }
+        }
+    }
+
+    .hamburger-home-link {
+        display: none;
+    }
+
+    .navbar-expand-lg {
+        .nav-links {
+            position: absolute;
+            top: 58px;
+            left: 209px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-around;
+            width: 426px;
+
+            .nav-spacer {
+                display: none;
+            }
+
+            li a {
+                color: $mothers-font-2;
+                font-weight: 900;
+            }
+        }
+    }
+
+    .custom-toggler {
+        display: none;
+    }
+}
+
+
+// HOME PAGE SPECIFIC
+.home-page-nav {
+    width: calc(100% - 270px) !important;
+
+    .nav-links {
+        display: none;
+    }
+}

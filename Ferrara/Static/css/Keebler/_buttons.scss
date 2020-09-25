@@ -1,0 +1,293 @@
+﻿@import './_theme.scss';
+@import './_fonts.scss';
+
+button:active, button:focus {
+    outline: none;
+}
+
+// Ovals
+.active-oval-filled-red,
+.active-oval-filled-green,
+.active-oval-filled-yellow,
+.active-oval-filled-brown,
+.active-oval-white-red,
+.active-oval-white-yellow,
+.active-oval-white-green,
+.active-oval-white-brown,
+.active-oval-outlined-red,
+.active-oval-outlined-yellow,
+.active-oval-outlined-green,
+.active-oval-outlined-brown,
+.inactive-oval-filled,
+.inactive-oval-outlined,
+.reversed-oval-outlined {
+    height: 35px;
+    white-space: nowrap;
+    padding: 0 5%;
+    border-radius: 25px;
+    box-shadow: 0 15px 24px -10px rgba(38,38,38,0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    text-transform: uppercase;
+    @include subhead;
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 5px 15px -10px rgba(38,38,38,0.5);
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .5s, opacity 1s;
+    }
+
+    &:active:after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s;
+    }
+}
+
+// Circles
+.active-circle-filled-red,
+.active-circle-filled-green,
+.active-circle-filled-yellow,
+.active-circle-filled-brown,
+.active-circle-white-red,
+.active-circle-white-yellow,
+.active-circle-white-green,
+.active-circle-white-brown,
+.inactive-circle-filled,
+.inactive-circle-outlined,
+.reversed-circle-outlined {
+    font-family: 'Lilita One', cursive;
+    box-shadow: 0 15px 24px -10px rgba(38,38,38,0.5);
+    height: 118px;
+    width: 119px;
+    border-radius: 50%;
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    line-height: 41px;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .5s, opacity 1s;
+    }
+
+    &:active:after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s;
+    }
+}
+
+
+// Colored Buttons
+.active-oval-filled-red, .active-oval-filled-green, .active-oval-filled-yellow, .active-oval-filled-brown, .active-circle-filled-red, .active-circle-filled-green, .active-circle-filled-yellow, .active-circle-filled-brown {
+    border: none;
+    color: white;
+}
+
+.active-oval-filled-red, .active-circle-filled-red {
+    background: $red-gradient;
+
+    &:after {
+        background-image: radial-gradient(circle, $green-700 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-filled-yellow, .active-circle-filled-yellow {
+    background: $yellow-gradient;
+
+    &:after {
+        background-image: radial-gradient(circle, $yellow-700 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-filled-green, .active-circle-filled-green {
+    background: $green-gradient;
+
+    &:after {
+        background-image: radial-gradient(circle, $green-800 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-filled-brown, .active-circle-filled-brown {
+    background: $brown-gradient;
+
+    &:after {
+        background-image: radial-gradient(circle, $brown-700 10%, transparent 10.01%);
+    }
+}
+
+// White Buttons
+.active-oval-white-red, .active-oval-white-yellow, .active-oval-white-green, .active-oval-white-brown {
+    border: none;
+    background: linear-gradient(159.72deg, #FFFFFF 0%, #E6E6E6 100%);
+}
+
+.active-circle-white-red, .active-circle-white-yellow, .active-circle-white-green, .active-circle-white-brown {
+    border: none;
+    background: linear-gradient(159.72deg, #FFFFFF 0%, #E6E6E6 100%);
+}
+
+.active-oval-white-red, .active-circle-white-red {
+    color: $keebler-red;
+
+    &:after {
+        background-image: radial-gradient(circle, $red-700 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-white-yellow, .active-circle-white-yellow {
+    color: $magic-gold;
+
+    &:after {
+        background-image: radial-gradient(circle, $secondary-yellow 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-white-green, .active-circle-white-green {
+    color: $elf-green;
+
+    &:after {
+        background-image: radial-gradient(circle, $green-700 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-white-brown, .active-circle-white-brown {
+    color: $fudge;
+
+    &:after {
+        background-image: radial-gradient(circle, $brown-700 10%, transparent 10.01%);
+    }
+}
+// Active Outlined Buttons
+.active-oval-outlined-red, .active-oval-outlined-yellow, .active-oval-outlined-green, .active-oval-outlined-brown {
+    border: none;
+    background-color: transparent;
+}
+
+.active-oval-outlined-red {
+    border: 3px solid $keebler-red;
+    color: $keebler-red;
+
+    &:after {
+        background-image: radial-gradient(circle, $keebler-red 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-outlined-yellow {
+    border: 3px solid $magic-gold;
+    color: $magic-gold;
+
+    &:after {
+        background-image: radial-gradient(circle, $magic-gold 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-outlined-green {
+    border: 3px solid $elf-green;
+    color: $elf-green;
+
+    &:after {
+        background-image: radial-gradient(circle, $elf-green 10%, transparent 10.01%);
+    }
+}
+
+.active-oval-outlined-brown {
+    border: 3px solid $fudge;
+    color: $fudge;
+
+    &:after {
+        background-image: radial-gradient(circle, $fudge 10%, transparent 10.01%);
+    }
+}
+
+// Inactive Buttons
+.inactive-oval-filled {
+    background-color: $secondary-medium-gray;
+    color: $white;
+    border: none;
+
+    &:after {
+        background-image: radial-gradient(circle, $secondary-dark-gray 10%, transparent 10.01%);
+    }
+}
+
+.inactive-circle-filled {
+    background-color: $secondary-medium-gray;
+    border: none;
+    color: $white;
+
+    &:after {
+        background-image: radial-gradient(circle, $secondary-dark-gray 10%, transparent 10.01%);
+    }
+}
+
+.inactive-oval-outlined {
+    border: 3px solid $secondary-medium-gray;
+    color: $secondary-medium-gray;
+    background-color: $white;
+
+    &:after {
+        background-image: radial-gradient(circle, $secondary-medium-gray 10%, transparent 10.01%);
+    }
+}
+
+.inactive-circle-outlined {
+    border: 4px solid $secondary-medium-gray;
+    color: $secondary-medium-gray;
+    background-color: $white;
+
+    &:after {
+        background-image: radial-gradient(circle, $secondary-medium-gray 10%, transparent 10.01%);
+    }
+}
+ 
+// Reversed Buttons
+.reversed-oval-outlined {
+    border: 1px solid $white;
+    color: $white;
+    background-color: transparent;
+
+    &:after {
+        background-image: radial-gradient(circle, $white 10%, transparent 10.01%);
+    }
+}
+
+.reversed-circle-outlined {
+    border: 2px solid $white;
+    color: $white;
+    background-color: $black;
+
+    &:after {
+        background-image: radial-gradient(circle, $white 10%, transparent 10.01%);
+    }
+}

@@ -1,0 +1,130 @@
+﻿@import './_buttons.scss';
+@import './_cards.scss';
+@import './_controls.scss';
+@import './_fonts.scss';
+@import './_footer.scss';
+@import './_forms.scss';
+@import './_header.scss';
+@import './FudgeDrip.scss';
+
+@import './_home-page.scss';
+@import './_home-page-animations.scss';
+@import './_home-page-parallax.scss';
+@import './_sweet-treats.scss';
+@import './_theme.scss';
+@import './_recipe-list-page.scss';
+@import './recipe-details-page.scss';
+@import './_maw-multi-image-block.scss';
+@import './_maw-social-media-block';
+@import './_maw-main-content-block.scss';
+@import './_maw-video-block.scss';
+@import './_maw-carousel-block.scss';
+@import './_maw-scroll-down-button.scss';
+@import './where-to-buy.scss';
+
+html, body {
+   // overflow-x: hidden;
+}
+
+body {
+    background: $background-beige-gradient no-repeat center center fixed;
+}
+
+
+#mymodal {
+    .modal-dialog {
+        max-width: 700px;
+        @media (min-width: 576px) {
+            margin:10rem auto;
+        }
+    }
+
+    .modal-header {
+        padding: 0;
+
+        .close {
+            padding: 0;
+            margin: 0;
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: normal;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            background: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            opacity: 1;
+            span {
+                position:relative;
+                top:-4px;
+            }
+        }
+    }
+}
+
+
+.where-to-buy-page {
+    position: relative;
+    z-index: 0;
+}
+
+// Header & Footer
+.social-media-container {
+    margin-bottom: 25px;
+
+    .social-title {
+        @include subhead;
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    .social-media-icons {
+        display: flex;
+        margin-top: 15px;
+        justify-content: space-between;
+
+        // work around for different sized icons
+        .instagram {
+            margin-right: 4px;
+        }
+
+        .twitter, .facebook {
+            margin: 0 4px;
+        }
+    }
+}
+
+// SMALL SCREEN
+@media only screen and (max-width: 766px) {
+    .where-to-buy-page {
+        margin-top: 35%;
+    }
+}
+
+// Tablet (iPad)
+@media only screen and (min-width: 767px) and (max-width: 1020px) {
+    .where-to-buy-page {
+        margin-top: 20%;
+    }
+}
+
+// Bigger Tablet (iPad Pro)
+@media only screen and (min-width: 1021px) and (max-width: 1366px) {
+    .where-to-buy-page {
+        margin-top: 15%;
+    }
+}
+
+//LARGE SCREEN
+@media all and (min-width: 1367px) {
+    .where-to-buy-page {
+        margin-top: 5%;
+    }
+}

@@ -1,0 +1,76 @@
+﻿@import '../TopMenuSite/_themes.scss';
+// FAMOUS AMOS 
+.navbar {
+    background-color: $famous-amos-footer;
+    padding: 0;
+    min-height: $famous-amos-header-height;
+
+    .custom-toggler.navbar-toggler {
+        border: none;
+        outline: none;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-collapse {
+        margin-top: 5px;
+    }
+
+    .nav-links {
+        margin-right: 10px;
+    }
+
+    a.nav-link {
+        color: white !important;
+        max-width: 1250px;
+        margin-left: 10px;
+    }
+
+    .navbar-brand {
+        img {
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            width: 100%;
+            z-index: 10;
+            max-width: 130px;
+        }
+
+        .nav-headline {
+            font-style: italic;
+            font-weight: 100;
+            font-size: 14px;
+            margin-left: 140px;
+
+            li {
+                padding-left: 75px;
+                color: white;
+            }
+        }
+    }
+
+    li:last-child {
+        h3 {
+            display: none;
+        }
+    }
+}
+// Styling for when menu is collapsed
+@media only screen and (max-width: $menu-breakpoint-lower) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .navbar-brand, .nav-spacer {
+        display: none;
+    }
+}
+
+// Stylingfor when menu is fully open
+@media only screen and (min-width: $menu-breakpoint-upper) {
+    .hamburger-home-link {
+        display: none !important;
+    }
+}
