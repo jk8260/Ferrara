@@ -36,162 +36,100 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var productsFunc = function (json) { return __awaiter(_this, void 0, void 0, function () {
-    var parsedJSON, lowerNav, displayBlockCount, navIndex, lowerNavChildren, childIndex, mainDiv, leftMainContentArrow, leftArrowImg, innerCol, innerRow, imgContainer, productCarousel, carouselIndicators, index, singleIndicator, productInnerCarousel, x, productInnerCarouselItem, itemImg, productImage, productDetailsDiv, productDescriptionTitle, productDescription, bagSizeDropDown, nutritionInfoButton, buyNowButton, recipeSection, rightMainContentArrow, rightArrowImg, rootProduct;
+    var parsedJSON, lowerNav, displayBlockCount, navIndex, lowerNavChildren, childIndex, mainDiv, leftMainContentArrow, leftArrowImg, innerCol, innerRow, imgContainer, productCarousel, carouselIndicators, index, singleIndicator, productInnerCarousel, x, productInnerCarouselItem, itemImg, productImage;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                parsedJSON = JSON.parse(json);
-                lowerNav = document.getElementsByClassName("lowerNavDiv");
-                displayBlockCount = 0;
-                //Counts how many lower nav options are displayed to check if there are multiple products
-                for (navIndex = 0; navIndex < lowerNav.length; navIndex++) {
-                    lowerNavChildren = lowerNav[navIndex].children;
-                    for (childIndex = 0; childIndex < lowerNavChildren.length; childIndex++) {
-                        if (lowerNavChildren[childIndex].style.display == "block") {
-                            displayBlockCount++;
-                        }
-                    }
+        parsedJSON = JSON.parse(json);
+        console.log();
+        lowerNav = document.getElementsByClassName("lowerNavDiv");
+        displayBlockCount = 0;
+        //Counts how many lower nav options are displayed to check if there are multiple products
+        for (navIndex = 0; navIndex < lowerNav.length; navIndex++) {
+            lowerNavChildren = lowerNav[navIndex].children;
+            for (childIndex = 0; childIndex < lowerNavChildren.length; childIndex++) {
+                if (lowerNavChildren[childIndex].style.display == "block") {
+                    displayBlockCount++;
                 }
-                mainDiv = document.createElement("div");
-                mainDiv.classList.add("row");
-                mainDiv.classList.add("product-details-container");
-                leftMainContentArrow = document.createElement("div");
-                leftMainContentArrow.classList.add("col-md-1");
-                leftMainContentArrow.classList.add("col-1");
-                leftArrowImg = document.createElement("img");
-                leftArrowImg.src = "/Static/gfx/ArrowIcons/LargeLeftArrow.svg";
-                leftMainContentArrow.append(leftArrowImg);
-                leftMainContentArrow.setAttribute("onclick", "leftChangeMainContent()");
-                leftMainContentArrow.classList.add("main-content-arrow");
-                if (displayBlockCount < 1) {
-                    leftMainContentArrow.style.display = "none";
-                }
-                mainDiv.append(leftMainContentArrow);
-                innerCol = document.createElement("div");
-                innerCol.classList.add("col-10");
-                innerCol.classList.add("product-page-main-content");
-                innerRow = document.createElement("div");
-                innerRow.classList.add("row");
-                // Append Product Image to Main Div
-                if (parsedJSON.ProductImage != null) {
-                    imgContainer = document.createElement("div");
-                    imgContainer.classList.add("col-lg-4");
-                    imgContainer.classList.add("col-md-5");
-                    imgContainer.classList.add("col-sm-12");
-                    // Create img carousel if more than one image exists
-                    if (Object.keys(parsedJSON.ProductImage).length > 1) {
-                        productCarousel = document.createElement("div");
-                        productCarousel.id = "carouselExampleIndicators";
-                        productCarousel.classList.add("carousel");
-                        productCarousel.classList.add("slide");
-                        productCarousel.setAttribute("data-ride", "carousel");
-                        productCarousel.setAttribute("data-interval", "false");
-                        carouselIndicators = document.createElement("ol");
-                        carouselIndicators.classList.add("carousel-indicators");
-                        for (index = 0; index < Object.keys(parsedJSON.ProductImage).length; index += 1) {
-                            singleIndicator = document.createElement("li");
-                            singleIndicator.setAttribute("data-target", "#carouselExampleIndicators");
-                            singleIndicator.setAttribute("data-slide-to", String(index));
-                            if (index === 0) {
-                                singleIndicator.setAttribute("class", "active");
-                            }
-                            carouselIndicators.appendChild(singleIndicator);
-                        }
-                        productInnerCarousel = document.createElement("div");
-                        productInnerCarousel.classList.add("carousel-inner");
-                        for (x = 0; x < Object.keys(parsedJSON.ProductImage).length; x += 1) {
-                            productInnerCarouselItem = document.createElement("div");
-                            productInnerCarouselItem.classList.add("carousel-item");
-                            if (x === 0) {
-                                productInnerCarouselItem.classList.add("active");
-                            }
-                            itemImg = document.createElement("img");
-                            itemImg.classList.add("d-block");
-                            itemImg.classList.add("w-100");
-                            itemImg.classList.add("sweet-treats-nutrition-images");
-                            if (parsedJSON.ProductImage[x].nutritionTabName) {
-                                itemImg.classList.add(parsedJSON.ProductImage[x].nutritionTabName.replace(/[^a-z0-9+]/gi, '').toLowerCase());
-                            }
-                            ;
-                            itemImg.src = parsedJSON.ProductImage[x].src;
-                            itemImg.alt = parsedJSON.ProductImage[x].altSEO;
-                            productInnerCarouselItem.appendChild(itemImg);
-                            productInnerCarousel.appendChild(productInnerCarouselItem);
-                        }
-                        productCarousel.appendChild(carouselIndicators);
-                        productCarousel.appendChild(productInnerCarousel);
-                        imgContainer.appendChild(productCarousel);
-                    }
-                    else {
-                        productImage = document.createElement("img");
-                        productImage.src = parsedJSON.ProductImage[0].src;
-                        productImage.alt = parsedJSON.ProductImage[0].altSEO;
-                        imgContainer.appendChild(productImage);
-                    }
-                    innerRow.appendChild(imgContainer);
-                }
-                productDetailsDiv = document.createElement("div");
-                productDetailsDiv.classList.add("col-lg-8");
-                productDetailsDiv.classList.add("col-md-7");
-                productDetailsDiv.classList.add("col-sm-12");
-                productDescriptionTitle = document.createElement("h1");
-                productDescriptionTitle.innerHTML = parsedJSON.ProductDescriptionName;
-                productDescriptionTitle.classList.add("product-title");
-                productDetailsDiv.appendChild(productDescriptionTitle);
-                productDescription = document.createElement("p");
-                productDescription.classList.add("product-description");
-                productDescription.innerHTML = parsedJSON.ProductDescription;
-                productDetailsDiv.appendChild(productDescription);
-                return [4 /*yield*/, buildBagSizeDropDownFunc(parsedJSON.NutritionSrcs)];
-            case 1:
-                bagSizeDropDown = _a.sent();
-                productDescription.appendChild(bagSizeDropDown);
-                buildCustomDropdown(bagSizeDropDown, parsedJSON.NutritionSrcs);
-                nutritionInfoButton = document.createElement("button");
-                nutritionInfoButton.innerHTML = parsedJSON.NutritionInfoButton;
-                nutritionInfoButton.classList.add("active-oval-white-red");
-                nutritionInfoButton.classList.add("nutrition-btn");
-                nutritionInfoButton.setAttribute("data-toggle", "modal");
-                nutritionInfoButton.setAttribute("data-target", "#nutritionModal");
-                productDescription.appendChild(nutritionInfoButton);
-                buyNowButton = document.createElement("button");
-                buyNowButton.classList.add("active-oval-filled-red");
-                buyNowButton.classList.add("buy-now-button");
-                buyNowButton.setAttribute("data-toggle", "modal");
-                buyNowButton.setAttribute("data-target", "#buyNowModal");
-                buyNowButton.innerHTML = "BUY NOW";
-                buyNowButton.setAttribute("onclick", "destiniFunction('destinidiv','" + parsedJSON.BuyNowButton + "')");
-                productDescription.appendChild(buyNowButton);
-                recipeSection = null;
-                if (parsedJSON.RecipesCategoryCardBlocks) {
-                    recipeSection = document.createElement("div");
-                    recipeSection.classList.add("sweet-treats-recipe-section");
-                    recipeSection.classList.add("row");
-                    productDescription.appendChild(buildRecipeSection(recipeSection, parsedJSON.RecipesCategoryCardBlocks, parsedJSON.LinkToRecipePage));
-                }
-                // Append Product Details Div to Main Div
-                innerRow.appendChild(productDetailsDiv);
-                innerCol.appendChild(innerRow);
-                mainDiv.appendChild(innerCol);
-                rightMainContentArrow = document.createElement("div");
-                rightMainContentArrow.classList.add("col-md-1");
-                rightMainContentArrow.classList.add("col-1");
-                rightArrowImg = document.createElement("img");
-                rightArrowImg.src = "/Static/gfx/ArrowIcons/LargeRightArrow.svg";
-                rightMainContentArrow.append(rightArrowImg);
-                rightMainContentArrow.setAttribute("onclick", "rightChangeMainContent()");
-                rightMainContentArrow.classList.add("main-content-arrow");
-                if (displayBlockCount < 1) {
-                    rightMainContentArrow.style.display = "none";
-                }
-                mainDiv.append(rightMainContentArrow);
-                rootProduct = document.getElementById("product-root");
-                rootProduct.appendChild(mainDiv);
-                if (recipeSection) {
-                    rootProduct.appendChild(recipeSection);
-                }
-                return [2 /*return*/];
+            }
         }
+        mainDiv = document.createElement("div");
+        mainDiv.classList.add("row");
+        mainDiv.classList.add("product-details-container");
+        leftMainContentArrow = document.createElement("div");
+        leftMainContentArrow.classList.add("col-md-1");
+        leftMainContentArrow.classList.add("col-1");
+        leftArrowImg = document.createElement("img");
+        leftArrowImg.src = "/Static/gfx/ArrowIcons/LargeLeftArrow.svg";
+        leftMainContentArrow.append(leftArrowImg);
+        leftMainContentArrow.setAttribute("onclick", "leftChangeMainContent()");
+        leftMainContentArrow.classList.add("main-content-arrow");
+        if (displayBlockCount < 1) {
+            leftMainContentArrow.style.display = "none";
+        }
+        mainDiv.append(leftMainContentArrow);
+        innerCol = document.createElement("div");
+        innerCol.classList.add("col-10");
+        innerCol.classList.add("product-page-main-content");
+        innerRow = document.createElement("div");
+        innerRow.classList.add("row");
+        // Append Product Image to Main Div
+        if (parsedJSON.ProductImage != null) {
+            imgContainer = document.createElement("div");
+            imgContainer.classList.add("col-lg-4");
+            imgContainer.classList.add("col-md-5");
+            imgContainer.classList.add("col-sm-12");
+            // Create img carousel if more than one image exists
+            if (Object.keys(parsedJSON.ProductImage).length > 1) {
+                productCarousel = document.createElement("div");
+                productCarousel.id = "carouselExampleIndicators";
+                productCarousel.classList.add("carousel");
+                productCarousel.classList.add("slide");
+                productCarousel.setAttribute("data-ride", "carousel");
+                productCarousel.setAttribute("data-interval", "false");
+                carouselIndicators = document.createElement("ol");
+                carouselIndicators.classList.add("carousel-indicators");
+                for (index = 0; index < Object.keys(parsedJSON.ProductImage).length; index += 1) {
+                    singleIndicator = document.createElement("li");
+                    singleIndicator.setAttribute("data-target", "#carouselExampleIndicators");
+                    singleIndicator.setAttribute("data-slide-to", String(index));
+                    if (index === 0) {
+                        singleIndicator.setAttribute("class", "active");
+                    }
+                    carouselIndicators.appendChild(singleIndicator);
+                }
+                productInnerCarousel = document.createElement("div");
+                productInnerCarousel.classList.add("carousel-inner");
+                for (x = 0; x < Object.keys(parsedJSON.ProductImage).length; x += 1) {
+                    productInnerCarouselItem = document.createElement("div");
+                    productInnerCarouselItem.classList.add("carousel-item");
+                    if (x === 0) {
+                        productInnerCarouselItem.classList.add("active");
+                    }
+                    itemImg = document.createElement("img");
+                    itemImg.classList.add("d-block");
+                    itemImg.classList.add("w-100");
+                    itemImg.classList.add("sweet-treats-nutrition-images");
+                    if (parsedJSON.ProductImage[x].nutritionTabName) {
+                        itemImg.classList.add(parsedJSON.ProductImage[x].nutritionTabName.replace(/[^a-z0-9+]/gi, '').toLowerCase());
+                    }
+                    ;
+                    itemImg.src = parsedJSON.ProductImage[x].src;
+                    itemImg.alt = parsedJSON.ProductImage[x].altSEO;
+                    productInnerCarouselItem.appendChild(itemImg);
+                    productInnerCarousel.appendChild(productInnerCarouselItem);
+                }
+                productCarousel.appendChild(carouselIndicators);
+                productCarousel.appendChild(productInnerCarousel);
+                imgContainer.appendChild(productCarousel);
+            }
+            else {
+                productImage = document.createElement("img");
+                productImage.src = parsedJSON.ProductImage[0].src;
+                productImage.alt = parsedJSON.ProductImage[0].altSEO;
+                imgContainer.appendChild(productImage);
+            }
+            innerRow.appendChild(imgContainer);
+        }
+        return [2 /*return*/];
     });
 }); };
 var setNutritionBlock = function (src) {

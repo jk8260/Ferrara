@@ -1,14 +1,98 @@
-﻿//  Function to build and append HTML Elements on the bottom row of the nav section.
+﻿import { stringify } from "querystring";
+
+const streatsListFunc: Function = (json: string): void => {
+    console.log("BINGO");
+    console.log(json);
+    const jsonArr: Array<any> = JSON.parse(json);
+    //const topNav: HTMLCollection = document.getElementsByClassName("top-nav-treat");
+    //const navTabs: HTMLCollection = document.getElementsByClassName("tab-pane");
+    //const jkcontainer: HTMLCollection = document.getElementsByClassName("product-root");
+    const root: HTMLElement = document.getElementById("sweet-root");
+    console.log("YIPPIE");
+
+    jsonArr.forEach((el: any, i: number) => {
+        // add all main elements
+        console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
+        const categoryTabTitle: HTMLElement = document.createElement("p");
+        categoryTabTitle.innerHTML = el.CategoryTitle;
+        categoryTabTitle.style.textAlign = "center";
+        categoryTabTitle.style.fontWeight = "bold";
+
+        //const catImg: HTMLDivElement = document.createElement("div");
+        //catImg.classList.add("col-4");
+        //catImg.style.width = "44";
+        //catImg.style.height = "44";
+        
+        const cardImg: HTMLImageElement = document.createElement("img");
+        cardImg.src = el.CategoryImage.OriginalString;
+        cardImg.width = 55;
+        cardImg.height = 55;
+        //catImg.appendChild(cardImg);
+        //categoryTabTitle.appendChild(catImg);
+
+        // foreach tabBlock element list them
+        el.CategoryTabBlock.forEach((tb: any) => {
+
+            console.log('\t' + tb.TabTitle);
+            const subcategoryTabTitle: HTMLElement = document.createElement("p");
+            subcategoryTabTitle.innerHTML = tb.TabTitle;
+            subcategoryTabTitle.style.textAlign = "center";
+            subcategoryTabTitle.style.fontWeight = "lighter";
+            subcategoryTabTitle.style.fontSize = "small";
+
+            const tabcontent: HTMLDivElement = document.createElement("div");
+
+            tb.ProductsIcons.forEach((pi: any) => {
+                console.log('\t' + '\t' + pi.ProductPageId);
+                console.log('\t' + '\t' + pi.ProductName);
+                const piTitle: HTMLElement = document.createElement("p");
+                piTitle.innerHTML = pi.ProductName;
+                piTitle.style.textAlign = "center";
+                piTitle.style.fontWeight = "lighter";
+                piTitle.style.fontSize = "smaller";
+                subcategoryTabTitle.appendChild(piTitle);
+
+                //const piImg = document.createElement("img") as any;
+                ////const classListArr2: Array<any> = [el.CategoryImage.OriginalString, "topNavClick"]
+                ////piImg.classList.add(...classListArr2);
+                //piImg.src = pi;
+                //subcategoryTabTitle.appendChild(piImg);
+            });
+
+            tabcontent.appendChild(subcategoryTabTitle);
+            categoryTabTitle.appendChild(tabcontent);
+        });
+
+        root.appendChild(categoryTabTitle);
+
+    });
+};
+
+//  Function to build and append HTML Elements on the bottom row of the nav section.
 const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTabsDiv: HTMLDivElement, pathClass: string, tabName: string): void => {
 
     const productTabsRootDiv: HTMLDivElement = document.createElement("div");
     productTabsRootDiv.classList.add('lowerNavDiv');
     productTabsRootDiv.classList.add(pathClass);
 
+
+    let cardIndex: number = 0;
+    let shadeInt: number = 1;
     //  Add product names to lower nav row. 
     productTabsArr.forEach((el: any) => {
+        console.log("Working on Sub Item - " + el.ProductName);
         const id: number = el.ProductPageId;
         const productTab: HTMLElement = document.createElement("div");
+
+        //productTab.setAttribute("style", "text-align: left; width:350px;");
+        //if (shadeInt > 1) {
+        //    shadeInt = 1;
+        //    productTab.style.backgroundColor = "blue";
+        //} else {
+        //    productTab.style.backgroundColor = "grey";
+        //    shadeInt += 1;
+        //}
+
         const classes: Array<any> = [pathClass, tabName, "tablink", id, "IdClass"];
         productTab.setAttribute("onclick", "openTab(event.currentTarget)");
         SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
@@ -16,6 +100,10 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
             tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
             id: id
         };
+
+        productTabsRootDiv.appendChild(productTab);
+
+
         //  Load Product Page
 
         productTab.addEventListener('click', function () {
@@ -40,8 +128,66 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
 
         });
         productTab.classList.add(...classes);
-        productTab.innerHTML = el.ProductName;
-        productTabsRootDiv.appendChild(productTab);
+        //productTab.innerHTML = el.ProductName;
+
+
+        // card main div
+        const recipeCard: HTMLDivElement = document.createElement("div");
+        recipeCard.classList.add("card");
+        recipeCard.classList.add("keebler-card");
+
+        // card body div (not sure how this is different)
+        const recipeCardBody: HTMLDivElement = document.createElement("div");
+        recipeCardBody.classList.add("card-body");
+
+        // row div is the card display
+        const cardRow: HTMLDivElement = document.createElement("div");
+        cardRow.classList.add("row");
+
+        //title
+        const cardTitleCol: HTMLDivElement = document.createElement("div");
+        cardTitleCol.classList.add("col-12");
+        const recipeCardTitle: HTMLElement = document.createElement("h5");
+        recipeCardTitle.classList.add("card-title");
+        recipeCardTitle.innerHTML = el.ProductName;
+        cardTitleCol.appendChild(recipeCardTitle);
+
+        cardRow.appendChild(cardTitleCol);
+        recipeCardBody.appendChild(cardRow);
+        recipeCard.appendChild(recipeCardBody);
+        const cardAnchorTag: HTMLElement = document.createElement("a");
+        cardAnchorTag.setAttribute("href", el.ProductPageId);
+        cardAnchorTag.appendChild(recipeCard);
+        cardAnchorTag.style.textDecoration = "none";
+        cardAnchorTag.id = el.ProductName;
+
+        cardRow.appendChild(cardTitleCol);
+
+        recipeCardBody.appendChild(cardRow);
+        recipeCard.appendChild(recipeCardBody);
+        productTab.appendChild(recipeCard);
+        productTabsRootDiv.appendChild(cardAnchorTag);
+
+
+        // image
+        //const cardImgCol: HTMLDivElement = document.createElement("div");
+        //cardImgCol.classList.add("col-4");
+        //const cardRecipeImg: HTMLImageElement = document.createElement("img");
+        //cardRecipeImg.src = el.RecipesCard[cardIndex].RecipeCardImage.OriginalString;
+        //cardImgCol.appendChild(cardRecipeImg);
+
+        //// description
+        //const cardTextCol: HTMLDivElement = document.createElement("div");
+        //cardTextCol.classList.add("col-8");
+        //const recipeCardText: HTMLDivElement = document.createElement("div");
+        //recipeCardText.classList.add("card-text");
+        //const recipeCardDescription: HTMLElement = document.createElement("p");
+        //recipeCardDescription.classList.add("card-description");
+        //recipeCardDescription.innerHTML = el.RecipesCard[cardIndex].RecipeCardDescription;
+
+        //productTabsRootDiv.appendChild(productTab);
+
+        cardIndex += 1;
     });
 
     productTabsDiv.appendChild(productTabsRootDiv);
@@ -53,9 +199,11 @@ const productCategoriesFunc: Function = (productCategories: HTMLDivElement[], pr
     const buttonLabels: string[] = [];
 
     productCategoriesRoot.setAttribute("class", "middleNavDiv");
-
+    console.log("Building Product Categories");
     //  Add product names to middle nav row.
-    productCategories.forEach((el: any) => {
+    productCategories.forEach((el: any, i: number) => {
+        console.log("el in loop in productCategoriesFunc")
+        console.log(el)
         const navButton: HTMLElement = document.createElement("button");
         const buttonLabel: string = el.TabTitle.replace(/\s/g, "");
         const classes: Array<any> = [pathClass, buttonLabel, "active-oval-outlined-brown", "midnav-button"];
@@ -85,13 +233,15 @@ const productCategoriesFunc: Function = (productCategories: HTMLDivElement[], pr
             }, 600);
 
         };
+
         productCategoriesRoot.appendChild(navButton);
+        productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
     });
 
     //  Call nested fuction on each product to to build out sub products.
-    productCategories.forEach((el: any, i: number) => {
-        productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
-    });
+    //productCategories.forEach((el: any, i: number) => {
+    //    productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
+    //});
 
     productCategoriesDiv.appendChild(productCategoriesRoot);
 };
@@ -237,16 +387,35 @@ const productTypesFunc: Function = (json: string): void => {
 
     //  Call nested functions on each image to build out sub-products.
     jsonArr.forEach((el: any) => {
+        //console.log("Subproduct - ");
+        //console.log(el.CategoryTitle);
+        //console.log("el.CategoryTabBlock - ");
+        //console.log(el.CategoryTabBlock);
+        //console.log("middleContainerDiv - ");
+        //console.log(middleContainerDiv);
+        //console.log("productDiv - ");
+        //console.log(productDiv);
+        //console.log("el.CategoryImage.OriginalString - ");
+        //console.log(el.CategoryImage.OriginalString);
+
         productCategoriesFunc(el.CategoryTabBlock, middleContainerDiv, productDiv, el.CategoryImage.OriginalString);
     });
 
-    outerContainer.appendChild(tempDiv1);
-    middleContainerDiv.appendChild(tempDiv2);
+
+    tempDiv1.classList.add("scroll-container");
     tempDiv1.appendChild(middleContainerDiv);
-    productDiv.appendChild(buildScrollTrack());
+    outerContainer.appendChild(tempDiv1);
+
+    //middleContainerDiv.appendChild(tempDiv2);
+
     productDiv.classList.add("lowerNavContainer");
-    tempDiv2.classList.add("scroll-container")
+    productDiv.appendChild(buildScrollTrack());
+    //console.log(productDiv);
+
+    // add products to a div
     tempDiv2.appendChild(productDiv);
+
+    outerContainer.appendChild(tempDiv2);
     root.appendChild(outerContainer);
 
     //  Both functions beneath are called on page load to build out the SPA nav structure.

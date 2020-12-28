@@ -1,24 +1,24 @@
 ﻿import { promises } from "fs";
 
-let RECIPEFILTEROBJ: Object = {};
+let SweetTreatFILTEROBJ: Object = {};
 
 const triggerNav: Function = (prevAnchor: any): void => {
     prevAnchor.click();
 }
 
 // Function to add categories into tab navigation
-const recipeListFunc: Function = (json: string): void => {
+const sweettreatsListFunc: Function = (json: string): void => {
     console.log("BINGO");
     console.log(json);
     const jsonArr: Array<any> = JSON.parse(json);
-    const topNav: HTMLCollection = document.getElementsByClassName("top-nav-recipe");
+    const topNav: HTMLCollection = document.getElementsByClassName("top-nav-SweetTreat");
     const navTabs: HTMLCollection = document.getElementsByClassName("tab-pane");
-    const recipeContainer: HTMLCollection = document.getElementsByClassName("recipe-block-container");
+    const SweetTreatContainer: HTMLCollection = document.getElementsByClassName("SweetTreat-block-container");
 
     jsonArr.forEach((el: any, i: number) => {
-        RECIPEFILTEROBJ[el.CategoryTitle] = {};
+        SweetTreatFILTEROBJ[el.CategoryTitle] = {};
 
-        i === 0 ? RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = true : RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = false;
+        i === 0 ? SweetTreatFILTEROBJ[el.CategoryTitle].ariaSelected = true : SweetTreatFILTEROBJ[el.CategoryTitle].ariaSelected = false;
 
         topNav[i].innerHTML = el.CategoryTitle;
         const href: string = "#" + el.CategoryTitle.replace(/\s/g, '');
@@ -32,78 +32,77 @@ const recipeListFunc: Function = (json: string): void => {
         topNav[i].parentElement.setAttribute("onclick", "triggerNav(" + prevATag + ")");
 
         topNav[i].addEventListener("click", () => {
-            Object.keys(RECIPEFILTEROBJ).forEach((key) => {
-                el.CategoryTitle === key ? RECIPEFILTEROBJ[key].ariaSelected = true : RECIPEFILTEROBJ[key].ariaSelected = false;
+            Object.keys(SweetTreatFILTEROBJ).forEach((key) => {
+                el.CategoryTitle === key ? SweetTreatFILTEROBJ[key].ariaSelected = true : SweetTreatFILTEROBJ[key].ariaSelected = false;
             });
         });
 
         navTabs[i].setAttribute("id", el.CategoryTitle.replace(/\s/g, ''));
 
-        for (let cardIndex: number = 0; cardIndex < el.RecipesCard.length; cardIndex += 1) {
+        for (let cardIndex: number = 0; cardIndex < el.SweetTreatsCard.length; cardIndex += 1) {
 
-            RECIPEFILTEROBJ[el.CategoryTitle][el.RecipesCard[cardIndex].RecipeCardTitle] = el.RecipesCard[cardIndex]
+            SweetTreatFILTEROBJ[el.CategoryTitle][el.SweetTreatsCard[cardIndex].SweetTreatCardTitle] = el.SweetTreatsCard[cardIndex]
 
-            // card main div
-            const recipeCard: HTMLDivElement = document.createElement("div");
-            recipeCard.classList.add("card");
-            recipeCard.classList.add("keebler-card");
+            const SweetTreatCard: HTMLDivElement = document.createElement("div");
+            SweetTreatCard.classList.add("card");
+            SweetTreatCard.classList.add("keebler-card");
+            const SweetTreatCardBody: HTMLDivElement = document.createElement("div");
+            SweetTreatCardBody.classList.add("card-body");
 
-            // card body div (not sure how this is different)
-            const recipeCardBody: HTMLDivElement = document.createElement("div");
-            recipeCardBody.classList.add("card-body");
-
-            // row div is the card display
             const cardRow: HTMLDivElement = document.createElement("div");
             cardRow.classList.add("row");
 
-            //title
             const cardTitleCol: HTMLDivElement = document.createElement("div");
             cardTitleCol.classList.add("col-12");
-            const recipeCardTitle: HTMLElement = document.createElement("h5");
-            recipeCardTitle.classList.add("card-title");
-            recipeCardTitle.innerHTML = el.RecipesCard[cardIndex].RecipeCardTitle;
-            cardTitleCol.appendChild(recipeCardTitle);
 
-            // image
+            const SweetTreatCardTitle: HTMLElement = document.createElement("h5");
+            SweetTreatCardTitle.classList.add("card-title");
+            SweetTreatCardTitle.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardTitle;
+
+            cardTitleCol.appendChild(SweetTreatCardTitle);
+
             const cardImgCol: HTMLDivElement = document.createElement("div");
             cardImgCol.classList.add("col-4");
-            const cardRecipeImg: HTMLImageElement = document.createElement("img");
-            cardRecipeImg.src = el.RecipesCard[cardIndex].RecipeCardImage.OriginalString;
-            cardImgCol.appendChild(cardRecipeImg);
 
-            // description
+            const cardSweetTreatImg: HTMLImageElement = document.createElement("img");
+            cardSweetTreatImg.src = el.SweetTreatsCard[cardIndex].SweetTreatCardImage.OriginalString;
+
+            cardImgCol.appendChild(cardSweetTreatImg);
+
             const cardTextCol: HTMLDivElement = document.createElement("div");
             cardTextCol.classList.add("col-8");
-            const recipeCardText: HTMLDivElement = document.createElement("div");
-            recipeCardText.classList.add("card-text");
-            const recipeCardDescription: HTMLElement = document.createElement("p");
-            recipeCardDescription.classList.add("card-description");
-            recipeCardDescription.innerHTML = el.RecipesCard[cardIndex].RecipeCardDescription;
 
-            const recipeCardInfo: HTMLDivElement = document.createElement("div");
-            recipeCardInfo.classList.add("recipe-bold-info");
-            recipeCardInfo.innerHTML = el.RecipesCard[cardIndex].RecipeCardInfo;
+            const SweetTreatCardText: HTMLDivElement = document.createElement("div");
+            SweetTreatCardText.classList.add("card-text");
+
+            const SweetTreatCardDescription: HTMLElement = document.createElement("p");
+            SweetTreatCardDescription.classList.add("card-description");
+            SweetTreatCardDescription.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardDescription;
+
+            const SweetTreatCardInfo: HTMLDivElement = document.createElement("div");
+            SweetTreatCardInfo.classList.add("SweetTreat-bold-info");
+            SweetTreatCardInfo.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardInfo;
 
 
-            recipeCardText.appendChild(recipeCardDescription);
-            recipeCardText.appendChild(recipeCardInfo);
-            cardTextCol.appendChild(recipeCardText);
+            SweetTreatCardText.appendChild(SweetTreatCardDescription);
+            SweetTreatCardText.appendChild(SweetTreatCardInfo);
+            cardTextCol.appendChild(SweetTreatCardText);
 
             cardRow.appendChild(cardTitleCol);
             cardRow.appendChild(cardImgCol);
             cardRow.appendChild(cardTextCol);
 
-            recipeCardBody.appendChild(cardRow);
-            recipeCard.appendChild(recipeCardBody);
+            SweetTreatCardBody.appendChild(cardRow);
+            SweetTreatCard.appendChild(SweetTreatCardBody);
 
             const cardAnchorTag: HTMLElement = document.createElement("a");
-            cardAnchorTag.setAttribute("href", el.RecipesCard[cardIndex].RecipePage);
-            cardAnchorTag.appendChild(recipeCard);
+            cardAnchorTag.setAttribute("href", el.SweetTreatsCard[cardIndex].SweetTreatPage);
+            cardAnchorTag.appendChild(SweetTreatCard);
             cardAnchorTag.style.textDecoration = "none";
-            cardAnchorTag.id = el.RecipesCard[cardIndex].RecipeCardTitle;
+            cardAnchorTag.id = el.SweetTreatsCard[cardIndex].SweetTreatCardTitle;
 
             //navTabs[i].appendChild(cardAnchorTag);
-            recipeContainer[i].appendChild(cardAnchorTag);
+            SweetTreatContainer[i].appendChild(cardAnchorTag);
         }
 
         i += 1;
@@ -111,8 +110,8 @@ const recipeListFunc: Function = (json: string): void => {
 };
 
 const scrollTabNav: Function = (e: any): void => {
-    const tabNav: HTMLElement = document.getElementById("recipe-list");
-    const tabAnchorList: HTMLCollection = document.getElementsByClassName("top-nav-recipe");
+    const tabNav: HTMLElement = document.getElementById("SweetTreat-list");
+    const tabAnchorList: HTMLCollection = document.getElementsByClassName("top-nav-SweetTreat");
     let selectedTab: any = e.currentTarget;
 
     let coordinate: number = 0;
@@ -140,7 +139,7 @@ const filterAsync: Function = (): void => {
     }, 0);
 };
 
-const filterBoolToggleFunc: Function = (obj: any): void => { 
+const filterBoolToggleFunc: Function = (obj: any): void => {
     if (obj.value === "not-selected") {
         obj.value = "selected"
         obj.classList.remove("reversed-oval-outlined");
@@ -166,7 +165,7 @@ const hideClearFiltersButton: Function = (): void => {
 }
 
 const clearAllFilters: Function = (): void => {
-    const filterButtons = document.getElementsByClassName("recipe-filter-button");
+    const filterButtons = document.getElementsByClassName("SweetTreat-filter-button");
 
     for (let i: number = 0; i < filterButtons.length; i++) {
         if (filterButtons[i].value === "selected") {
@@ -191,7 +190,7 @@ const showCustomButtons: Function = (): void => {
 };
 
 const filterCardsFunc: Function = (): void => {
-    const buttonsObject: HTMLCollectionOf<Element> = document.getElementsByClassName("recipe-filter-button");
+    const buttonsObject: HTMLCollectionOf<Element> = document.getElementsByClassName("SweetTreat-filter-button");
     const buttonsObjectKeys: Array<string> = Object.keys(buttonsObject);
     const beenHiddenObject: Object = {};
 
@@ -203,8 +202,8 @@ const filterCardsFunc: Function = (): void => {
 
     const selectedFiltersObjectKeys: Array<string> = Object.keys(selectedFiltersObject);
 
-    Object.keys(RECIPEFILTEROBJ).forEach((key: string): void => {
-        if (RECIPEFILTEROBJ[key].ariaSelected) {
+    Object.keys(SweetTreatFILTEROBJ).forEach((key: string): void => {
+        if (SweetTreatFILTEROBJ[key].ariaSelected) {
 
             let filterSelected: boolean = false;
 
@@ -216,27 +215,27 @@ const filterCardsFunc: Function = (): void => {
             if (filterSelected) {
                 selectedFiltersObjectKeys.forEach((nestedKey: string): void => {
                     if (selectedFiltersObject[nestedKey] === "selected") {
-                        const RECIPEFILTEROBJKeyArray = Object.keys(RECIPEFILTEROBJ[key])
-                        for (let i: number = 0; i < RECIPEFILTEROBJKeyArray.length; i += 1) {
+                        const SweetTreatFILTEROBJKeyArray = Object.keys(SweetTreatFILTEROBJ[key])
+                        for (let i: number = 0; i < SweetTreatFILTEROBJKeyArray.length; i += 1) {
                             // First Parameter of the if statement checks if the card matches the selected filter and the 
                             // second parameter check is the card hs already been hidden
-                            if (RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] && beenHiddenObject[RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle] === undefined) {
-                                const elToDisplay: HTMLElement = document.getElementById(RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle);
+                            if (SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] && beenHiddenObject[SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle] === undefined) {
+                                const elToDisplay: HTMLElement = document.getElementById(SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle);
                                 elToDisplay.setAttribute("style", "text-decoration: none; display: block");
                                 noCardsDisplaying = false;
-                            } else if (RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] === false && RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] != undefined) {
-                                const elToHide: HTMLElement = document.getElementById(RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle);
+                            } else if (SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] === false && SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] != undefined) {
+                                const elToHide: HTMLElement = document.getElementById(SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle);
                                 elToHide.setAttribute("style", "text-decoration: none; display: none");
-                                beenHiddenObject[RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle] = true;
+                                beenHiddenObject[SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle] = true;
                             };
                         }
                     };
                 });
             } else {
                 selectedFiltersObjectKeys.forEach((nestedKey: string) => {
-                    Object.keys(RECIPEFILTEROBJ[key]).forEach((deepNestedKey: string) => {
-                        if (RECIPEFILTEROBJ[key][deepNestedKey][nestedKey] != undefined) {
-                            const elToDisplay: HTMLElement = document.getElementById(RECIPEFILTEROBJ[key][deepNestedKey].RecipeCardTitle);
+                    Object.keys(SweetTreatFILTEROBJ[key]).forEach((deepNestedKey: string) => {
+                        if (SweetTreatFILTEROBJ[key][deepNestedKey][nestedKey] != undefined) {
+                            const elToDisplay: HTMLElement = document.getElementById(SweetTreatFILTEROBJ[key][deepNestedKey].SweetTreatCardTitle);
                             elToDisplay.setAttribute("style", "text-decoration: none; display: block");
                         };
                     });

@@ -2,7 +2,7 @@
 @import './_theme.scss';
 
 .keebler-recipe-details-page {
-    overflow-x:hidden;
+    overflow-x: hidden;
     background-color: $white;
     position: relative;
     z-index: 0;
@@ -37,6 +37,11 @@
             @include custom-7;
             color: $black;
             margin-bottom: 3%;
+
+            .preptime {
+                list-style: none;
+                padding-left: 0;
+            }
         }
 
         .recipe-info {
@@ -67,6 +72,14 @@
             display: flex;
             margin-top: 5%;
             pointer-events: none;
+        }
+    }
+
+    .recipe-ingredients {
+        .ingredients {
+            list-style:none;
+            margin-left: 18px;
+            padding-left: 1.1em;
         }
     }
 

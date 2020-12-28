@@ -1,6 +1,6 @@
 ﻿const productsFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);
-
+    console.log()
     const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
     let displayBlockCount: number = 0;
 
@@ -99,84 +99,84 @@
         innerRow.appendChild(imgContainer);
     }
 
-    // Create Details Section
-    const productDetailsDiv: HTMLDivElement = document.createElement("div");
-    productDetailsDiv.classList.add("col-lg-8");
-    productDetailsDiv.classList.add("col-md-7");
-    productDetailsDiv.classList.add("col-sm-12");
+    //// Create Details Section
+    //const productDetailsDiv: HTMLDivElement = document.createElement("div");
+    //productDetailsDiv.classList.add("col-lg-8");
+    //productDetailsDiv.classList.add("col-md-7");
+    //productDetailsDiv.classList.add("col-sm-12");
 
-    // Append Product Title
-    const productDescriptionTitle: HTMLHeadingElement = document.createElement("h1");
-    productDescriptionTitle.innerHTML = parsedJSON.ProductDescriptionName;
-    productDescriptionTitle.classList.add("product-title");
-    productDetailsDiv.appendChild(productDescriptionTitle);
+    //// Append Product Title
+    //const productDescriptionTitle: HTMLHeadingElement = document.createElement("h1");
+    //productDescriptionTitle.innerHTML = parsedJSON.ProductDescriptionName;
+    //productDescriptionTitle.classList.add("product-title");
+    //productDetailsDiv.appendChild(productDescriptionTitle);
 
-    // Append Product Description
-    const productDescription: HTMLParagraphElement = document.createElement("p");
-    productDescription.classList.add("product-description");
-    productDescription.innerHTML = parsedJSON.ProductDescription;
-    productDetailsDiv.appendChild(productDescription);
+    //// Append Product Description
+    //const productDescription: HTMLParagraphElement = document.createElement("p");
+    //productDescription.classList.add("product-description");
+    //productDescription.innerHTML = parsedJSON.ProductDescription;
+    //productDetailsDiv.appendChild(productDescription);
 
-    // Append Bag Size Dropdown
-    const bagSizeDropDown = await buildBagSizeDropDownFunc(parsedJSON.NutritionSrcs);
-    productDescription.appendChild(bagSizeDropDown);
-    buildCustomDropdown(bagSizeDropDown, parsedJSON.NutritionSrcs);
+    //// Append Bag Size Dropdown
+    //const bagSizeDropDown = await buildBagSizeDropDownFunc(parsedJSON.NutritionSrcs);
+    //productDescription.appendChild(bagSizeDropDown);
+    //buildCustomDropdown(bagSizeDropDown, parsedJSON.NutritionSrcs);
 
-    // Append Nutrition Button
-    const nutritionInfoButton: HTMLButtonElement = document.createElement("button");
-    nutritionInfoButton.innerHTML = parsedJSON.NutritionInfoButton;
-    nutritionInfoButton.classList.add("active-oval-white-red");
-    nutritionInfoButton.classList.add("nutrition-btn");
-    nutritionInfoButton.setAttribute("data-toggle", "modal");
+    //// Append Nutrition Button
+    //const nutritionInfoButton: HTMLButtonElement = document.createElement("button");
+    //nutritionInfoButton.innerHTML = parsedJSON.NutritionInfoButton;
+    //nutritionInfoButton.classList.add("active-oval-white-red");
+    //nutritionInfoButton.classList.add("nutrition-btn");
+    //nutritionInfoButton.setAttribute("data-toggle", "modal");
 
-    nutritionInfoButton.setAttribute("data-target", "#nutritionModal");
-    productDescription.appendChild(nutritionInfoButton);
+    //nutritionInfoButton.setAttribute("data-target", "#nutritionModal");
+    //productDescription.appendChild(nutritionInfoButton);
 
-    // Append Buy Now Button
-    const buyNowButton: HTMLButtonElement = document.createElement("button");
-    buyNowButton.classList.add("active-oval-filled-red");
-    buyNowButton.classList.add("buy-now-button");
-    buyNowButton.setAttribute("data-toggle", "modal");
-    buyNowButton.setAttribute("data-target", "#buyNowModal");
-    buyNowButton.innerHTML = "BUY NOW";
-    buyNowButton.setAttribute("onclick", "destiniFunction('destinidiv','" + parsedJSON.BuyNowButton + "')");
+    //// Append Buy Now Button
+    //const buyNowButton: HTMLButtonElement = document.createElement("button");
+    //buyNowButton.classList.add("active-oval-filled-red");
+    //buyNowButton.classList.add("buy-now-button");
+    //buyNowButton.setAttribute("data-toggle", "modal");
+    //buyNowButton.setAttribute("data-target", "#buyNowModal");
+    //buyNowButton.innerHTML = "BUY NOW";
+    //buyNowButton.setAttribute("onclick", "destiniFunction('destinidiv','" + parsedJSON.BuyNowButton + "')");
 
-    productDescription.appendChild(buyNowButton);
+    //productDescription.appendChild(buyNowButton);
 
-    // Append Recipe Section
-    let recipeSection = null;
-    if (parsedJSON.RecipesCategoryCardBlocks) {
-        recipeSection = document.createElement("div");
-        recipeSection.classList.add("sweet-treats-recipe-section");
-        recipeSection.classList.add("row");
+    //// Append Recipe Section
+    //let recipeSection = null;
+    //if (parsedJSON.RecipesCategoryCardBlocks) {
+    //    recipeSection = document.createElement("div");
+    //    recipeSection.classList.add("sweet-treats-recipe-section");
+    //    recipeSection.classList.add("row");
 
-        productDescription.appendChild(buildRecipeSection(recipeSection, parsedJSON.RecipesCategoryCardBlocks, parsedJSON.LinkToRecipePage));
-    }
+    //    productDescription.appendChild(buildRecipeSection(recipeSection, parsedJSON.RecipesCategoryCardBlocks, parsedJSON.LinkToRecipePage));
+    //}
 
-    // Append Product Details Div to Main Div
-    innerRow.appendChild(productDetailsDiv);
-    innerCol.appendChild(innerRow);
-    mainDiv.appendChild(innerCol);
+    //// Append Product Details Div to Main Div
+    //innerRow.appendChild(productDetailsDiv);
+    //innerCol.appendChild(innerRow);
+    //mainDiv.appendChild(innerCol);
 
-    // Append right arrow
-    const rightMainContentArrow: HTMLDivElement = document.createElement("div");
-    rightMainContentArrow.classList.add("col-md-1");
-    rightMainContentArrow.classList.add("col-1");
-    const rightArrowImg: HTMLImageElement = document.createElement("img");
-    rightArrowImg.src = "/Static/gfx/ArrowIcons/LargeRightArrow.svg";
-    rightMainContentArrow.append(rightArrowImg);
-    rightMainContentArrow.setAttribute("onclick", "rightChangeMainContent()");
-    rightMainContentArrow.classList.add("main-content-arrow");
+    //// Append right arrow
+    //const rightMainContentArrow: HTMLDivElement = document.createElement("div");
+    //rightMainContentArrow.classList.add("col-md-1");
+    //rightMainContentArrow.classList.add("col-1");
+    //const rightArrowImg: HTMLImageElement = document.createElement("img");
+    //rightArrowImg.src = "/Static/gfx/ArrowIcons/LargeRightArrow.svg";
+    //rightMainContentArrow.append(rightArrowImg);
+    //rightMainContentArrow.setAttribute("onclick", "rightChangeMainContent()");
+    //rightMainContentArrow.classList.add("main-content-arrow");
 
-    if (displayBlockCount < 1) {
-        rightMainContentArrow.style.display = "none";
-    }
+    //if (displayBlockCount < 1) {
+    //    rightMainContentArrow.style.display = "none";
+    //}
 
-    mainDiv.append(rightMainContentArrow);
+    //mainDiv.append(rightMainContentArrow);
 
-    const rootProduct: HTMLElement = document.getElementById("product-root");
-    rootProduct.appendChild(mainDiv);
-    if (recipeSection) { rootProduct.appendChild(recipeSection); }
+    //const rootProduct: HTMLElement = document.getElementById("product-root");
+    //rootProduct.appendChild(mainDiv);
+    //if (recipeSection) { rootProduct.appendChild(recipeSection); }
 };
 
 const setNutritionBlock: Function = (src: string): void => {

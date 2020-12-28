@@ -4,13 +4,13 @@
 
 @model Ferrara.Sites.Shared.PageViewModel<Ferrara.Sites.Keebler.KeeblerRecipesPage.KeeblerRecipesPage>
 
-<div class="keebler-recipe-details-page" itemscope itemtype="http://schema.org/Recipe">
+<div class="keebler-recipe-details-page" itemscope itemtype="https://schema.org/Recipe">
     <div class="card keebler-top-recipe-card">
         <div class="card-body">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12">
                     <div class="row justify-content-center">
-                        <div class="recipe-image">
+                        <div class="recipe-image" itemprop="image">
                             @Html.PropertyFor(x => x.CurrentPage.RecipeImage)
                         </div>
                     </div>
@@ -49,10 +49,10 @@
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12">
                     <div class="card-text">
                         <h5 class="card-title" itemprop="name" >@Html.PropertyFor(x => x.CurrentPage.RecipeTitle)</h5>
-                        <div class="recipe-intro">
+                        <div class="recipe-intro" itemprop="description">
                             @Html.PropertyFor(x => x.CurrentPage.RecipeIntro)
                         </div>
-                        <div class="recipe-info">
+                        <div class="recipe-info" itemprop="prepTime">
                             @Html.PropertyFor(x => x.CurrentPage.RecipeInfo)
                         </div>
 
@@ -72,11 +72,11 @@
         </div>
     </div>
     <div class="recipe-ingredients col-12">
-        <h1 itemprop="name">@Html.PropertyFor(x => x.CurrentPage.IngredientsTitle)</h1>
-        @Html.PropertyFor(x => x.CurrentPage.RecipeIngredients)
-    </div>
-    <div class="recipe-directions col-12">
-        <h1 itemprop="name">@Html.PropertyFor(x => x.CurrentPage.DirectionsTitle)</h1>
+        <h1>@Html.PropertyFor(x => x.CurrentPage.IngredientsTitle)</h1>
+         @Html.PropertyFor(x => x.CurrentPage.RecipeIngredients)
+</div>
+    <div itemprop="recipeInstructions" class="recipe-directions col-12">
+        <h1>@Html.PropertyFor(x => x.CurrentPage.DirectionsTitle)</h1>
         @Html.PropertyFor(x => x.CurrentPage.RecipeDirections)
     </div>
 </div>
@@ -105,4 +105,3 @@
         </div>
     </div>
 </div>
-

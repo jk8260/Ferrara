@@ -1,13 +1,82 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var streatsListFunc = function (json) {
+    console.log("BINGO");
+    console.log(json);
+    var jsonArr = JSON.parse(json);
+    //const topNav: HTMLCollection = document.getElementsByClassName("top-nav-treat");
+    //const navTabs: HTMLCollection = document.getElementsByClassName("tab-pane");
+    //const jkcontainer: HTMLCollection = document.getElementsByClassName("product-root");
+    var root = document.getElementById("sweet-root");
+    console.log("YIPPIE");
+    jsonArr.forEach(function (el, i) {
+        // add all main elements
+        console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
+        var categoryTabTitle = document.createElement("p");
+        categoryTabTitle.innerHTML = el.CategoryTitle;
+        categoryTabTitle.style.textAlign = "center";
+        categoryTabTitle.style.fontWeight = "bold";
+        //const catImg: HTMLDivElement = document.createElement("div");
+        //catImg.classList.add("col-4");
+        //catImg.style.width = "44";
+        //catImg.style.height = "44";
+        var cardImg = document.createElement("img");
+        cardImg.src = el.CategoryImage.OriginalString;
+        cardImg.width = 55;
+        cardImg.height = 55;
+        //catImg.appendChild(cardImg);
+        //categoryTabTitle.appendChild(catImg);
+        // foreach tabBlock element list them
+        el.CategoryTabBlock.forEach(function (tb) {
+            console.log('\t' + tb.TabTitle);
+            var subcategoryTabTitle = document.createElement("p");
+            subcategoryTabTitle.innerHTML = tb.TabTitle;
+            subcategoryTabTitle.style.textAlign = "center";
+            subcategoryTabTitle.style.fontWeight = "lighter";
+            subcategoryTabTitle.style.fontSize = "small";
+            var tabcontent = document.createElement("div");
+            tb.ProductsIcons.forEach(function (pi) {
+                console.log('\t' + '\t' + pi.ProductPageId);
+                console.log('\t' + '\t' + pi.ProductName);
+                var piTitle = document.createElement("p");
+                piTitle.innerHTML = pi.ProductName;
+                piTitle.style.textAlign = "center";
+                piTitle.style.fontWeight = "lighter";
+                piTitle.style.fontSize = "smaller";
+                subcategoryTabTitle.appendChild(piTitle);
+                //const piImg = document.createElement("img") as any;
+                ////const classListArr2: Array<any> = [el.CategoryImage.OriginalString, "topNavClick"]
+                ////piImg.classList.add(...classListArr2);
+                //piImg.src = pi;
+                //subcategoryTabTitle.appendChild(piImg);
+            });
+            tabcontent.appendChild(subcategoryTabTitle);
+            categoryTabTitle.appendChild(tabcontent);
+        });
+        root.appendChild(categoryTabTitle);
+    });
+};
 //  Function to build and append HTML Elements on the bottom row of the nav section.
 var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabName) {
     var productTabsRootDiv = document.createElement("div");
     productTabsRootDiv.classList.add('lowerNavDiv');
     productTabsRootDiv.classList.add(pathClass);
+    var cardIndex = 0;
+    var shadeInt = 1;
     //  Add product names to lower nav row. 
     productTabsArr.forEach(function (el) {
         var _a;
+        console.log("Working on Sub Item - " + el.ProductName);
         var id = el.ProductPageId;
         var productTab = document.createElement("div");
+        //productTab.setAttribute("style", "text-align: left; width:350px;");
+        //if (shadeInt > 1) {
+        //    shadeInt = 1;
+        //    productTab.style.backgroundColor = "blue";
+        //} else {
+        //    productTab.style.backgroundColor = "grey";
+        //    shadeInt += 1;
+        //}
         var classes = [pathClass, tabName, "tablink", id, "IdClass"];
         productTab.setAttribute("onclick", "openTab(event.currentTarget)");
         SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
@@ -15,6 +84,7 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
             tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
             id: id
         };
+        productTabsRootDiv.appendChild(productTab);
         //  Load Product Page
         productTab.addEventListener('click', function () {
             var footer = document.getElementsByClassName("keeblerfooterblock")[0];
@@ -38,8 +108,53 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
             }, 500);
         });
         (_a = productTab.classList).add.apply(_a, classes);
-        productTab.innerHTML = el.ProductName;
-        productTabsRootDiv.appendChild(productTab);
+        //productTab.innerHTML = el.ProductName;
+        // card main div
+        var recipeCard = document.createElement("div");
+        recipeCard.classList.add("card");
+        recipeCard.classList.add("keebler-card");
+        // card body div (not sure how this is different)
+        var recipeCardBody = document.createElement("div");
+        recipeCardBody.classList.add("card-body");
+        // row div is the card display
+        var cardRow = document.createElement("div");
+        cardRow.classList.add("row");
+        //title
+        var cardTitleCol = document.createElement("div");
+        cardTitleCol.classList.add("col-12");
+        var recipeCardTitle = document.createElement("h5");
+        recipeCardTitle.classList.add("card-title");
+        recipeCardTitle.innerHTML = el.ProductName;
+        cardTitleCol.appendChild(recipeCardTitle);
+        cardRow.appendChild(cardTitleCol);
+        recipeCardBody.appendChild(cardRow);
+        recipeCard.appendChild(recipeCardBody);
+        var cardAnchorTag = document.createElement("a");
+        cardAnchorTag.setAttribute("href", el.ProductPageId);
+        cardAnchorTag.appendChild(recipeCard);
+        cardAnchorTag.style.textDecoration = "none";
+        cardAnchorTag.id = el.ProductName;
+        cardRow.appendChild(cardTitleCol);
+        recipeCardBody.appendChild(cardRow);
+        recipeCard.appendChild(recipeCardBody);
+        productTab.appendChild(recipeCard);
+        productTabsRootDiv.appendChild(cardAnchorTag);
+        // image
+        //const cardImgCol: HTMLDivElement = document.createElement("div");
+        //cardImgCol.classList.add("col-4");
+        //const cardRecipeImg: HTMLImageElement = document.createElement("img");
+        //cardRecipeImg.src = el.RecipesCard[cardIndex].RecipeCardImage.OriginalString;
+        //cardImgCol.appendChild(cardRecipeImg);
+        //// description
+        //const cardTextCol: HTMLDivElement = document.createElement("div");
+        //cardTextCol.classList.add("col-8");
+        //const recipeCardText: HTMLDivElement = document.createElement("div");
+        //recipeCardText.classList.add("card-text");
+        //const recipeCardDescription: HTMLElement = document.createElement("p");
+        //recipeCardDescription.classList.add("card-description");
+        //recipeCardDescription.innerHTML = el.RecipesCard[cardIndex].RecipeCardDescription;
+        //productTabsRootDiv.appendChild(productTab);
+        cardIndex += 1;
     });
     productTabsDiv.appendChild(productTabsRootDiv);
 };
@@ -48,9 +163,12 @@ var productCategoriesFunc = function (productCategories, productCategoriesDiv, p
     var productCategoriesRoot = document.createElement("div");
     var buttonLabels = [];
     productCategoriesRoot.setAttribute("class", "middleNavDiv");
+    console.log("Building Product Categories");
     //  Add product names to middle nav row.
-    productCategories.forEach(function (el) {
+    productCategories.forEach(function (el, i) {
         var _a;
+        console.log("el in loop in productCategoriesFunc");
+        console.log(el);
         var navButton = document.createElement("button");
         var buttonLabel = el.TabTitle.replace(/\s/g, "");
         var classes = [pathClass, buttonLabel, "active-oval-outlined-brown", "midnav-button"];
@@ -79,11 +197,12 @@ var productCategoriesFunc = function (productCategories, productCategoriesDiv, p
             }, 600);
         };
         productCategoriesRoot.appendChild(navButton);
-    });
-    //  Call nested fuction on each product to to build out sub products.
-    productCategories.forEach(function (el, i) {
         productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
     });
+    //  Call nested fuction on each product to to build out sub products.
+    //productCategories.forEach((el: any, i: number) => {
+    //    productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
+    //});
     productCategoriesDiv.appendChild(productCategoriesRoot);
 };
 //  Function to build and append HTML Elements on the top row of the nav section.
@@ -212,15 +331,28 @@ var productTypesFunc = function (json) {
     var topNavHideFuncParam = tabItemsWithIDArr[0].children[0];
     //  Call nested functions on each image to build out sub-products.
     jsonArr.forEach(function (el) {
+        //console.log("Subproduct - ");
+        //console.log(el.CategoryTitle);
+        //console.log("el.CategoryTabBlock - ");
+        //console.log(el.CategoryTabBlock);
+        //console.log("middleContainerDiv - ");
+        //console.log(middleContainerDiv);
+        //console.log("productDiv - ");
+        //console.log(productDiv);
+        //console.log("el.CategoryImage.OriginalString - ");
+        //console.log(el.CategoryImage.OriginalString);
         productCategoriesFunc(el.CategoryTabBlock, middleContainerDiv, productDiv, el.CategoryImage.OriginalString);
     });
-    outerContainer.appendChild(tempDiv1);
-    middleContainerDiv.appendChild(tempDiv2);
+    tempDiv1.classList.add("scroll-container");
     tempDiv1.appendChild(middleContainerDiv);
-    productDiv.appendChild(buildScrollTrack());
+    outerContainer.appendChild(tempDiv1);
+    //middleContainerDiv.appendChild(tempDiv2);
     productDiv.classList.add("lowerNavContainer");
-    tempDiv2.classList.add("scroll-container");
+    productDiv.appendChild(buildScrollTrack());
+    //console.log(productDiv);
+    // add products to a div
     tempDiv2.appendChild(productDiv);
+    outerContainer.appendChild(tempDiv2);
     root.appendChild(outerContainer);
     //  Both functions beneath are called on page load to build out the SPA nav structure.
     topNavHideFunc(topNavHideFuncParam.classList.item(0));

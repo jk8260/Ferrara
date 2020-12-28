@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var RECIPEFILTEROBJ = {};
+var SweetTreatFILTEROBJ = {};
 var triggerNav = function (prevAnchor) {
     prevAnchor.click();
 };
 // Function to add categories into tab navigation
-var recipeListFunc = function (json) {
+var sweettreatsListFunc = function (json) {
     console.log("BINGO");
     console.log(json);
     var jsonArr = JSON.parse(json);
-    var topNav = document.getElementsByClassName("top-nav-recipe");
+    var topNav = document.getElementsByClassName("top-nav-SweetTreat");
     var navTabs = document.getElementsByClassName("tab-pane");
-    var recipeContainer = document.getElementsByClassName("recipe-block-container");
+    var SweetTreatContainer = document.getElementsByClassName("SweetTreat-block-container");
     jsonArr.forEach(function (el, i) {
-        RECIPEFILTEROBJ[el.CategoryTitle] = {};
-        i === 0 ? RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = true : RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = false;
+        SweetTreatFILTEROBJ[el.CategoryTitle] = {};
+        i === 0 ? SweetTreatFILTEROBJ[el.CategoryTitle].ariaSelected = true : SweetTreatFILTEROBJ[el.CategoryTitle].ariaSelected = false;
         topNav[i].innerHTML = el.CategoryTitle;
         var href = "#" + el.CategoryTitle.replace(/\s/g, '');
         topNav[i].setAttribute("href", href);
@@ -27,69 +27,63 @@ var recipeListFunc = function (json) {
         var prevATag = categoryImg.previousElementSibling.id;
         topNav[i].parentElement.setAttribute("onclick", "triggerNav(" + prevATag + ")");
         topNav[i].addEventListener("click", function () {
-            Object.keys(RECIPEFILTEROBJ).forEach(function (key) {
-                el.CategoryTitle === key ? RECIPEFILTEROBJ[key].ariaSelected = true : RECIPEFILTEROBJ[key].ariaSelected = false;
+            Object.keys(SweetTreatFILTEROBJ).forEach(function (key) {
+                el.CategoryTitle === key ? SweetTreatFILTEROBJ[key].ariaSelected = true : SweetTreatFILTEROBJ[key].ariaSelected = false;
             });
         });
         navTabs[i].setAttribute("id", el.CategoryTitle.replace(/\s/g, ''));
-        for (var cardIndex = 0; cardIndex < el.RecipesCard.length; cardIndex += 1) {
-            RECIPEFILTEROBJ[el.CategoryTitle][el.RecipesCard[cardIndex].RecipeCardTitle] = el.RecipesCard[cardIndex];
-            // card main div
-            var recipeCard = document.createElement("div");
-            recipeCard.classList.add("card");
-            recipeCard.classList.add("keebler-card");
-            // card body div (not sure how this is different)
-            var recipeCardBody = document.createElement("div");
-            recipeCardBody.classList.add("card-body");
-            // row div is the card display
+        for (var cardIndex = 0; cardIndex < el.SweetTreatsCard.length; cardIndex += 1) {
+            SweetTreatFILTEROBJ[el.CategoryTitle][el.SweetTreatsCard[cardIndex].SweetTreatCardTitle] = el.SweetTreatsCard[cardIndex];
+            var SweetTreatCard = document.createElement("div");
+            SweetTreatCard.classList.add("card");
+            SweetTreatCard.classList.add("keebler-card");
+            var SweetTreatCardBody = document.createElement("div");
+            SweetTreatCardBody.classList.add("card-body");
             var cardRow = document.createElement("div");
             cardRow.classList.add("row");
-            //title
             var cardTitleCol = document.createElement("div");
             cardTitleCol.classList.add("col-12");
-            var recipeCardTitle = document.createElement("h5");
-            recipeCardTitle.classList.add("card-title");
-            recipeCardTitle.innerHTML = el.RecipesCard[cardIndex].RecipeCardTitle;
-            cardTitleCol.appendChild(recipeCardTitle);
-            // image
+            var SweetTreatCardTitle = document.createElement("h5");
+            SweetTreatCardTitle.classList.add("card-title");
+            SweetTreatCardTitle.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardTitle;
+            cardTitleCol.appendChild(SweetTreatCardTitle);
             var cardImgCol = document.createElement("div");
             cardImgCol.classList.add("col-4");
-            var cardRecipeImg = document.createElement("img");
-            cardRecipeImg.src = el.RecipesCard[cardIndex].RecipeCardImage.OriginalString;
-            cardImgCol.appendChild(cardRecipeImg);
-            // description
+            var cardSweetTreatImg = document.createElement("img");
+            cardSweetTreatImg.src = el.SweetTreatsCard[cardIndex].SweetTreatCardImage.OriginalString;
+            cardImgCol.appendChild(cardSweetTreatImg);
             var cardTextCol = document.createElement("div");
             cardTextCol.classList.add("col-8");
-            var recipeCardText = document.createElement("div");
-            recipeCardText.classList.add("card-text");
-            var recipeCardDescription = document.createElement("p");
-            recipeCardDescription.classList.add("card-description");
-            recipeCardDescription.innerHTML = el.RecipesCard[cardIndex].RecipeCardDescription;
-            var recipeCardInfo = document.createElement("div");
-            recipeCardInfo.classList.add("recipe-bold-info");
-            recipeCardInfo.innerHTML = el.RecipesCard[cardIndex].RecipeCardInfo;
-            recipeCardText.appendChild(recipeCardDescription);
-            recipeCardText.appendChild(recipeCardInfo);
-            cardTextCol.appendChild(recipeCardText);
+            var SweetTreatCardText = document.createElement("div");
+            SweetTreatCardText.classList.add("card-text");
+            var SweetTreatCardDescription = document.createElement("p");
+            SweetTreatCardDescription.classList.add("card-description");
+            SweetTreatCardDescription.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardDescription;
+            var SweetTreatCardInfo = document.createElement("div");
+            SweetTreatCardInfo.classList.add("SweetTreat-bold-info");
+            SweetTreatCardInfo.innerHTML = el.SweetTreatsCard[cardIndex].SweetTreatCardInfo;
+            SweetTreatCardText.appendChild(SweetTreatCardDescription);
+            SweetTreatCardText.appendChild(SweetTreatCardInfo);
+            cardTextCol.appendChild(SweetTreatCardText);
             cardRow.appendChild(cardTitleCol);
             cardRow.appendChild(cardImgCol);
             cardRow.appendChild(cardTextCol);
-            recipeCardBody.appendChild(cardRow);
-            recipeCard.appendChild(recipeCardBody);
+            SweetTreatCardBody.appendChild(cardRow);
+            SweetTreatCard.appendChild(SweetTreatCardBody);
             var cardAnchorTag = document.createElement("a");
-            cardAnchorTag.setAttribute("href", el.RecipesCard[cardIndex].RecipePage);
-            cardAnchorTag.appendChild(recipeCard);
+            cardAnchorTag.setAttribute("href", el.SweetTreatsCard[cardIndex].SweetTreatPage);
+            cardAnchorTag.appendChild(SweetTreatCard);
             cardAnchorTag.style.textDecoration = "none";
-            cardAnchorTag.id = el.RecipesCard[cardIndex].RecipeCardTitle;
+            cardAnchorTag.id = el.SweetTreatsCard[cardIndex].SweetTreatCardTitle;
             //navTabs[i].appendChild(cardAnchorTag);
-            recipeContainer[i].appendChild(cardAnchorTag);
+            SweetTreatContainer[i].appendChild(cardAnchorTag);
         }
         i += 1;
     });
 };
 var scrollTabNav = function (e) {
-    var tabNav = document.getElementById("recipe-list");
-    var tabAnchorList = document.getElementsByClassName("top-nav-recipe");
+    var tabNav = document.getElementById("SweetTreat-list");
+    var tabAnchorList = document.getElementsByClassName("top-nav-SweetTreat");
     var selectedTab = e.currentTarget;
     var coordinate = 0;
     for (var index = 0; index < tabAnchorList.length; index++) {
@@ -137,7 +131,7 @@ var hideClearFiltersButton = function () {
     filterCardsFunc();
 };
 var clearAllFilters = function () {
-    var filterButtons = document.getElementsByClassName("recipe-filter-button");
+    var filterButtons = document.getElementsByClassName("SweetTreat-filter-button");
     for (var i = 0; i < filterButtons.length; i++) {
         if (filterButtons[i].value === "selected") {
             filterButtons[i].value = "not-selected";
@@ -160,7 +154,7 @@ var showCustomButtons = function () {
     });
 };
 var filterCardsFunc = function () {
-    var buttonsObject = document.getElementsByClassName("recipe-filter-button");
+    var buttonsObject = document.getElementsByClassName("SweetTreat-filter-button");
     var buttonsObjectKeys = Object.keys(buttonsObject);
     var beenHiddenObject = {};
     var selectedFiltersObject = {};
@@ -168,8 +162,8 @@ var filterCardsFunc = function () {
         selectedFiltersObject[buttonsObject[el].name] = buttonsObject[el].value;
     });
     var selectedFiltersObjectKeys = Object.keys(selectedFiltersObject);
-    Object.keys(RECIPEFILTEROBJ).forEach(function (key) {
-        if (RECIPEFILTEROBJ[key].ariaSelected) {
+    Object.keys(SweetTreatFILTEROBJ).forEach(function (key) {
+        if (SweetTreatFILTEROBJ[key].ariaSelected) {
             var filterSelected_1 = false;
             selectedFiltersObjectKeys.forEach(function (filterKey) {
                 if (selectedFiltersObject[filterKey] === "selected") {
@@ -180,19 +174,19 @@ var filterCardsFunc = function () {
             if (filterSelected_1) {
                 selectedFiltersObjectKeys.forEach(function (nestedKey) {
                     if (selectedFiltersObject[nestedKey] === "selected") {
-                        var RECIPEFILTEROBJKeyArray = Object.keys(RECIPEFILTEROBJ[key]);
-                        for (var i = 0; i < RECIPEFILTEROBJKeyArray.length; i += 1) {
+                        var SweetTreatFILTEROBJKeyArray = Object.keys(SweetTreatFILTEROBJ[key]);
+                        for (var i = 0; i < SweetTreatFILTEROBJKeyArray.length; i += 1) {
                             // First Parameter of the if statement checks if the card matches the selected filter and the 
                             // second parameter check is the card hs already been hidden
-                            if (RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] && beenHiddenObject[RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle] === undefined) {
-                                var elToDisplay = document.getElementById(RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle);
+                            if (SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] && beenHiddenObject[SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle] === undefined) {
+                                var elToDisplay = document.getElementById(SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle);
                                 elToDisplay.setAttribute("style", "text-decoration: none; display: block");
                                 noCardsDisplaying = false;
                             }
-                            else if (RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] === false && RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]][nestedKey] != undefined) {
-                                var elToHide = document.getElementById(RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle);
+                            else if (SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] === false && SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]][nestedKey] != undefined) {
+                                var elToHide = document.getElementById(SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle);
                                 elToHide.setAttribute("style", "text-decoration: none; display: none");
-                                beenHiddenObject[RECIPEFILTEROBJ[key][RECIPEFILTEROBJKeyArray[i]].RecipeCardTitle] = true;
+                                beenHiddenObject[SweetTreatFILTEROBJ[key][SweetTreatFILTEROBJKeyArray[i]].SweetTreatCardTitle] = true;
                             }
                             ;
                         }
@@ -202,9 +196,9 @@ var filterCardsFunc = function () {
             }
             else {
                 selectedFiltersObjectKeys.forEach(function (nestedKey) {
-                    Object.keys(RECIPEFILTEROBJ[key]).forEach(function (deepNestedKey) {
-                        if (RECIPEFILTEROBJ[key][deepNestedKey][nestedKey] != undefined) {
-                            var elToDisplay = document.getElementById(RECIPEFILTEROBJ[key][deepNestedKey].RecipeCardTitle);
+                    Object.keys(SweetTreatFILTEROBJ[key]).forEach(function (deepNestedKey) {
+                        if (SweetTreatFILTEROBJ[key][deepNestedKey][nestedKey] != undefined) {
+                            var elToDisplay = document.getElementById(SweetTreatFILTEROBJ[key][deepNestedKey].SweetTreatCardTitle);
                             elToDisplay.setAttribute("style", "text-decoration: none; display: block");
                         }
                         ;
@@ -236,4 +230,4 @@ var filterCardsFunc = function () {
     var text = document.getElementsByClassName("no-cards-displaying-text");
     noCardsDisplaying ? text[0].style.display = "block" : text[0].style.display = "none";
 };
-//# sourceMappingURL=RecipeAPIParser.js.map
+//# sourceMappingURL=SweetTreatsAPIParser.js.map

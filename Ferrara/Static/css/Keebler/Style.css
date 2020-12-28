@@ -1987,6 +1987,9 @@ h1.yummy-recipes-title {
       font-weight: 500;
       color: #000000;
       margin-bottom: 3%; }
+      .keebler-recipe-details-page .keebler-top-recipe-card .recipe-info .preptime {
+        list-style: none;
+        padding-left: 0; }
     .keebler-recipe-details-page .keebler-top-recipe-card .recipe-info p {
       line-height: 26px; }
   .keebler-recipe-details-page .recipe-image img {
@@ -2003,6 +2006,10 @@ h1.yummy-recipes-title {
     display: flex;
     margin-top: 5%;
     pointer-events: none; }
+  .keebler-recipe-details-page .recipe-ingredients .ingredients {
+    list-style: none;
+    margin-left: 18px;
+    padding-left: 1.1em; }
   .keebler-recipe-details-page .recipe-ingredients p {
     margin-left: 18px;
     padding-left: 1.1em;

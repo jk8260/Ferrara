@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
@@ -26,7 +27,7 @@ namespace Ferrara.Sites.Shared
         {
             IContentRepository factory = DataFactory.Instance;
             PageReference parent = PageReference.StartPage;
-            return factory.GetChildren<PageData>(parent);
+            return factory.GetChildren<PageData>(parent).Where(x => x.VisibleInMenu);
             //return SiteDefinition.Current.StartPage.GetChildren();
         }
 
