@@ -152,21 +152,46 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         recipeCardTitle.innerHTML = el.ProductName;
         cardTitleCol.appendChild(recipeCardTitle);
 
+        // image
+        const cardImgCol: HTMLDivElement = document.createElement("div");
+        cardImgCol.classList.add("col-4");
+        const cardRecipeImg: HTMLImageElement = document.createElement("img");
+        cardRecipeImg.src = "";
+        cardImgCol.appendChild(cardRecipeImg);
+
+        // description
+        const cardTextCol: HTMLDivElement = document.createElement("div");
+        cardTextCol.classList.add("col-8");
+
+        const recipeCardText: HTMLDivElement = document.createElement("div");
+        recipeCardText.classList.add("card-text");
+
+        const recipeCardDescription: HTMLElement = document.createElement("p");
+        recipeCardDescription.classList.add("card-description");
+        recipeCardDescription.innerHTML = "This is a test of the emergency broadcast network.";
+        recipeCardText.appendChild(recipeCardDescription);
+        cardTextCol.appendChild(recipeCardText);
+
         cardRow.appendChild(cardTitleCol);
+        cardRow.appendChild(cardImgCol);
+        cardRow.appendChild(cardTextCol);
+        
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
-        const cardAnchorTag: HTMLElement = document.createElement("a");
-        cardAnchorTag.setAttribute("href", el.ProductPageId);
-        cardAnchorTag.appendChild(recipeCard);
-        cardAnchorTag.style.textDecoration = "none";
-        cardAnchorTag.id = el.ProductName;
+
+        //const cardAnchorTag: HTMLElement = document.createElement("a");
+        //cardAnchorTag.setAttribute("href", el.ProductPageId);
+        //cardAnchorTag.appendChild(recipeCard);
+        //cardAnchorTag.style.textDecoration = "none";
+        //cardAnchorTag.id = el.ProductName;
+
 
         cardRow.appendChild(cardTitleCol);
 
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
         productTab.appendChild(recipeCard);
-        productTabsRootDiv.appendChild(cardAnchorTag);
+        productTabsRootDiv.appendChild(productTab);
 
 
         // image
