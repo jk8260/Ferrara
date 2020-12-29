@@ -35,11 +35,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+var productXFunc = function (json) { return __awaiter(_this, void 0, void 0, function () {
+    var parsedJSON;
+    return __generator(this, function (_a) {
+        parsedJSON = JSON.parse(json);
+        console.log(parsedJSON);
+        return [2 /*return*/];
+    });
+}); };
 var productsFunc = function (json) { return __awaiter(_this, void 0, void 0, function () {
     var parsedJSON, lowerNav, displayBlockCount, navIndex, lowerNavChildren, childIndex, mainDiv, leftMainContentArrow, leftArrowImg, innerCol, innerRow, imgContainer, productCarousel, carouselIndicators, index, singleIndicator, productInnerCarousel, x, productInnerCarouselItem, itemImg, productImage;
     return __generator(this, function (_a) {
         parsedJSON = JSON.parse(json);
-        console.log();
         lowerNav = document.getElementsByClassName("lowerNavDiv");
         displayBlockCount = 0;
         //Counts how many lower nav options are displayed to check if there are multiple products
@@ -184,6 +191,23 @@ var nutritionFetch = function (id) { return __awaiter(_this, void 0, void 0, fun
             case 2:
                 myJson = _a.sent();
                 productsFunc(myJson);
+                return [2 /*return*/];
+        }
+    });
+}); };
+var treatFetch = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var response, treatJson;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch("/KeeblerProductPage/" + id)];
+            case 1:
+                response = _a.sent();
+                return [4 /*yield*/, response.json()];
+            case 2:
+                treatJson = _a.sent();
+                //console.log("treatJson");
+                //console.log(treatJson);
+                productXFunc(treatJson);
                 return [2 /*return*/];
         }
     });

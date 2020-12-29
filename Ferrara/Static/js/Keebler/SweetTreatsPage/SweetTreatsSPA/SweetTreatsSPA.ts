@@ -116,7 +116,7 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
             };
 
             removeProduct();
-            nutritionFetch(id);
+            //nutritionFetch(id);
 
             setTimeout((): void => {
                 try {
@@ -130,6 +130,10 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         productTab.classList.add(...classes);
         //productTab.innerHTML = el.ProductName;
 
+        console.log("calling treatFetch for - " + el.ProductPageId);
+        treatFetch(el.ProductPageId);
+        //const thisItem: any = treatFetch(el.ProductPageId);
+        //console.log(thisItem);
 
         // card main div
         const recipeCard: HTMLDivElement = document.createElement("div");

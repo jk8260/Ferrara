@@ -96,7 +96,7 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
             }
             ;
             removeProduct();
-            nutritionFetch(id);
+            //nutritionFetch(id);
             setTimeout(function () {
                 try {
                     footer.style.visibility = "visible";
@@ -109,6 +109,10 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         });
         (_a = productTab.classList).add.apply(_a, classes);
         //productTab.innerHTML = el.ProductName;
+        console.log("calling treatFetch for - " + el.ProductPageId);
+        treatFetch(el.ProductPageId);
+        //const thisItem: any = treatFetch(el.ProductPageId);
+        //console.log(thisItem);
         // card main div
         var recipeCard = document.createElement("div");
         recipeCard.classList.add("card");

@@ -1,6 +1,12 @@
-﻿const productsFunc: Function = async (json: string) => {
+﻿const productXFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);
-    console.log()
+    console.log(parsedJSON);
+    // GET SOME ELEMENT AND WRITE THIS RESULT TO IT
+};
+
+const productsFunc: Function = async (json: string) => {
+    const parsedJSON: any = JSON.parse(json);
+    //console.log(parsedJSON);
     const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
     let displayBlockCount: number = 0;
 
@@ -232,6 +238,14 @@ const nutritionFetch: Function = async (id: number): Promise<any> => {
     const response = await fetch(`/KeeblerProductPage/${id}`);
     const myJson = await response.json();
     productsFunc(myJson);
+};
+
+const treatFetch: Function = async (id: number): Promise<any> => {
+    const response = await fetch(`/KeeblerProductPage/${id}`);
+    const treatJson = await response.json();
+    //console.log("treatJson");
+    //console.log(treatJson);
+    productXFunc(treatJson);
 };
 
 const firstProductsFuncCall: Function = (): void => {
