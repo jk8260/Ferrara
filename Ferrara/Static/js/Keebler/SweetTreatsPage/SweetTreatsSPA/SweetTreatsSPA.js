@@ -16,16 +16,12 @@ var streatsListFunc = function (json) {
         categoryTabTitle.innerHTML = el.CategoryTitle;
         categoryTabTitle.style.textAlign = "center";
         categoryTabTitle.style.fontWeight = "bold";
-        //const catImg: HTMLDivElement = document.createElement("div");
-        //catImg.classList.add("col-4");
-        //catImg.style.width = "44";
-        //catImg.style.height = "44";
+        var catImg = document.createElement("div");
+        catImg.classList.add("col-4");
         var cardImg = document.createElement("img");
         cardImg.src = el.CategoryImage.OriginalString;
-        cardImg.width = 55;
-        cardImg.height = 55;
-        //catImg.appendChild(cardImg);
-        //categoryTabTitle.appendChild(catImg);
+        catImg.appendChild(cardImg);
+        categoryTabTitle.appendChild(catImg);
         // foreach tabBlock element list them
         el.CategoryTabBlock.forEach(function (tb) {
             console.log('\t' + tb.TabTitle);
@@ -109,10 +105,6 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         });
         (_a = productTab.classList).add.apply(_a, classes);
         //productTab.innerHTML = el.ProductName;
-        console.log("calling treatFetch for - " + el.ProductPageId);
-        treatFetch(el.ProductPageId);
-        //const thisItem: any = treatFetch(el.ProductPageId);
-        //console.log(thisItem);
         // card main div
         var recipeCard = document.createElement("div");
         recipeCard.classList.add("card");
@@ -134,7 +126,8 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         var cardImgCol = document.createElement("div");
         cardImgCol.classList.add("col-4");
         var cardRecipeImg = document.createElement("img");
-        cardRecipeImg.src = "";
+        cardRecipeImg.classList.add("card-image");
+        cardRecipeImg.classList.add(el.ProductPageId);
         cardImgCol.appendChild(cardRecipeImg);
         // description
         var cardTextCol = document.createElement("div");
@@ -143,39 +136,28 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         recipeCardText.classList.add("card-text");
         var recipeCardDescription = document.createElement("p");
         recipeCardDescription.classList.add("card-description");
-        recipeCardDescription.innerHTML = "This is a test of the emergency broadcast network.";
+        recipeCardDescription.classList.add(el.ProductPageId);
+        recipeCardDescription.innerHTML = "Sweet treats are made of these...";
         recipeCardText.appendChild(recipeCardDescription);
         cardTextCol.appendChild(recipeCardText);
+        // fetch our product detail
+        console.log("calling treatFetch for - " + el.ProductPageId);
+        treatFetch(el.ProductPageId);
         cardRow.appendChild(cardTitleCol);
         cardRow.appendChild(cardImgCol);
         cardRow.appendChild(cardTextCol);
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
-        //const cardAnchorTag: HTMLElement = document.createElement("a");
-        //cardAnchorTag.setAttribute("href", el.ProductPageId);
-        //cardAnchorTag.appendChild(recipeCard);
-        //cardAnchorTag.style.textDecoration = "none";
-        //cardAnchorTag.id = el.ProductName;
+        var cardAnchorTag = document.createElement("a");
+        cardAnchorTag.setAttribute("href", el.ProductPageId);
+        cardAnchorTag.appendChild(recipeCard);
+        cardAnchorTag.style.textDecoration = "none";
+        cardAnchorTag.id = el.ProductName;
         cardRow.appendChild(cardTitleCol);
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
         productTab.appendChild(recipeCard);
         productTabsRootDiv.appendChild(productTab);
-        // image
-        //const cardImgCol: HTMLDivElement = document.createElement("div");
-        //cardImgCol.classList.add("col-4");
-        //const cardRecipeImg: HTMLImageElement = document.createElement("img");
-        //cardRecipeImg.src = el.RecipesCard[cardIndex].RecipeCardImage.OriginalString;
-        //cardImgCol.appendChild(cardRecipeImg);
-        //// description
-        //const cardTextCol: HTMLDivElement = document.createElement("div");
-        //cardTextCol.classList.add("col-8");
-        //const recipeCardText: HTMLDivElement = document.createElement("div");
-        //recipeCardText.classList.add("card-text");
-        //const recipeCardDescription: HTMLElement = document.createElement("p");
-        //recipeCardDescription.classList.add("card-description");
-        //recipeCardDescription.innerHTML = el.RecipesCard[cardIndex].RecipeCardDescription;
-        //productTabsRootDiv.appendChild(productTab);
         cardIndex += 1;
     });
     productTabsDiv.appendChild(productTabsRootDiv);

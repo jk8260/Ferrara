@@ -1,6 +1,17 @@
-﻿const productXFunc: Function = async (json: string) => {
-    const parsedJSON: any = JSON.parse(json);
-    console.log(parsedJSON);
+﻿const productXFunc: Function = async (json: string, id: number) => {
+    const parsedXJSON: any = JSON.parse(json);
+    console.log(parsedXJSON);
+    console.log(parsedXJSON.ProductDescriptionName);
+    console.log(parsedXJSON.ProductDescription);
+    console.log(parsedXJSON.ProductImage[0].src);
+    //"card-description"
+    const recipeCardDescription: HTMLCollectionOf<Element> = document.getElementsByClassName("card-description " + id);
+    recipeCardDescription[0].innerHTML = parsedXJSON.ProductDescription;
+
+    //const recipeCardImage: HTMLImageElement = document.getElementsByClassName("card-image " + id);
+    var cardRecipeImg: HTMLCollectionOf<Element> = document.getElementsByClassName("card-image " + id);
+    cardRecipeImg[0].src = parsedXJSON.ProductImage[0].src;
+
     // GET SOME ELEMENT AND WRITE THIS RESULT TO IT
 };
 
@@ -240,14 +251,6 @@ const nutritionFetch: Function = async (id: number): Promise<any> => {
     productsFunc(myJson);
 };
 
-const treatFetch: Function = async (id: number): Promise<any> => {
-    const response = await fetch(`/KeeblerProductPage/${id}`);
-    const treatJson = await response.json();
-    //console.log("treatJson");
-    //console.log(treatJson);
-    productXFunc(treatJson);
-};
-
 const firstProductsFuncCall: Function = (): void => {
     const div: HTMLCollectionOf<Element> = document.getElementsByClassName("IdClass");
     const id: number = parseFloat(div[0].classList[3]);
@@ -468,3 +471,12 @@ const leftChangeMainContent: Function = (): void => {
         }
     }
 };
+
+const treatFetch: Function = async (id: number): Promise<any> => {
+    const response = await fetch(`/KeeblerProductPage/${id}`);
+    const treatJson = await response.json();
+    //console.log("treatJson");
+    //console.log(treatJson);
+    productXFunc(treatJson, id);
+};
+
