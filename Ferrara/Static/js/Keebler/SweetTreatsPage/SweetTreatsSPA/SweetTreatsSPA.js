@@ -57,6 +57,9 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
     var productTabsRootDiv = document.createElement("div");
     productTabsRootDiv.classList.add('lowerNavDiv');
     productTabsRootDiv.classList.add(pathClass);
+    productTabsRootDiv.classList.add("recipe-block-container");
+    productTabsRootDiv.classList.add("row");
+    productTabsRootDiv.classList.add("equal-height");
     var cardIndex = 0;
     var shadeInt = 1;
     //  Add product names to lower nav row. 
@@ -64,8 +67,8 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         var _a;
         console.log("Working on Sub Item - " + el.ProductName);
         var id = el.ProductPageId;
-        var productTab = document.createElement("div");
-        //productTab.setAttribute("style", "text-align: left; width:350px;");
+        var productTab = document.createElement("a");
+        // productTab.setAttribute("style", "text-align: center; width:100%;");
         //if (shadeInt > 1) {
         //    shadeInt = 1;
         //    productTab.style.backgroundColor = "blue";
@@ -74,13 +77,13 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         //    shadeInt += 1;
         //}
         var classes = [pathClass, tabName, "tablink", id, "IdClass"];
-        productTab.setAttribute("onclick", "openTab(event.currentTarget)");
-        SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
-            pathClass: pathClass,
-            tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
-            id: id
-        };
-        productTabsRootDiv.appendChild(productTab);
+        //productTab.setAttribute("onclick", "openTab(event.currentTarget)");
+        //SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
+        //    pathClass: pathClass,
+        //    tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
+        //    id: id
+        //};
+        //productTabsRootDiv.appendChild(productTab);
         //  Load Product Page
         productTab.addEventListener('click', function () {
             var footer = document.getElementsByClassName("keeblerfooterblock")[0];
@@ -104,7 +107,7 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
             }, 500);
         });
         (_a = productTab.classList).add.apply(_a, classes);
-        //productTab.innerHTML = el.ProductName;
+        productTab.innerHTML = el.ProductName;
         // card main div
         var recipeCard = document.createElement("div");
         recipeCard.classList.add("card");
@@ -148,16 +151,14 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         cardRow.appendChild(cardTextCol);
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
-        var cardAnchorTag = document.createElement("a");
-        cardAnchorTag.setAttribute("href", el.ProductPageId);
-        cardAnchorTag.appendChild(recipeCard);
-        cardAnchorTag.style.textDecoration = "none";
-        cardAnchorTag.id = el.ProductName;
-        cardRow.appendChild(cardTitleCol);
-        recipeCardBody.appendChild(cardRow);
-        recipeCard.appendChild(recipeCardBody);
+        //const cardAnchorTag: HTMLElement = document.createElement("a");
+        //cardAnchorTag.setAttribute("href", el.ProductPageId);
+        //cardAnchorTag.appendChild(recipeCard);
+        //cardAnchorTag.style.textDecoration = "none";
+        //cardAnchorTag.id = el.ProductName;
         productTab.appendChild(recipeCard);
         productTabsRootDiv.appendChild(productTab);
+        //productTabsRootDiv.appendChild(recipeCard);
         cardIndex += 1;
     });
     productTabsDiv.appendChild(productTabsRootDiv);
