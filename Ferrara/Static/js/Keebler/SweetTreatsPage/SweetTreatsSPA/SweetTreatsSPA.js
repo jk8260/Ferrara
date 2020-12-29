@@ -77,12 +77,12 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         //    shadeInt += 1;
         //}
         var classes = [pathClass, tabName, "tablink", id, "IdClass"];
-        //productTab.setAttribute("onclick", "openTab(event.currentTarget)");
-        //SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
-        //    pathClass: pathClass,
-        //    tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
-        //    id: id
-        //};
+        productTab.setAttribute("onclick", "openTab(event.currentTarget)");
+        SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
+            pathClass: pathClass,
+            tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
+            id: id
+        };
         //productTabsRootDiv.appendChild(productTab);
         //  Load Product Page
         productTab.addEventListener('click', function () {
@@ -353,6 +353,7 @@ var productTypesFunc = function (json) {
     outerContainer.appendChild(tempDiv1);
     //middleContainerDiv.appendChild(tempDiv2);
     productDiv.classList.add("lowerNavContainer");
+    productDiv.classList.add("container");
     productDiv.appendChild(buildScrollTrack());
     //console.log(productDiv);
     // add products to a div

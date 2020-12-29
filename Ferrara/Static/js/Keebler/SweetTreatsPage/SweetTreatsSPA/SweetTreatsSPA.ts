@@ -93,12 +93,12 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         //}
 
         const classes: Array<any> = [pathClass, tabName, "tablink", id, "IdClass"];
-        //productTab.setAttribute("onclick", "openTab(event.currentTarget)");
-        //SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
-        //    pathClass: pathClass,
-        //    tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
-        //    id: id
-        //};
+        productTab.setAttribute("onclick", "openTab(event.currentTarget)");
+        SWEETTREATSPAGES[el.UrlPath != null ? el.UrlPath.replace(/[^a-z0-9+]/gi, '').toLowerCase() : el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase()] = {
+            pathClass: pathClass,
+            tabName: tabName.replace(/[^a-z0-9+]/gi, '').toLowerCase(),
+            id: id
+        };
 
         //productTabsRootDiv.appendChild(productTab);
 
@@ -419,6 +419,7 @@ const productTypesFunc: Function = (json: string): void => {
     //middleContainerDiv.appendChild(tempDiv2);
 
     productDiv.classList.add("lowerNavContainer");
+    productDiv.classList.add("container");
     productDiv.appendChild(buildScrollTrack());
     //console.log(productDiv);
 
