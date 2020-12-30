@@ -127,7 +127,7 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
 
         });
         productTab.classList.add(...classes);
-        productTab.innerHTML = el.ProductName;
+        //productTab.innerHTML = el.ProductName;
 
         // card main div
         const recipeCard: HTMLDivElement = document.createElement("div");

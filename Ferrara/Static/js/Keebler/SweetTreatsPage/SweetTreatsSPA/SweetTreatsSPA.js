@@ -107,7 +107,7 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
             }, 500);
         });
         (_a = productTab.classList).add.apply(_a, classes);
-        productTab.innerHTML = el.ProductName;
+        //productTab.innerHTML = el.ProductName;
         // card main div
         var recipeCard = document.createElement("div");
         recipeCard.classList.add("card");
