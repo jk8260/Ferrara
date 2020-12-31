@@ -153,10 +153,12 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         // image
         const cardImgCol: HTMLDivElement = document.createElement("div");
         cardImgCol.classList.add("col-4");
+        cardImgCol.classList.add("img");
 
         const cardRecipeImg: HTMLImageElement = document.createElement("img");
         cardRecipeImg.classList.add("card-image");
         cardRecipeImg.classList.add(el.ProductPageId);
+        cardRecipeImg.addEventListener("click", imgClick, false);
 
         cardImgCol.appendChild(cardRecipeImg);
 
@@ -175,6 +177,7 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         recipeCardText.appendChild(recipeCardDescription);
         cardTextCol.appendChild(recipeCardText);
 
+        // ASYNC treat info fetch
         // fetch our product detail
         console.log("calling treatFetch for - " + el.ProductPageId);
         treatFetch(el.ProductPageId);
@@ -202,6 +205,14 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
 
     productTabsDiv.appendChild(productTabsRootDiv);
 };
+
+function imgClick(e) {
+    if (e.target.style.border) {
+        e.target.style.border = '';
+    } else {
+        e.target.style.border = '2px solid #33cc33';
+    }
+}
 
 //  Function to build and append HTML Elements on the middle row of the nav section.
 const productCategoriesFunc: Function = (productCategories: HTMLDivElement[], productCategoriesDiv: HTMLElement, productTabsDiv: HTMLDivElement, pathClass: string): void => {
@@ -412,7 +423,9 @@ const productTypesFunc: Function = (json: string): void => {
     });
 
 
-    tempDiv1.classList.add("scroll-container");
+    //tempDiv1.classList.add("scroll-container");
+    tempDiv1.appendChild(middleContainerDiv);
+
     tempDiv1.appendChild(middleContainerDiv);
     outerContainer.appendChild(tempDiv1);
 

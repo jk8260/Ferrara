@@ -12,8 +12,7 @@
     var cardRecipeImg: HTMLCollectionOf<Element> = document.getElementsByClassName("card-image " + id);
     cardRecipeImg[0].src = parsedXJSON.ProductImage[0].src;
 
-    // GET SOME ELEMENT AND WRITE THIS RESULT TO IT
-};
+ };
 
 const productsFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);

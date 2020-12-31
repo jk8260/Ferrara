@@ -128,9 +128,11 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         // image
         var cardImgCol = document.createElement("div");
         cardImgCol.classList.add("col-4");
+        cardImgCol.classList.add("img");
         var cardRecipeImg = document.createElement("img");
         cardRecipeImg.classList.add("card-image");
         cardRecipeImg.classList.add(el.ProductPageId);
+        cardRecipeImg.addEventListener("click", imgClick, false);
         cardImgCol.appendChild(cardRecipeImg);
         // description
         var cardTextCol = document.createElement("div");
@@ -143,6 +145,7 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         recipeCardDescription.innerHTML = "Sweet treats are made of these...";
         recipeCardText.appendChild(recipeCardDescription);
         cardTextCol.appendChild(recipeCardText);
+        // ASYNC treat info fetch
         // fetch our product detail
         console.log("calling treatFetch for - " + el.ProductPageId);
         treatFetch(el.ProductPageId);
@@ -163,6 +166,14 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
     });
     productTabsDiv.appendChild(productTabsRootDiv);
 };
+function imgClick(e) {
+    if (e.target.style.border) {
+        e.target.style.border = '';
+    }
+    else {
+        e.target.style.border = '2px solid #33cc33';
+    }
+}
 //  Function to build and append HTML Elements on the middle row of the nav section.
 var productCategoriesFunc = function (productCategories, productCategoriesDiv, productTabsDiv, pathClass) {
     var productCategoriesRoot = document.createElement("div");
@@ -348,7 +359,8 @@ var productTypesFunc = function (json) {
         //console.log(el.CategoryImage.OriginalString);
         productCategoriesFunc(el.CategoryTabBlock, middleContainerDiv, productDiv, el.CategoryImage.OriginalString);
     });
-    tempDiv1.classList.add("scroll-container");
+    //tempDiv1.classList.add("scroll-container");
+    tempDiv1.appendChild(middleContainerDiv);
     tempDiv1.appendChild(middleContainerDiv);
     outerContainer.appendChild(tempDiv1);
     //middleContainerDiv.appendChild(tempDiv2);
