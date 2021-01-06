@@ -41,7 +41,19 @@
                 <a class="nav-link" id="thirdCategory-tab" data-toggle="tab" href="#thirdCategory" role="tab" aria-controls="secondCategory" aria-selected="false">
                 </a>
             </li>
-            <div class="right-arrow" id="thirdCategory-rightArrow" style="display:none;" onclick="$('#firstCategory-tab').trigger('click')">
+            <div class="right-arrow" id="thirdCategory-rightArrow" style="display:none;" onclick="$('#forthCategory-tab').trigger('click')">
+                <span class="carousel-control-next-icon"></span>
+            </div>
+
+
+            <div class="left-arrow" id="forthCategory-leftArrow" style="display:none;" onclick="$('#thirdCategory-tab').trigger('click')">
+                <span class="carousel-control-prev-icon"></span>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" id="forthCategory-tab" data-toggle="tab" href="#forthCategory" role="tab" aria-controls="thirdCategory" aria-selected="false">
+                </a>
+            </li>
+            <div class="right-arrow" id="forthCategory-rightArrow" style="display:none;" onclick="$('#firstCategory-tab').trigger('click')">
                 <span class="carousel-control-next-icon"></span>
             </div>
 
@@ -94,14 +106,19 @@
 @Scripts.Render("~/bundles/js/KeeblerGlobalTs")
 
 <script type="text/javascript">
-        $(function () {
+    $(function () {
+
             $.get( "/CategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function( data ) {
                 //lower writes to treat-root
                 //streatsListFunc(data);
-                // old way
+                //console.log("data from index.html js here ;)");
+                //console.log(data);
+
+                // original way
                 productTypesFunc(data);
                 firstProductsFuncCall();
             });
+
         });
         function destiniFunction(containerId, associationId) {
             destini.init(containerId);

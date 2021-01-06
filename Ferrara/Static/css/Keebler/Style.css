@@ -1511,8 +1511,9 @@ $elf-sprite-height: -3072px;*/
 .nav-tabs::-webkit-scrollbar {
   display: none; }
 
-#firstCategory-tab img, #secondCategory-tab img, #thirdCategory-tab img {
-  height: 100px; }
+#firstCategory-tab img, #secondCategory-tab img, #thirdCategory-tab img, #forthCategory-tab img {
+    height: 100px;
+}
 
 a#firstCategory-tab.nav-link.active img {
   height: 135px; }
@@ -1520,10 +1521,21 @@ a#firstCategory-tab.nav-link.active img {
 a#secondCategory-tab.nav-link.active img {
   height: 135px; }
 
-a#thirdCategory-tab.nav-link.active {
+a#thirdCategory-tab.nav-link.active img {
+    height: 135px;
+}
+
+a#forthCategory-tab.nav-link.active img {
+    height: 135px;
+}
+
+/*a#thirdCategory-tab.nav-link.active {
   padding-right: 5%; }
-  a#thirdCategory-tab.nav-link.active img {
-    height: 135px; }
+*/
+a#forthCategory-tab.nav-link.active {
+    padding-right: 5%;
+}
+
 
 .nav-tabs .nav-link.active {
   background-color: transparent !important;
@@ -1593,7 +1605,7 @@ a#thirdCategory-tab.nav-link.active {
     width: 200px; }
   #firstCategory-leftArrow {
     padding-left: 21%; }
-  #thirdCategory-rightArrow {
+  #forthCategory-rightArrow {
     padding-right: 21%; } }
 
 .sweet-treats-page {
@@ -1615,13 +1627,15 @@ a#thirdCategory-tab.nav-link.active {
   width: 300px; }
 
 .scroll-container {
-  width: 690px;
-  margin: auto;
-  overflow: auto;
-  -ms-overflow-style: none;
-  /* IE 11 */
-  scrollbar-width: none;
-  /* Firefox 64 */ }
+    /*width: 690px;*/
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE 11 */
+    scrollbar-width: none;
+    /* Firefox 64 */
+}
   .scroll-container::-webkit-scrollbar {
     height: 0 !important;
     display: none; }

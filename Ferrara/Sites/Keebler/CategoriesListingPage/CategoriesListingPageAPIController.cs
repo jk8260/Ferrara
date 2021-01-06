@@ -32,7 +32,6 @@ namespace Ferrara.Sites.Keebler.CategoriesListingPage
                 var serviceLocator = ServiceLocator.Current.GetInstance<IContentLoader>();
                 var results = _contentLoader.Service.GetChildren<CategoryPage.CategoryPage>(new ContentReference(id)).FilterForDisplay().ToList();
 
-
                 foreach (var categoryPage in results)
                 {
                     var category = new KeeblerCategory();
@@ -81,15 +80,22 @@ namespace Ferrara.Sites.Keebler.CategoriesListingPage
 
                     categoryPagesList.Add(category);
                 }
+
             }
             catch (Exception e)
             {
                 return e.Message;
             }
 
-            return JsonConvert.SerializeObject(categoryPagesList);
+            //System.IO.File.WriteAllText(@"c:\temp\dumpResults.json", JsonConvert.SerializeObject(categoryPagesList));
+
+            // LETS READ AND USE THIS JSON WITH FOUR MAIN NODES STARTING WITH "Features' with Ernie's face
+            // TODO : Add Ernie's Favorites to the result set from EpiServer
+            var xxx = System.IO.File.ReadAllText(@"c:\temp\dumpResults.json"); // JsonConvert.SerializeObject(categoryPagesList);
+            return xxx;
+            //return JsonConvert.SerializeObject(categoryPagesList);
         }
-        
+
 
     }
 }

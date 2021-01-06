@@ -39,10 +39,6 @@ var productXFunc = function (json, id) { return __awaiter(_this, void 0, void 0,
     var parsedXJSON, recipeCardDescription, cardRecipeImg;
     return __generator(this, function (_a) {
         parsedXJSON = JSON.parse(json);
-        console.log(parsedXJSON);
-        console.log(parsedXJSON.ProductDescriptionName);
-        console.log(parsedXJSON.ProductDescription);
-        console.log(parsedXJSON.ProductImage[0].src);
         recipeCardDescription = document.getElementsByClassName("card-description " + id);
         recipeCardDescription[0].innerHTML = parsedXJSON.ProductDescription;
         cardRecipeImg = document.getElementsByClassName("card-image " + id);

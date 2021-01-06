@@ -1,9 +1,9 @@
 ﻿const productXFunc: Function = async (json: string, id: number) => {
     const parsedXJSON: any = JSON.parse(json);
-    console.log(parsedXJSON);
-    console.log(parsedXJSON.ProductDescriptionName);
-    console.log(parsedXJSON.ProductDescription);
-    console.log(parsedXJSON.ProductImage[0].src);
+    //console.log(parsedXJSON);
+    //console.log(parsedXJSON.ProductDescriptionName);
+    //console.log(parsedXJSON.ProductDescription);
+    //console.log(parsedXJSON.ProductImage[0].src);
     //"card-description"
     const recipeCardDescription: HTMLCollectionOf<Element> = document.getElementsByClassName("card-description " + id);
     recipeCardDescription[0].innerHTML = parsedXJSON.ProductDescription;
@@ -16,6 +16,7 @@
 
 const productsFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);
+    //console.log("parsedJSON in productsFunc");
     //console.log(parsedJSON);
     const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
     let displayBlockCount: number = 0;
