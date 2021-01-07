@@ -60,6 +60,7 @@ var openTab = function (selectedButton) {
 var toggleMiddleNavButtons = function (buttonLabel) {
     var allButtons = document.getElementsByClassName("midnav-button");
     for (var i = 0; i < allButtons.length; i++) {
+        //console.log(allButtons[i]);
         if (allButtons[i].classList.contains(buttonLabel)) {
             allButtons[i].classList.add("active-oval-filled-brown");
             allButtons[i].classList.remove("active-oval-outlined-brown");
@@ -85,7 +86,11 @@ var topNavHideFunc = function (elPram) {
     for (var i = 0; i < classArr[0].length; i += 1) {
         //checks to see it elParam (top tier class name is in the class list) 
         //and hides/shows this element 
-        if (classArr[0][i].children[0].classList.contains(elPram)) {
+        console.log(classArr[0][i]);
+        if (classArr[0][i].children[0].classList.contains("Featured") && classArr[0][i].children.length === 1) {
+            classArr[0][i].style.display = "none";
+        }
+        else if (classArr[0][i].children[0].classList.contains(elPram)) {
             classArr[0][i].style.display = "block";
         }
         else {

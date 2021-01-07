@@ -212,6 +212,8 @@ var productCategoriesFunc = function (productCategories, productCategoriesDiv, p
                 ;
             }, 600);
         };
+        if (el.TabTitle !== "Featured") {
+        }
         productCategoriesRoot.appendChild(navButton);
         productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
     });
@@ -331,6 +333,8 @@ var productTypesFunc = function (json) {
                 tabItemsWithIDArr[i].style.opacity = 1;
                 topNavHideFunc(tabItemsWithIDArr[i].firstElementChild.classList.item(0));
                 middleNavHideFunc(jsonArr[i].CategoryImage.OriginalString, jsonArr[i].CategoryTabBlock[0].TabTitle.replace(/\s/g, ''));
+                //if (tabItemsWithIDArr[i].id != "firstCategory-tab") {
+                //}
                 if (tabItemsWithIDArr[i].id === "firstCategory-tab") {
                     firstLArrow.style.display = "block";
                     firstRArrow.style.display = "block";

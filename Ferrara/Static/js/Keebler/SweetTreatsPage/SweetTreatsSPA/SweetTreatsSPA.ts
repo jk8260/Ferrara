@@ -252,9 +252,12 @@ const productCategoriesFunc: Function = (productCategories: HTMLDivElement[], pr
                     console.log("In Try Catch in SweetTreatsSPA. The Client is selecting tabs too fast.");
                 };
             }, 600);
-
+            
         };
 
+        if (el.TabTitle !== "Featured") {
+        }
+        
         productCategoriesRoot.appendChild(navButton);
         productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i]);
     });
@@ -404,6 +407,10 @@ const productTypesFunc: Function = (json: string): void => {
                 tabItemsWithIDArr[i].style.opacity = 1;
                 topNavHideFunc(tabItemsWithIDArr[i].firstElementChild.classList.item(0));
                 middleNavHideFunc(jsonArr[i].CategoryImage.OriginalString, jsonArr[i].CategoryTabBlock[0].TabTitle.replace(/\s/g, ''));
+
+                //if (tabItemsWithIDArr[i].id != "firstCategory-tab") {
+                    
+                //}
 
                 if (tabItemsWithIDArr[i].id === "firstCategory-tab") {
                     firstLArrow.style.display = "block";
