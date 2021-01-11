@@ -30,6 +30,7 @@ namespace Ferrara.Sites.Keebler.CategoriesListingPage
             try
             {
                 var serviceLocator = ServiceLocator.Current.GetInstance<IContentLoader>();
+                // this will return a List<CategoryPage.CategoryPage> for this id
                 var results = _contentLoader.Service.GetChildren<CategoryPage.CategoryPage>(new ContentReference(id)).FilterForDisplay().ToList();
 
                 foreach (var categoryPage in results)
@@ -91,9 +92,16 @@ namespace Ferrara.Sites.Keebler.CategoriesListingPage
 
             // LETS READ AND USE THIS JSON WITH FOUR MAIN NODES STARTING WITH "Features' with Ernie's face
             // TODO : Add Ernie's Favorites to the result set from EpiServer
-            var xxx = System.IO.File.ReadAllText(@"c:\temp\dumpResults.json"); // JsonConvert.SerializeObject(categoryPagesList);
-            return xxx;
-            //return JsonConvert.SerializeObject(categoryPagesList);
+            if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\mockResults.json"))
+            {
+                return System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\mockResults.json");
+            }
+            else if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\mockManyResults.json"))
+            {
+                return System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\mockManyResults.json");
+            }
+            else
+                return JsonConvert.SerializeObject(categoryPagesList);
         }
 
 

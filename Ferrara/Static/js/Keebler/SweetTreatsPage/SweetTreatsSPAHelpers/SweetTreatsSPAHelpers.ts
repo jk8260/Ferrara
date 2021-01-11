@@ -47,9 +47,13 @@ const topNavHideFunc: Function = (elPram): void => {
 
 
     for (let i: number = 0; i < classArr[0].length; i += 1) {
+        // shows all the buttons DIV
+        //console.log(classArr[0][i]);
         //checks to see it elParam (top tier class name is in the class list) 
         //and hides/shows this element 
-        console.log(classArr[0][i]);
+        // FIRST LINE - checks the first group 'Featured' (or whatever name it is) for a child named 'Featered' 
+        // if found it will hide the DIV UNLESS there are more than one child found 
+        // then it will show the categoryTitle list as well
         if (classArr[0][i].children[0].classList.contains("Featured") && classArr[0][i].children.length === 1) {
             classArr[0][i].style.display = "none";
         }
