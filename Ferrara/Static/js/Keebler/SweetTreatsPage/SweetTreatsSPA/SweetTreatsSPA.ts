@@ -182,7 +182,7 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         // ASYNC treat info fetch
         // fetch our product detail
         //console.log("calling treatFetch for - " + el.ProductPageId);
-        treatFetch(el.ProductPageId);
+        //treatFetch(el.ProductPageId);
 
         cardRow.appendChild(cardTitleCol);
         cardRow.appendChild(cardImgCol);
