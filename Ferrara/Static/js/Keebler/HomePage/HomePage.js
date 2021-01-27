@@ -16,6 +16,7 @@ $(document).on('touchmove', function () {
 var enterSite = function () {
     enterButton.classList.add("fade-out-enter-button");
     window.scrollTo(0, 0);
+    console.log("enterSite reached");
     vid.classList.add("fade-out-video");
     pauseVideo = false;
     vid.play();
@@ -104,6 +105,8 @@ var animateLowerSection = function (optionalLowerSection) {
 };
 var navigateToPath = function (path, timeout) {
     setTimeout(function () {
+        console.log("navigateToPath");
+        console.log(path);
         window.location.href = path;
     }, timeout);
 };

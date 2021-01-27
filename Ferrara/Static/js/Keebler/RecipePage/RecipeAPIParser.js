@@ -7,14 +7,17 @@ var triggerNav = function (prevAnchor) {
 // Function to add categories into tab navigation
 var recipeListFunc = function (json) {
     console.log("BINGO");
-    console.log(json);
+    //console.log(json);
     var jsonArr = JSON.parse(json);
     var topNav = document.getElementsByClassName("top-nav-recipe");
     var navTabs = document.getElementsByClassName("tab-pane");
     var recipeContainer = document.getElementsByClassName("recipe-block-container");
+    //console.log("jsonArr");
+    //console.log(jsonArr);
     jsonArr.forEach(function (el, i) {
         RECIPEFILTEROBJ[el.CategoryTitle] = {};
         i === 0 ? RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = true : RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = false;
+        console.log("Working on this category - " + el.CategoryTitle);
         topNav[i].innerHTML = el.CategoryTitle;
         var href = "#" + el.CategoryTitle.replace(/\s/g, '');
         topNav[i].setAttribute("href", href);
@@ -34,6 +37,7 @@ var recipeListFunc = function (json) {
         navTabs[i].setAttribute("id", el.CategoryTitle.replace(/\s/g, ''));
         for (var cardIndex = 0; cardIndex < el.RecipesCard.length; cardIndex += 1) {
             RECIPEFILTEROBJ[el.CategoryTitle][el.RecipesCard[cardIndex].RecipeCardTitle] = el.RecipesCard[cardIndex];
+            console.log("Working on card - " + el.RecipesCard[cardIndex].RecipeCardTitle);
             // card main div
             var recipeCard = document.createElement("div");
             recipeCard.classList.add("card");

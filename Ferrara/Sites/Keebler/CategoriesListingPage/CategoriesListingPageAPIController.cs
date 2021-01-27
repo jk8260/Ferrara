@@ -65,8 +65,8 @@ namespace Ferrara.Sites.Keebler.CategoriesListingPage
                                         {
                                             ProductName = icon.ProductName,
                                             ProductPageId = icon.ProductPage != null ? icon.ProductPage.ID : 0,
-                                            UrlPath = icon.UrlPath
-                                        }); 
+                                            UrlPath = "blabla/bla/bla/" //icon.UrlPath
+                                        }); ; 
                                     }
                                 }
                             }

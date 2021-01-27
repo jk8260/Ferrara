@@ -76,9 +76,15 @@ var buildAutocompleteObject = function (sweetTreatsPageNumber, recipesPageNumber
                     Object.keys(productJson[key1].CategoryTabBlock).forEach(function (key2) {
                         Object.keys(productJson[key1].CategoryTabBlock[key2].ProductsIcons).forEach(function (key3) {
                             productsJsonArray.push(productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3].ProductName);
+                            console.log("Nice...");
                             var pathKey = productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3];
                             var productName = productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3].ProductName.replace(/[^a-z0-9+]/gi, '').toUpperCase();
-                            pathKey.UrlPath != null ? AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.UrlPath.replace(/[^a-z0-9+]/gi, ' ').toLowerCase() : AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+                            console.log(pathKey);
+                            console.log(productName);
+                            pathKey.UrlPath != null ?
+                                AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.UrlPath.replace(/[^a-z0-9+]/gi, ' ').toLowerCase() :
+                                AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+                            pathKey.UrlPath = "/en/sweet-treats/" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
                         });
                     });
                 });

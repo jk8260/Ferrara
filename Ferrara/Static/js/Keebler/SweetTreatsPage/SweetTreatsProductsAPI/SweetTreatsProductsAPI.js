@@ -47,98 +47,11 @@ var productXFunc = function (json, id) { return __awaiter(_this, void 0, void 0,
     });
 }); };
 var productsFunc = function (json) { return __awaiter(_this, void 0, void 0, function () {
-    var parsedJSON, lowerNav, displayBlockCount, navIndex, lowerNavChildren, childIndex, mainDiv, leftMainContentArrow, leftArrowImg, innerCol, innerRow, imgContainer, productCarousel, carouselIndicators, index, singleIndicator, productInnerCarousel, x, productInnerCarouselItem, itemImg, productImage;
+    var parsedJSON;
     return __generator(this, function (_a) {
         parsedJSON = JSON.parse(json);
-        lowerNav = document.getElementsByClassName("lowerNavDiv");
-        displayBlockCount = 0;
-        //Counts how many lower nav options are displayed to check if there are multiple products
-        for (navIndex = 0; navIndex < lowerNav.length; navIndex++) {
-            lowerNavChildren = lowerNav[navIndex].children;
-            for (childIndex = 0; childIndex < lowerNavChildren.length; childIndex++) {
-                if (lowerNavChildren[childIndex].style.display == "block") {
-                    displayBlockCount++;
-                }
-            }
-        }
-        mainDiv = document.createElement("div");
-        mainDiv.classList.add("row");
-        mainDiv.classList.add("product-details-container");
-        leftMainContentArrow = document.createElement("div");
-        leftMainContentArrow.classList.add("col-md-1");
-        leftMainContentArrow.classList.add("col-1");
-        leftArrowImg = document.createElement("img");
-        leftArrowImg.src = "/Static/gfx/ArrowIcons/LargeLeftArrow.svg";
-        leftMainContentArrow.append(leftArrowImg);
-        leftMainContentArrow.setAttribute("onclick", "leftChangeMainContent()");
-        leftMainContentArrow.classList.add("main-content-arrow");
-        if (displayBlockCount < 1) {
-            leftMainContentArrow.style.display = "none";
-        }
-        mainDiv.append(leftMainContentArrow);
-        innerCol = document.createElement("div");
-        innerCol.classList.add("col-10");
-        innerCol.classList.add("product-page-main-content");
-        innerRow = document.createElement("div");
-        innerRow.classList.add("row");
-        // Append Product Image to Main Div
-        if (parsedJSON.ProductImage != null) {
-            imgContainer = document.createElement("div");
-            imgContainer.classList.add("col-lg-4");
-            imgContainer.classList.add("col-md-5");
-            imgContainer.classList.add("col-sm-12");
-            // Create img carousel if more than one image exists
-            if (Object.keys(parsedJSON.ProductImage).length > 1) {
-                productCarousel = document.createElement("div");
-                productCarousel.id = "carouselExampleIndicators";
-                productCarousel.classList.add("carousel");
-                productCarousel.classList.add("slide");
-                productCarousel.setAttribute("data-ride", "carousel");
-                productCarousel.setAttribute("data-interval", "false");
-                carouselIndicators = document.createElement("ol");
-                carouselIndicators.classList.add("carousel-indicators");
-                for (index = 0; index < Object.keys(parsedJSON.ProductImage).length; index += 1) {
-                    singleIndicator = document.createElement("li");
-                    singleIndicator.setAttribute("data-target", "#carouselExampleIndicators");
-                    singleIndicator.setAttribute("data-slide-to", String(index));
-                    if (index === 0) {
-                        singleIndicator.setAttribute("class", "active");
-                    }
-                    carouselIndicators.appendChild(singleIndicator);
-                }
-                productInnerCarousel = document.createElement("div");
-                productInnerCarousel.classList.add("carousel-inner");
-                for (x = 0; x < Object.keys(parsedJSON.ProductImage).length; x += 1) {
-                    productInnerCarouselItem = document.createElement("div");
-                    productInnerCarouselItem.classList.add("carousel-item");
-                    if (x === 0) {
-                        productInnerCarouselItem.classList.add("active");
-                    }
-                    itemImg = document.createElement("img");
-                    itemImg.classList.add("d-block");
-                    itemImg.classList.add("w-100");
-                    itemImg.classList.add("sweet-treats-nutrition-images");
-                    if (parsedJSON.ProductImage[x].nutritionTabName) {
-                        itemImg.classList.add(parsedJSON.ProductImage[x].nutritionTabName.replace(/[^a-z0-9+]/gi, '').toLowerCase());
-                    }
-                    ;
-                    itemImg.src = parsedJSON.ProductImage[x].src;
-                    itemImg.alt = parsedJSON.ProductImage[x].altSEO;
-                    productInnerCarouselItem.appendChild(itemImg);
-                    productInnerCarousel.appendChild(productInnerCarouselItem);
-                }
-                productCarousel.appendChild(carouselIndicators);
-                productCarousel.appendChild(productInnerCarousel);
-                imgContainer.appendChild(productCarousel);
-            }
-            else {
-                productImage = document.createElement("img");
-                productImage.src = parsedJSON.ProductImage[0].src;
-                productImage.alt = parsedJSON.ProductImage[0].altSEO;
-                imgContainer.appendChild(productImage);
-            }
-            innerRow.appendChild(imgContainer);
-        }
+        console.log("JEEZE");
+        console.log("parsedJSON in productsFunc");
         return [2 /*return*/];
     });
 }); };
@@ -309,12 +222,14 @@ var buildRecipeSection = function (recipeSection, recipeBlocks, linkToRecipePage
     return recipeSection;
 };
 var onSelectClick = function (selectContainer) {
+    console.log("Here jk onSelectClick");
     closeAllSelect(selectContainer);
     changeDropdownShape(selectContainer);
     selectContainer.nextSibling.classList.toggle("select-hide");
     selectContainer.classList.toggle("select-arrow-active");
 };
 var optionOnClick = function (selectedOption) {
+    console.log("Here jk optionOnClick");
     var originalSelect = document.getElementsByTagName("select")[0];
     var displayDiv = document.getElementsByClassName("select-arrow-active")[0];
     for (var i = 0; i < originalSelect.options.length; i++) {

@@ -21,7 +21,7 @@ $(document).on('touchmove', function () {
 const enterSite: Function = (): void => {
     enterButton.classList.add("fade-out-enter-button");
     window.scrollTo(0, 0);
-
+    console.log("enterSite reached");
     vid.classList.add("fade-out-video");
     pauseVideo = false;
     vid.play();
@@ -122,6 +122,8 @@ const animateLowerSection: Function = (optionalLowerSection: HTMLDivElement): vo
 
 const navigateToPath: Function = (path: string, timeout: number): void => {
     setTimeout((): void => {
+        console.log("navigateToPath");
+        console.log(path);
         window.location.href = path;
     }, timeout)
 } 

@@ -8,7 +8,7 @@ const triggerNav: Function = (prevAnchor: any): void => {
 
 // Function to add categories into tab navigation
 const sweettreatsListFunc: Function = (json: string): void => {
-    console.log("BINGO");
+    console.log("SWEET BINGO");
     console.log(json);
     const jsonArr: Array<any> = JSON.parse(json);
     const topNav: HTMLCollection = document.getElementsByClassName("top-nav-SweetTreat");

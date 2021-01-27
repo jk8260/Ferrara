@@ -6,7 +6,7 @@ var triggerNav = function (prevAnchor) {
 };
 // Function to add categories into tab navigation
 var sweettreatsListFunc = function (json) {
-    console.log("BINGO");
+    console.log("SWEET BINGO");
     console.log(json);
     var jsonArr = JSON.parse(json);
     var topNav = document.getElementsByClassName("top-nav-SweetTreat");

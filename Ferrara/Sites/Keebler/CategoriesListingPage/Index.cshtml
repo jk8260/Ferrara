@@ -109,12 +109,8 @@
     $(function () {
 
             $.get( "/CategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function( data ) {
-                //lower writes to treat-root
-                //streatsListFunc(data);
-                //console.log("data from index.html js here ;)");
-                //console.log(data);
-
                 // original way
+                console.log("calling productTypesFunc here");
                 productTypesFunc(data);
                 firstProductsFuncCall();
             });

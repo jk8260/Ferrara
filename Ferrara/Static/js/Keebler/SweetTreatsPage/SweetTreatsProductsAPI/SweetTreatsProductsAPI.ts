@@ -16,105 +16,106 @@
 
 const productsFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);
-    //console.log("parsedJSON in productsFunc");
-    //console.log(parsedJSON);
-    const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
-    let displayBlockCount: number = 0;
+    console.log("JEEZE");
+    console.log("parsedJSON in productsFunc");
+    // console.log(parsedJSON);
+    //const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
+    //let displayBlockCount: number = 0;
 
-    //Counts how many lower nav options are displayed to check if there are multiple products
-    for (let navIndex = 0; navIndex < lowerNav.length; navIndex++) {
-        let lowerNavChildren = lowerNav[navIndex].children;
-        for (let childIndex = 0; childIndex < lowerNavChildren.length; childIndex++) {
-            if (lowerNavChildren[childIndex].style.display == "block") {
-                displayBlockCount++;
-            }
-        }
-    }
+    ////Counts how many lower nav options are displayed to check if there are multiple products
+    //for (let navIndex = 0; navIndex < lowerNav.length; navIndex++) {
+    //    let lowerNavChildren = lowerNav[navIndex].children;
+    //    for (let childIndex = 0; childIndex < lowerNavChildren.length; childIndex++) {
+    //        if (lowerNavChildren[childIndex].style.display == "block") {
+    //            displayBlockCount++;
+    //        }
+    //    }
+    //}
 
-    // Create Main Div
-    const mainDiv: HTMLDivElement = document.createElement("div");
-    mainDiv.classList.add("row");
-    mainDiv.classList.add("product-details-container");
+    //// Create Main Div
+    //const mainDiv: HTMLDivElement = document.createElement("div");
+    //mainDiv.classList.add("row");
+    //mainDiv.classList.add("product-details-container");
 
-    // Append left arrow
-    const leftMainContentArrow: HTMLDivElement = document.createElement("div");
-    leftMainContentArrow.classList.add("col-md-1");
-    leftMainContentArrow.classList.add("col-1");
-    const leftArrowImg: HTMLImageElement = document.createElement("img");
-    leftArrowImg.src = "/Static/gfx/ArrowIcons/LargeLeftArrow.svg";
-    leftMainContentArrow.append(leftArrowImg);
-    leftMainContentArrow.setAttribute("onclick", "leftChangeMainContent()");
-    leftMainContentArrow.classList.add("main-content-arrow");
+    //// Append left arrow
+    //const leftMainContentArrow: HTMLDivElement = document.createElement("div");
+    //leftMainContentArrow.classList.add("col-md-1");
+    //leftMainContentArrow.classList.add("col-1");
+    //const leftArrowImg: HTMLImageElement = document.createElement("img");
+    //leftArrowImg.src = "/Static/gfx/ArrowIcons/LargeLeftArrow.svg";
+    //leftMainContentArrow.append(leftArrowImg);
+    //leftMainContentArrow.setAttribute("onclick", "leftChangeMainContent()");
+    //leftMainContentArrow.classList.add("main-content-arrow");
 
-    if (displayBlockCount < 1) {
-        leftMainContentArrow.style.display = "none";
-    }
+    //if (displayBlockCount < 1) {
+    //    leftMainContentArrow.style.display = "none";
+    //}
 
-    mainDiv.append(leftMainContentArrow);
+    //mainDiv.append(leftMainContentArrow);
 
-    const innerCol: HTMLDivElement = document.createElement("div");
-    innerCol.classList.add("col-10");
-    innerCol.classList.add("product-page-main-content");
+    //const innerCol: HTMLDivElement = document.createElement("div");
+    //innerCol.classList.add("col-10");
+    //innerCol.classList.add("product-page-main-content");
 
-    const innerRow: HTMLDivElement = document.createElement("div");
-    innerRow.classList.add("row");
+    //const innerRow: HTMLDivElement = document.createElement("div");
+    //innerRow.classList.add("row");
 
     // Append Product Image to Main Div
-    if (parsedJSON.ProductImage != null) {
-        const imgContainer: HTMLDivElement = document.createElement("div");
-        imgContainer.classList.add("col-lg-4");
-        imgContainer.classList.add("col-md-5");
-        imgContainer.classList.add("col-sm-12");
-        // Create img carousel if more than one image exists
-        if (Object.keys(parsedJSON.ProductImage).length > 1) {
-            const productCarousel: HTMLDivElement = document.createElement("div");
-            productCarousel.id = "carouselExampleIndicators";
-            productCarousel.classList.add("carousel");
-            productCarousel.classList.add("slide");
-            productCarousel.setAttribute("data-ride", "carousel");
-            productCarousel.setAttribute("data-interval", "false");
+    //if (parsedJSON.ProductImage != null) {
+    //    const imgContainer: HTMLDivElement = document.createElement("div");
+    //    imgContainer.classList.add("col-lg-4");
+    //    imgContainer.classList.add("col-md-5");
+    //    imgContainer.classList.add("col-sm-12");
+    //    // Create img carousel if more than one image exists
+    //    if (Object.keys(parsedJSON.ProductImage).length > 1) {
+    //        const productCarousel: HTMLDivElement = document.createElement("div");
+    //        productCarousel.id = "carouselExampleIndicators";
+    //        productCarousel.classList.add("carousel");
+    //        productCarousel.classList.add("slide");
+    //        productCarousel.setAttribute("data-ride", "carousel");
+    //        productCarousel.setAttribute("data-interval", "false");
 
-            const carouselIndicators: HTMLOListElement = document.createElement("ol");
-            carouselIndicators.classList.add("carousel-indicators");
+    //        const carouselIndicators: HTMLOListElement = document.createElement("ol");
+    //        carouselIndicators.classList.add("carousel-indicators");
 
-            for (let index = 0; index < Object.keys(parsedJSON.ProductImage).length; index += 1) {
-                const singleIndicator: HTMLLIElement = document.createElement("li");
-                singleIndicator.setAttribute("data-target", "#carouselExampleIndicators");
-                singleIndicator.setAttribute("data-slide-to", String(index));
-                if (index === 0) { singleIndicator.setAttribute("class", "active"); }
-                carouselIndicators.appendChild(singleIndicator);
-            }
+    //        for (let index = 0; index < Object.keys(parsedJSON.ProductImage).length; index += 1) {
+    //            const singleIndicator: HTMLLIElement = document.createElement("li");
+    //            singleIndicator.setAttribute("data-target", "#carouselExampleIndicators");
+    //            singleIndicator.setAttribute("data-slide-to", String(index));
+    //            if (index === 0) { singleIndicator.setAttribute("class", "active"); }
+    //            carouselIndicators.appendChild(singleIndicator);
+    //        }
 
-            const productInnerCarousel: HTMLDivElement = document.createElement("div");
-            productInnerCarousel.classList.add("carousel-inner");
+    //        const productInnerCarousel: HTMLDivElement = document.createElement("div");
+    //        productInnerCarousel.classList.add("carousel-inner");
 
-            for (let x = 0; x < Object.keys(parsedJSON.ProductImage).length; x += 1) {
-                const productInnerCarouselItem: HTMLDivElement = document.createElement("div"); 
-                productInnerCarouselItem.classList.add("carousel-item");
-                if (x === 0) { productInnerCarouselItem.classList.add("active"); }
-                const itemImg: HTMLImageElement = document.createElement("img");
-                itemImg.classList.add("d-block");
-                itemImg.classList.add("w-100");
-                itemImg.classList.add("sweet-treats-nutrition-images");
-                if (parsedJSON.ProductImage[x].nutritionTabName) { itemImg.classList.add(parsedJSON.ProductImage[x].nutritionTabName.replace(/[^a-z0-9+]/gi, '').toLowerCase()); };
-                itemImg.src = parsedJSON.ProductImage[x].src;
-                itemImg.alt = parsedJSON.ProductImage[x].altSEO;
-                productInnerCarouselItem.appendChild(itemImg);
-                productInnerCarousel.appendChild(productInnerCarouselItem);
-            }
+    //        for (let x = 0; x < Object.keys(parsedJSON.ProductImage).length; x += 1) {
+    //            const productInnerCarouselItem: HTMLDivElement = document.createElement("div"); 
+    //            productInnerCarouselItem.classList.add("carousel-item");
+    //            if (x === 0) { productInnerCarouselItem.classList.add("active"); }
+    //            const itemImg: HTMLImageElement = document.createElement("img");
+    //            itemImg.classList.add("d-block");
+    //            itemImg.classList.add("w-100");
+    //            itemImg.classList.add("sweet-treats-nutrition-images");
+    //            if (parsedJSON.ProductImage[x].nutritionTabName) { itemImg.classList.add(parsedJSON.ProductImage[x].nutritionTabName.replace(/[^a-z0-9+]/gi, '').toLowerCase()); };
+    //            itemImg.src = parsedJSON.ProductImage[x].src;
+    //            itemImg.alt = parsedJSON.ProductImage[x].altSEO;
+    //            productInnerCarouselItem.appendChild(itemImg);
+    //            productInnerCarousel.appendChild(productInnerCarouselItem);
+    //        }
 
-            productCarousel.appendChild(carouselIndicators);
-            productCarousel.appendChild(productInnerCarousel);
-            imgContainer.appendChild(productCarousel);
-        } else {
-            const productImage: HTMLImageElement = document.createElement("img");
-            productImage.src = parsedJSON.ProductImage[0].src;
-            productImage.alt = parsedJSON.ProductImage[0].altSEO;
-            imgContainer.appendChild(productImage);
-        }
+    //        productCarousel.appendChild(carouselIndicators);
+    //        productCarousel.appendChild(productInnerCarousel);
+    //        imgContainer.appendChild(productCarousel);
+    //    } else {
+    //        const productImage: HTMLImageElement = document.createElement("img");
+    //        productImage.src = parsedJSON.ProductImage[0].src;
+    //        productImage.alt = parsedJSON.ProductImage[0].altSEO;
+    //        imgContainer.appendChild(productImage);
+    //    }
 
-        innerRow.appendChild(imgContainer);
-    }
+    //    innerRow.appendChild(imgContainer);
+    //}
 
     //// Create Details Section
     //const productDetailsDiv: HTMLDivElement = document.createElement("div");
@@ -308,7 +309,8 @@ const buildRecipeSection: Function = (recipeSection: HTMLDivElement, recipeBlock
     recipeHeader.innerHTML = "Related Recipes";
     recipeSection.appendChild(recipeHeader);
 
-    for (let i = 0; i < Object.keys(recipeBlocks).length; i += 1) { 
+       
+    for (let i = 0; i < Object.keys(recipeBlocks).length; i += 1) {
         const recipeCard: HTMLDivElement = document.createElement("div");
         recipeCard.classList.add("card");
         recipeCard.classList.add("keebler-card");
@@ -358,6 +360,7 @@ const buildRecipeSection: Function = (recipeSection: HTMLDivElement, recipeBlock
         }
         cardCol.classList.add("recipe-card-col");
 
+
         const cardAnchorTag: HTMLElement = document.createElement("a");
         cardAnchorTag.setAttribute("href", recipeBlocks[i].recipePageLink);
         cardAnchorTag.appendChild(recipeCard);
@@ -387,6 +390,7 @@ const buildRecipeSection: Function = (recipeSection: HTMLDivElement, recipeBlock
 };
 
 const onSelectClick: Function = (selectContainer: any): void => {
+    console.log("Here jk onSelectClick");
     closeAllSelect(selectContainer);
     changeDropdownShape(selectContainer);
     selectContainer.nextSibling.classList.toggle("select-hide");
@@ -394,9 +398,9 @@ const onSelectClick: Function = (selectContainer: any): void => {
 };
 
 const optionOnClick: Function = (selectedOption: HTMLOptionElement): void => {
+    console.log("Here jk optionOnClick");
     const originalSelect: any = document.getElementsByTagName("select")[0];
     const displayDiv: any = document.getElementsByClassName("select-arrow-active")[0];
-
     for (let i: number = 0; i < originalSelect.options.length; i++) {
         if (selectedOption.innerHTML !== displayDiv.innerHTML) {
             displayDiv.innerHTML = selectedOption.innerHTML;

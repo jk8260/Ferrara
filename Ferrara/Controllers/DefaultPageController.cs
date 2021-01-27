@@ -25,6 +25,8 @@ namespace Ferrara.Controllers
         public ViewResult Index(Common.SitePageData currentPage)
         {
             var model = CreateModel(currentPage);
+            Console.WriteLine("currentPage");
+            Console.WriteLine(currentPage);
             return View(string.Format("~/Views/{0}/Index.cshtml", currentPage.GetOriginalType().Name), model);
         }
 

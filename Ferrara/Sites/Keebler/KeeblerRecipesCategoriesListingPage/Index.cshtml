@@ -75,7 +75,7 @@
         console.log("bla bla bla from the jquery code Recipe");
         $.get("/KeeblerRecipesCategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function (data) {
             console.log("in the GET for " + @Model.CurrentPage.ContentLink.ID);
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
             $(".result").html(JSON.stringify(data, undefined, 2));
             recipeListFunc(data);
             showCustomButtons();
