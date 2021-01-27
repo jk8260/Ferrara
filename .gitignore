@@ -2,6 +2,7 @@
 *.user
 bin/
 obj/
+packages/
 .vs/
 *.mdf
 *.ldf
