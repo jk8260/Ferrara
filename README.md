@@ -18,6 +18,6 @@ Click on the IIS Express button to build and run the project.
 
 To login, go to /episerver/cms 
 
-Username: `Ferrara`
+Username: `Ferraraadmin`
 
-Password: `Spr-123456` 
+Password: `SPR-cookies1!` 

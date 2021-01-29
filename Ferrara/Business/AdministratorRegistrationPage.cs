@@ -77,6 +77,7 @@ namespace Ferrara
             routeData.Add("action", "Index");
             routeData.Add("id", " UrlParameter.Optional");
             RouteTable.Routes.Add("Register", new Route("{controller}/{action}/{id}", routeData, new MvcRouteHandler()) { RouteExistingFiles = false });
+            RouteTable.Routes.Add("KeeblerSweetTreatsPage", new Route("KeeblerSweetTreatsPage/index/{id}", routeData, new MvcRouteHandler()) { RouteExistingFiles = false });
         }
     }
 }

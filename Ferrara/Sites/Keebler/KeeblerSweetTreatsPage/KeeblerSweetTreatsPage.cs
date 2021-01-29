@@ -11,7 +11,7 @@ namespace Ferrara.Sites.Keebler.KeeblerSweetTreatsPage
     [ContentType(DisplayName = "Keebler Sweet Treats Page", 
         GUID = "6e331728-181c-4e8c-af3d-3ec6fef73433",
         GroupName = Global.GroupNames.Keebler,
-        Description = "Keebler Individual Recipe Page (includes fields such as ingredients, directions, etc.)")]
+        Description = "Keebler Individual Sweet Treat Page (includes fields such as description, nutritional, etc.)")]
     [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-standard.png")]
     public class KeeblerSweetTreatsPage : KeeblerPageData
     {
@@ -103,5 +103,6 @@ namespace Ferrara.Sites.Keebler.KeeblerSweetTreatsPage
            Order = 55)]
         [AllowedTypes(AllowedTypes = new[] { typeof(KeeblerRecipeProductsUsedBlock.KeeblerRecipeProductsUsedBlock) })]
         public virtual ContentArea ProductsUsed { get; set; }
+        public KeeblerSweetTreatsPage CurrentPage { get; }
     }
 }
