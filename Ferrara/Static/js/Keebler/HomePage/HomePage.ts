@@ -19,9 +19,9 @@ $(document).on('touchmove', function () {
 
 
 const enterSite: Function = (): void => {
+    console.log("enterSite reached");
     enterButton.classList.add("fade-out-enter-button");
     window.scrollTo(0, 0);
-    console.log("enterSite reached");
     vid.classList.add("fade-out-video");
     pauseVideo = false;
     vid.play();

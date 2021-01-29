@@ -9,6 +9,7 @@ const buildNavFromQueryString: Function = (queryObj: IQueryObj): void => {
     const middleNav: HTMLCollectionOf<Element> = document.getElementsByClassName("middleNavDiv");
     const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
     console.log("we are in the STUR");
+    const jkjkjk = "y";
     for (let i: any = 0; i < navTop.length; i += 1) {
         if (navTop[i].children.length > 1) {
             if (navTop[i].children[0].classList[0] === queryObj.pathClass) {

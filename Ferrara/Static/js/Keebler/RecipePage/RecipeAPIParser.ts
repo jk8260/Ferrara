@@ -8,7 +8,7 @@ const triggerNav: Function = (prevAnchor: any): void => {
 
 // Function to add categories into tab navigation
 const recipeListFunc: Function = (json: string): void => {
-    console.log("BINGO");
+    //console.log("BINGO");
     //console.log(json);
     const jsonArr: Array<any> = JSON.parse(json);
     const topNav: HTMLCollection = document.getElementsByClassName("top-nav-recipe");
@@ -23,7 +23,7 @@ const recipeListFunc: Function = (json: string): void => {
 
         i === 0 ? RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = true : RECIPEFILTEROBJ[el.CategoryTitle].ariaSelected = false;
 
-        console.log("Working on this category - " + el.CategoryTitle);
+        //console.log("Working on this category - " + el.CategoryTitle);
 
         topNav[i].innerHTML = el.CategoryTitle;
         const href: string = "#" + el.CategoryTitle.replace(/\s/g, '');
@@ -47,7 +47,7 @@ const recipeListFunc: Function = (json: string): void => {
         for (let cardIndex: number = 0; cardIndex < el.RecipesCard.length; cardIndex += 1) {
 
             RECIPEFILTEROBJ[el.CategoryTitle][el.RecipesCard[cardIndex].RecipeCardTitle] = el.RecipesCard[cardIndex]
-            console.log("Working on card - " + el.RecipesCard[cardIndex].RecipeCardTitle);
+            //console.log("Working on card - " + el.RecipesCard[cardIndex].RecipeCardTitle);
 
             // card main div
             const recipeCard: HTMLDivElement = document.createElement("div");

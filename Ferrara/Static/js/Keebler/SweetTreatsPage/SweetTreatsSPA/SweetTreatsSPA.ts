@@ -1,18 +1,18 @@
 ﻿import { stringify } from "querystring";
 
 const streatsListFunc: Function = (json: string): void => {
-    console.log("BINGO");
-    console.log(json);
+    //console.log("BINGO");
+    //console.log(json);
     const jsonArr: Array<any> = JSON.parse(json);
     //const topNav: HTMLCollection = document.getElementsByClassName("top-nav-treat");
     //const navTabs: HTMLCollection = document.getElementsByClassName("tab-pane");
     //const jkcontainer: HTMLCollection = document.getElementsByClassName("product-root");
     const root: HTMLElement = document.getElementById("sweet-root");
-    console.log("YIPPIE");
+    //console.log("YIPPIE");
 
     jsonArr.forEach((el: any, i: number) => {
         // add all main elements
-        console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
+        //console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
         const categoryTabTitle: HTMLElement = document.createElement("p");
         categoryTabTitle.innerHTML = el.CategoryTitle;
         categoryTabTitle.style.textAlign = "center";
@@ -74,14 +74,14 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
     productTabsRootDiv.classList.add("row");
     productTabsRootDiv.classList.add("equal-height");
 
-    console.log("tabName");
-    console.log(tabName);
+    //console.log("tabName");
+    //console.log(tabName);
 
     let cardIndex: number = 0;
     let shadeInt: number = 1;
     //  Add product names to lower nav row. 
     productTabsArr.forEach((el: any) => {
-        console.log("Adding this to the lowerNav -> " + el.ProductName);
+        //console.log("Adding this to the lowerNav -> " + el.ProductName);
         const id: number = el.ProductPageId;
         const productTab: HTMLElement = document.createElement("a");
 
@@ -179,10 +179,8 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         recipeCardText.appendChild(recipeCardDescription);
         cardTextCol.appendChild(recipeCardText);
 
-        // ASYNC treat info fetch
-        // fetch our product detail
-        //console.log("calling treatFetch for - " + el.ProductPageId);
-        //treatFetch(el.ProductPageId);
+        // ASYNC image fetch for the product page
+        treatFetch(el.ProductPageId);
 
         cardRow.appendChild(cardTitleCol);
         cardRow.appendChild(cardImgCol);
@@ -191,13 +189,22 @@ const productTabsFunc: Function = (productTabsArr: Array<HTMLElement>, productTa
         recipeCardBody.appendChild(cardRow);
         recipeCard.appendChild(recipeCardBody);
 
-
         const cardAnchorTag: HTMLElement = document.createElement("a");
         // Build our responsive url here
-        var urlPathResponsive = categoryTitle + "/" + tabTitle + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+        var urlPathResponsive = categoryTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + tabTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '-').toLowerCase().replace('--', '-');
+        
+        // if categoryTitle and tabTitle are featured only show one
         if (tabTitle === "Featured") {
-            urlPathResponsive = tabTitle + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+            urlPathResponsive = tabTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '-').toLowerCase().replace('--', '-');
         }
+
+        if (urlPathResponsive.endsWith('-')) {
+            urlPathResponsive = urlPathResponsive.substr(0, (urlPathResponsive.length - 1));
+        }        
+
+        //console.log("yes sir");
+        //console.log(urlPathResponsive);
+
         cardAnchorTag.setAttribute("href", urlPathResponsive);
         cardAnchorTag.appendChild(recipeCard);
         cardAnchorTag.style.textDecoration = "none";
@@ -265,10 +272,10 @@ const productCategoriesFunc: Function = (productCategories: HTMLDivElement[], pr
         if (el.TabTitle !== "Featured") {
         }
 
-        console.log("el.TabTitle");
-        console.log(el.TabTitle);
+        //console.log("el.TabTitle");
+        //console.log(el.TabTitle);
 
-        console.log("calling productTabsFunc");
+        //console.log("calling productTabsFunc");
         productCategoriesRoot.appendChild(navButton);
         productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i], el.TabTitle, categoryTitle);
     });
@@ -303,7 +310,7 @@ const productTypesFunc: Function = (json: string): void => {
     //make new array of nav items that have an ID
     for (let i: number = 0; i < tabItemsArr.length; i += 1) {
         if (tabItemsArr[i].hasAttribute('id')) {
-            console.log(tabItemsArr[i]);
+            //console.log(tabItemsArr[i]);
             tabItemsWithIDArr.push(tabItemsArr[i]);
         };
     };
@@ -312,8 +319,8 @@ const productTypesFunc: Function = (json: string): void => {
     let tabIndex: number = 0;
 
     jsonArr.forEach((el: any) => {
-        console.log("el from within jsonArr NOW");
-        console.log(el);
+        //console.log("el from within jsonArr NOW");
+        //console.log(el);
         //console.log(el.CategoryImage.OriginalString);
 
         var imgPath = el.CategoryImage.OriginalString;

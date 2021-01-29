@@ -3,7 +3,7 @@
 @model Ferrara.Sites.Keebler.KeeblerRecipesCategoriesListingPage.KeeblerRecipesCategoriesListingPageViewModel
 
 <div class="recipe-list-pg">
-    <h1 class="yummy-recipes-title">Yummy Recipes for your tummy</h1>
+    <h1 class="yummy-recipes-title">Yummy Recipes</h1>
     <div class="card keebler-recipe-list">
         <div class="card-header keebler-recipe-header">
             <ul class="nav nav-tabs card-header-tabs" id="recipe-list" role="tablist">
@@ -72,9 +72,9 @@
 @Scripts.Render("~/bundles/js/RecipeAPIParser")
 <script type="text/javascript">
     $(function () {
-        console.log("bla bla bla from the jquery code Recipe");
+        //console.log("bla bla bla from the jquery code Recipe");
         $.get("/KeeblerRecipesCategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function (data) {
-            console.log("in the GET for " + @Model.CurrentPage.ContentLink.ID);
+            //console.log("in the GET for " + @Model.CurrentPage.ContentLink.ID);
             //console.log(JSON.stringify(data));
             $(".result").html(JSON.stringify(data, undefined, 2));
             recipeListFunc(data);

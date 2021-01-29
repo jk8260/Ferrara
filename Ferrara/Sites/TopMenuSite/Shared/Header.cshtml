@@ -30,6 +30,7 @@
             <li class="hamburger-home-link"><a href="@Url.ContentUrl(Model.CurrentPage.HomePageLink)" class="w-nav-link nav-link">Home</a></li>
             @foreach (var startPageChild in Model.GetStartPageChildren())
             {
+                Console.WriteLine(@startPageChild.Name);
                 <li><a href="@Url.ContentUrl(startPageChild.ContentLink)" class="w-nav-link nav-link">@startPageChild.Name</a></li>
                 <li class="nav-spacer"><h3>|</h3></li>
             }

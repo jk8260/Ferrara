@@ -67,7 +67,7 @@ namespace Ferrara.Sites.Keebler.KeeblerRecipesCategoryCardBlock
         public virtual bool SweetSaltyBool { get; set; }
 
         [Display(
-            Name = "Custom Fliter 1",
+            Name = "Custom Fliter 11",
             Description = "Custom Fliter 1",
             GroupName = Global.GroupNames.RecipeFilter,
             Order = 36)]

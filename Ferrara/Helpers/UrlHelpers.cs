@@ -18,7 +18,8 @@ namespace Ferrara.Helpers
         /// </summary>
         public static IHtmlString PageLinkUrl(this UrlHelper urlHelper, ContentReference contentLink)
         {
-            if(ContentReference.IsNullOrEmpty(contentLink))
+            System.Diagnostics.Debug.WriteLine("We are here in PageLinkUrl 1");
+            if (ContentReference.IsNullOrEmpty(contentLink))
             {
                 return MvcHtmlString.Empty;
             }
@@ -36,6 +37,7 @@ namespace Ferrara.Helpers
         /// </summary>
         public static IHtmlString PageLinkUrl(this UrlHelper urlHelper, PageData page)
         {
+            System.Diagnostics.Debug.WriteLine("We are here in PageLinkUrl 2");
             var urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
             switch (page.LinkType)
             {
@@ -59,6 +61,7 @@ namespace Ferrara.Helpers
 
         public static RouteValueDictionary GetPageRoute(this RequestContext requestContext, ContentReference contentLink)
         {
+            System.Diagnostics.Debug.WriteLine("We are here in GetPageRoute");
             var values = new RouteValueDictionary();
             values[RoutingConstants.NodeKey] = contentLink;
             values[RoutingConstants.LanguageKey] = ContentLanguage.PreferredCulture.Name;

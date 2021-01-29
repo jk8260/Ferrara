@@ -26,7 +26,7 @@ namespace Ferrara.Sites.Keebler.KeeplerProductPage
         // GET api/<controller>/5
         public string Get(int id)
         {
-
+            Console.WriteLine("In the ProductPageAPI for productId " + id);
             try
             {
                 IContentRepository factory = DataFactory.Instance;

@@ -14,7 +14,7 @@ namespace Ferrara.Sites.Keebler.CategoryPage
         Description = "Keebler Products Category Page(Fields included: Category Title, Category Image, Tabs Container)")]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(KeeplerProductPage.KeeblerProductPage) })]
+        Include = new[] { typeof(KeeblerSweetTreatsPage.KeeblerSweetTreatsPage) })]
     [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-standard.png")]
     public class CategoryPage : KeeblerPageData
     {

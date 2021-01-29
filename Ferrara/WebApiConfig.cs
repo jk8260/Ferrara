@@ -13,6 +13,9 @@ namespace Ferrara
         {
             config.MapHttpAttributeRoutes();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            System.Diagnostics.Debug.WriteLine("config.Routes");
+            System.Diagnostics.Debug.WriteLine(config.Routes.VirtualPathRoot);
+            System.Diagnostics.Debug.WriteLine(config.Routes.Count);
         }
     }
 }

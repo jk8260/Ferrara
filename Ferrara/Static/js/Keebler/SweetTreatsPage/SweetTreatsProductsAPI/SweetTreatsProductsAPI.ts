@@ -16,9 +16,9 @@
 
 const productsFunc: Function = async (json: string) => {
     const parsedJSON: any = JSON.parse(json);
-    console.log("JEEZE");
-    console.log("parsedJSON in productsFunc");
-    // console.log(parsedJSON);
+    console.log("In productsFunc JEEZE");
+    //console.log("parsedJSON in productsFunc");
+    console.log(parsedJSON);
     //const lowerNav: HTMLCollectionOf<Element> = document.getElementsByClassName("lowerNavDiv");
     //let displayBlockCount: number = 0;
 
@@ -247,18 +247,24 @@ const removeProduct: Function = (): void => {
 };
 
 const nutritionFetch: Function = async (id: number): Promise<any> => {
+    console.log("Ok we are in nutritionFetch for (calling /KeeblerProductPage/)");
+    console.log(id);
     const response = await fetch(`/KeeblerProductPage/${id}`);
     const myJson = await response.json();
+    console.log("reponse from calling /KeeblerProductPage/");
+    console.log(myJson);
     productsFunc(myJson);
 };
 
 const firstProductsFuncCall: Function = (): void => {
     const div: HTMLCollectionOf<Element> = document.getElementsByClassName("IdClass");
-    const id: number = parseFloat(div[0].classList[3]);
+    const id: number = parseFloat(div[1].classList[3]);
 
     const pram: string = window.location.search;
     const filterPram: string = pram.slice(1, pram.length);
-
+    console.log("Ok we are in firstProductsFuncCall for");
+    console.log(id);
+    console.log(filterPram);
     if (SWEETTREATSPAGES[filterPram]) {
         nutritionFetch(SWEETTREATSPAGES[filterPram].id);
         buildNavFromQueryString(SWEETTREATSPAGES[filterPram]);

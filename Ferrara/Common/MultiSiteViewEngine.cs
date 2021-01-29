@@ -29,12 +29,14 @@ namespace Ferrara.Common
             }.ToList();
 
 
-
+            // 0 will likley always be Index.chtml
+            // 1 is the folder w/ the (name)controller
             var keeblerViewSearchLocations = new[] { "~/Sites/Keebler/{1}/{0}.cshtml",
                                                       "~/Sites/Keebler/Shared/{1}/{0}.cshtml",
                                                       "~/Sites/Keebler/Shared/Blocks/{1}/{0}.cshtml",
                                                       "~/Sites/Keebler/Shared/DisplayTemplates/{1}/{0}.cshtml",
-                                                      "~/Sites/Keebler/Shared/Layouts/{1}/{0}.cshtml"
+                                                      "~/Sites/Keebler/Shared/Layouts/{1}/{0}.cshtml",
+                                                      "~/Sites/Keebler/{0}.cshtml"
                                                     }.ToList();
 
             var keeblerViewPartialsSearchLocations = new[]

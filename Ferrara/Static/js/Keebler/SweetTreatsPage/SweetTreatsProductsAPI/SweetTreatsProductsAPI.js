@@ -50,8 +50,9 @@ var productsFunc = function (json) { return __awaiter(_this, void 0, void 0, fun
     var parsedJSON;
     return __generator(this, function (_a) {
         parsedJSON = JSON.parse(json);
-        console.log("JEEZE");
-        console.log("parsedJSON in productsFunc");
+        console.log("In productsFunc JEEZE");
+        //console.log("parsedJSON in productsFunc");
+        console.log(parsedJSON);
         return [2 /*return*/];
     });
 }); };
@@ -100,12 +101,17 @@ var nutritionFetch = function (id) { return __awaiter(_this, void 0, void 0, fun
     var response, myJson;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("/KeeblerProductPage/" + id)];
+            case 0:
+                console.log("Ok we are in nutritionFetch for (calling /KeeblerProductPage/)");
+                console.log(id);
+                return [4 /*yield*/, fetch("/KeeblerProductPage/" + id)];
             case 1:
                 response = _a.sent();
                 return [4 /*yield*/, response.json()];
             case 2:
                 myJson = _a.sent();
+                console.log("reponse from calling /KeeblerProductPage/");
+                console.log(myJson);
                 productsFunc(myJson);
                 return [2 /*return*/];
         }
@@ -113,9 +119,12 @@ var nutritionFetch = function (id) { return __awaiter(_this, void 0, void 0, fun
 }); };
 var firstProductsFuncCall = function () {
     var div = document.getElementsByClassName("IdClass");
-    var id = parseFloat(div[0].classList[3]);
+    var id = parseFloat(div[1].classList[3]);
     var pram = window.location.search;
     var filterPram = pram.slice(1, pram.length);
+    console.log("Ok we are in firstProductsFuncCall for");
+    console.log(id);
+    console.log(filterPram);
     if (SWEETTREATSPAGES[filterPram]) {
         nutritionFetch(SWEETTREATSPAGES[filterPram].id);
         buildNavFromQueryString(SWEETTREATSPAGES[filterPram]);

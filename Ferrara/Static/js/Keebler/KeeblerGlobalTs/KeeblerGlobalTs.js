@@ -53,6 +53,19 @@ var buildAutocompleteObject = function (sweetTreatsPageNumber, recipesPageNumber
                 return [4 /*yield*/, productResponse.json()];
             case 2:
                 productData = _a.sent();
+                console.log("in buildAutocompleteObject");
+                if (sweetTreatsPageNumber) {
+                    console.log(sweetTreatsPageNumber);
+                }
+                else {
+                    console.log("sweetTreatsPageNumber Is Empty");
+                }
+                if (recipesPageNumber) {
+                    console.log(recipesPageNumber);
+                }
+                else {
+                    console.log("recipesPageNumber Is Empty");
+                }
                 //  Checking in productData is NOT JSON, null, or undefined. If function return here the user more than likely did not add the AutoComplete page Numbers in the CMS
                 if (productData === undefined || productData === null || productData[0] != "[") {
                     return [2 /*return*/];
@@ -72,22 +85,25 @@ var buildAutocompleteObject = function (sweetTreatsPageNumber, recipesPageNumber
                 recipesJson = _a.sent();
                 productsJsonArray = [];
                 recipesJsonArray = [];
+                // just builds a list of product names
                 Object.keys(productJson).forEach(function (key1) {
                     Object.keys(productJson[key1].CategoryTabBlock).forEach(function (key2) {
                         Object.keys(productJson[key1].CategoryTabBlock[key2].ProductsIcons).forEach(function (key3) {
                             productsJsonArray.push(productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3].ProductName);
-                            console.log("Nice...");
+                            //console.log("Nice...");
                             var pathKey = productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3];
                             var productName = productJson[key1].CategoryTabBlock[key2].ProductsIcons[key3].ProductName.replace(/[^a-z0-9+]/gi, '').toUpperCase();
-                            console.log(pathKey);
-                            console.log(productName);
+                            //console.log(pathKey);
+                            //console.log(productName);
                             pathKey.UrlPath != null ?
                                 AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.UrlPath.replace(/[^a-z0-9+]/gi, ' ').toLowerCase() :
                                 AUTOCOMPLETEURLOBJECT[productName] = "/en/sweet-treats/?" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
-                            pathKey.UrlPath = "/en/sweet-treats/" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+                            // could we just set the paths here ?
+                            //pathKey.UrlPath = "/en/sweet-treats/" + pathKey.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
                         });
                     });
                 });
+                // just builds a list of recipe names
                 Object.keys(recipesJson).forEach(function (key1) {
                     Object.keys(recipesJson[key1].RecipesCard).forEach(function (key2) {
                         recipesJsonArray.push(recipesJson[key1].RecipesCard[key2].RecipeCardTitle);
@@ -96,6 +112,8 @@ var buildAutocompleteObject = function (sweetTreatsPageNumber, recipesPageNumber
                 });
                 AUTOCOMPLETEARRAY.push(productsJsonArray);
                 AUTOCOMPLETEARRAY.push(recipesJsonArray);
+                //console.log("AUTOCOMPLETEARRAY");
+                //console.log(AUTOCOMPLETEARRAY);
                 buildFilterDropdownFunction();
                 return [2 /*return*/];
         }

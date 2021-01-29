@@ -107,18 +107,21 @@
 
 <script type="text/javascript">
     $(function () {
-
+            console.log("catList");
+            console.log(@Model.CurrentPage.ContentLink.ID);
             $.get( "/CategoriesListingPage/" + @Model.CurrentPage.ContentLink.ID, function( data ) {
                 // original way
-                console.log("calling productTypesFunc here");
+                //console.log("calling productTypesFunc here");
+                // list the sweet treat cards
                 productTypesFunc(data);
-                firstProductsFuncCall();
+                // don't think this is needed here now
+                // firstProductsFuncCall();
             });
 
         });
-        function destiniFunction(containerId, associationId) {
-            destini.init(containerId);
-            destini.loadWidget(associationId);
-        }
+        //function destiniFunction(containerId, associationId) {
+        //    destini.init(containerId);
+        //    destini.loadWidget(associationId);
+        //}
 </script>
 

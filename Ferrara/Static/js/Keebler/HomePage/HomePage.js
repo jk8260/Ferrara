@@ -14,9 +14,9 @@ $(document).on('touchmove', function () {
     }
 });
 var enterSite = function () {
+    console.log("enterSite reached");
     enterButton.classList.add("fade-out-enter-button");
     window.scrollTo(0, 0);
-    console.log("enterSite reached");
     vid.classList.add("fade-out-video");
     pauseVideo = false;
     vid.play();

@@ -4,6 +4,7 @@ var buildNavFromQueryString = function (queryObj) {
     var middleNav = document.getElementsByClassName("middleNavDiv");
     var lowerNav = document.getElementsByClassName("lowerNavDiv");
     console.log("we are in the STUR");
+    var jkjkjk = "y";
     for (var i = 0; i < navTop.length; i += 1) {
         if (navTop[i].children.length > 1) {
             if (navTop[i].children[0].classList[0] === queryObj.pathClass) {

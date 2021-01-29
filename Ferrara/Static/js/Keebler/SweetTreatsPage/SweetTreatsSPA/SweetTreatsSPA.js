@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var streatsListFunc = function (json) {
-    console.log("BINGO");
-    console.log(json);
+    //console.log("BINGO");
+    //console.log(json);
     var jsonArr = JSON.parse(json);
     //const topNav: HTMLCollection = document.getElementsByClassName("top-nav-treat");
     //const navTabs: HTMLCollection = document.getElementsByClassName("tab-pane");
     //const jkcontainer: HTMLCollection = document.getElementsByClassName("product-root");
     var root = document.getElementById("sweet-root");
-    console.log("YIPPIE");
+    //console.log("YIPPIE");
     jsonArr.forEach(function (el, i) {
         // add all main elements
-        console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
+        //console.log(el.CategoryTitle + " - " + el.CategoryImage.Path);
         var categoryTabTitle = document.createElement("p");
         categoryTabTitle.innerHTML = el.CategoryTitle;
         categoryTabTitle.style.textAlign = "center";
@@ -60,14 +60,14 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
     productTabsRootDiv.classList.add("recipe-block-container");
     productTabsRootDiv.classList.add("row");
     productTabsRootDiv.classList.add("equal-height");
-    console.log("tabName");
-    console.log(tabName);
+    //console.log("tabName");
+    //console.log(tabName);
     var cardIndex = 0;
     var shadeInt = 1;
     //  Add product names to lower nav row. 
     productTabsArr.forEach(function (el) {
         var _a;
-        console.log("Adding this to the lowerNav -> " + el.ProductName);
+        //console.log("Adding this to the lowerNav -> " + el.ProductName);
         var id = el.ProductPageId;
         var productTab = document.createElement("a");
         // productTab.setAttribute("style", "text-align: center; width:100%;");
@@ -144,10 +144,8 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         recipeCardDescription.innerHTML = "Sweet treats are made of these...";
         recipeCardText.appendChild(recipeCardDescription);
         cardTextCol.appendChild(recipeCardText);
-        // ASYNC treat info fetch
-        // fetch our product detail
-        //console.log("calling treatFetch for - " + el.ProductPageId);
-        //treatFetch(el.ProductPageId);
+        // ASYNC image fetch for the product page
+        treatFetch(el.ProductPageId);
         cardRow.appendChild(cardTitleCol);
         cardRow.appendChild(cardImgCol);
         cardRow.appendChild(cardTextCol);
@@ -155,10 +153,16 @@ var productTabsFunc = function (productTabsArr, productTabsDiv, pathClass, tabNa
         recipeCard.appendChild(recipeCardBody);
         var cardAnchorTag = document.createElement("a");
         // Build our responsive url here
-        var urlPathResponsive = categoryTitle + "/" + tabTitle + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+        var urlPathResponsive = categoryTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + tabTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '-').toLowerCase().replace('--', '-');
+        // if categoryTitle and tabTitle are featured only show one
         if (tabTitle === "Featured") {
-            urlPathResponsive = tabTitle + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '').toLowerCase();
+            urlPathResponsive = tabTitle.replace(/[^a-z0-9+]/gi, '-').replace('--', '-').toLowerCase() + "/" + el.ProductName.replace(/[^a-z0-9+]/gi, '-').toLowerCase().replace('--', '-');
         }
+        if (urlPathResponsive.endsWith('-')) {
+            urlPathResponsive = urlPathResponsive.substr(0, (urlPathResponsive.length - 1));
+        }
+        //console.log("yes sir");
+        //console.log(urlPathResponsive);
         cardAnchorTag.setAttribute("href", urlPathResponsive);
         cardAnchorTag.appendChild(recipeCard);
         cardAnchorTag.style.textDecoration = "none";
@@ -218,9 +222,9 @@ var productCategoriesFunc = function (productCategories, productCategoriesDiv, p
         };
         if (el.TabTitle !== "Featured") {
         }
-        console.log("el.TabTitle");
-        console.log(el.TabTitle);
-        console.log("calling productTabsFunc");
+        //console.log("el.TabTitle");
+        //console.log(el.TabTitle);
+        //console.log("calling productTabsFunc");
         productCategoriesRoot.appendChild(navButton);
         productTabsFunc(el.ProductsIcons, productTabsDiv, pathClass, buttonLabels[i], el.TabTitle, categoryTitle);
     });
@@ -249,7 +253,7 @@ var productTypesFunc = function (json) {
     //make new array of nav items that have an ID
     for (var i = 0; i < tabItemsArr.length; i += 1) {
         if (tabItemsArr[i].hasAttribute('id')) {
-            console.log(tabItemsArr[i]);
+            //console.log(tabItemsArr[i]);
             tabItemsWithIDArr.push(tabItemsArr[i]);
         }
         ;
@@ -258,10 +262,10 @@ var productTypesFunc = function (json) {
     //let carouselIndex: number = 0;
     var tabIndex = 0;
     jsonArr.forEach(function (el) {
-        var _a;
-        console.log("el from within jsonArr NOW");
-        console.log(el);
+        //console.log("el from within jsonArr NOW");
+        //console.log(el);
         //console.log(el.CategoryImage.OriginalString);
+        var _a;
         var imgPath = el.CategoryImage.OriginalString;
         var catagoryImg = document.createElement("img");
         var classListArr2 = [imgPath, "topNavClick"];
